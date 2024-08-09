@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"
+<html lang="zh-Hans"
   x-data
   :class="$store.darkMode.class()"
   :data-theme="$store.darkMode.theme()">
@@ -9,18 +9,20 @@
     <title>404 Not Found | Pepper的博客</title>
 
     
+<link href="/tx.jpg" rel="shortcut icon" type="image/x-icon" />
 
 
 
-<meta name="author" content="" />
-<meta name="description" content="" />
+
+<meta name="author" content="Pepper" />
+<meta name="description" content="结构生物学/蛋白质设计/生物信息学/AI4S/深度学习/" />
 
 
 <link rel="canonical" href="https://uioqps.github.io/404.html" />
 
 
 <meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="结构生物学/蛋白质设计/生物信息学/AI4S/深度学习/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://uioqps.github.io/404.html" />
 
@@ -29,7 +31,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="结构生物学/蛋白质设计/生物信息学/AI4S/深度学习/"/>
 
 
 
@@ -58,16 +60,30 @@
     <div id="dream-global-bg"></div>
 
     
-<nav class="mt-4 lg:mt-8 py-4">
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
 
   <div class="container flex justify-between px-4">
     <section class="flex items-center gap-4">
       <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
         <div class="h-10 rounded-full">
-          <img src="/" alt="" />
+          <img src="/tx.jpg" alt="Pepper的博客" />
         </div>
       </div>
 
+      
+      <div>
+        
+        <a href="https://uioqps.github.io/" class="text-lg font-semibold cursor-pointer">
+          Pepper的博客
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">生命要留给有价值的事物</div>
+        
+      </div>
       
     </section>
 
@@ -83,6 +99,9 @@
 
 
 
+
+
+
 <li>
   <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
     <ion-icon name="archive"></ion-icon>
@@ -92,13 +111,30 @@
 
 
 
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
 
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
 
 
 
       </ul>
     </div>
     <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
       
 
       
@@ -113,7 +149,15 @@
       
 
       
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="All Categories">
+        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+      </a>
+      
 
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="All Tags">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
       
       
     </section>
@@ -184,6 +228,9 @@
           <div class="container">
             <div class="dream-grid">
   
+  
+  
+  
 
   
 
@@ -197,8 +244,8 @@
     </div>
 
     <script>
-  window.lightTheme =  null 
-  window.darkTheme =  null 
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
 
   window.hasTwitterEmbed =  null 
   if (window.hasTwitterEmbed) {

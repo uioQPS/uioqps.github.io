@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"
+<html lang="zh-Hans"
   x-data
   :class="$store.darkMode.class()"
   :data-theme="$store.darkMode.theme()">
@@ -9,10 +9,12 @@
     <title>GPCR概览 | Pepper的博客</title>
 
     
+<link href="/tx.jpg" rel="shortcut icon" type="image/x-icon" />
 
 
 
-<meta name="author" content="Author Name" />
+
+<meta name="author" content="Pepper" />
 <meta name="description" content="GPCR是一个7次跨膜蛋白。" />
 
 
@@ -22,14 +24,16 @@
 <meta property="og:title" content="GPCR概览" />
 <meta property="og:description" content="GPCR是一个7次跨膜蛋白。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/" /><meta property="og:image" content="https://uioqps.github.io/images.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-08-09T20:09:58+08:00" />
 <meta property="article:modified_time" content="2024-08-09T20:09:58+08:00" />
 
 
 
 
-<meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://uioqps.github.io/images.jpg"/>
+
 <meta name="twitter:title" content="GPCR概览"/>
 <meta name="twitter:description" content="GPCR是一个7次跨膜蛋白。"/>
 
@@ -73,16 +77,30 @@
     <div id="dream-global-bg"></div>
 
     
-<nav class="mt-4 lg:mt-8 py-4">
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
 
   <div class="container flex justify-between px-4">
     <section class="flex items-center gap-4">
       <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
         <div class="h-10 rounded-full">
-          <img src="/" alt="" />
+          <img src="/tx.jpg" alt="Pepper的博客" />
         </div>
       </div>
 
+      
+      <div>
+        
+        <a href="https://uioqps.github.io/" class="text-lg font-semibold cursor-pointer">
+          Pepper的博客
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">生命要留给有价值的事物</div>
+        
+      </div>
       
     </section>
 
@@ -98,6 +116,9 @@
 
 
 
+
+
+
 <li>
   <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
     <ion-icon name="archive"></ion-icon>
@@ -107,13 +128,30 @@
 
 
 
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
 
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
 
 
 
       </ul>
     </div>
     <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
       
 
       
@@ -128,7 +166,15 @@
       
 
       
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="All Categories">
+        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+      </a>
+      
 
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="All Tags">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
       
       
     </section>
@@ -143,8 +189,12 @@
             
 <div class="mt-4 px-4">
   
-  <div>
+  <div class="relative" x-data="{ height: '' }" x-init="height = $el.scrollHeight + 'px'">
   
+    
+    <div class="absolute right-0 lg:w-36 xl:w-48 hidden lg:block" :style="{ height }">
+      <nav id="TableOfContents"></nav>
+    </div>
     
     <article class="mx-auto prose dark:prose-invert" id="dream-single-post-main">
       <header>
@@ -176,7 +226,7 @@
   <span>
   
     
-      Author Name
+      Pepper
     
   
   </span>
@@ -201,16 +251,48 @@
 
 
       
+      <div class="divider"></div>
+      <div class="flex flex-col md:flex-row justify-between gap-4 py-4">
+        
+        <div></div>
+        
+
+        
+        <a class="group btn btn-outline" href="/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" title="如何搭建自己的博客">
+          <div class="inline-flex flex-col items-end">
+            <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">Next page</span>
+            <span class="max-w-48 truncate">如何搭建自己的博客</span>
+          </div>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </a>
+        
+      </div>
+      
     </article>
   </div>
 
   
 
   
+  <div class="divider max-w-[65ch] mx-auto"></div>
+  
 
   <section class="max-w-[65ch] mx-auto space-y-4">
     
 
+    
+    <template x-if="['localhost', '127.0.0.1'].indexOf(window.location.hostname) == -1">
+      <article>
+        <script
+          src="https://utteranc.es/client.js"
+          repo="uioQPS/uioqps.github.io"
+          issue-term="og:title"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </article>
+    </template>
     
 
     
@@ -269,6 +351,9 @@
           <div class="container">
             <div class="dream-grid">
   
+  
+  
+  
 
   
 
@@ -282,8 +367,8 @@
     </div>
 
     <script>
-  window.lightTheme =  null 
-  window.darkTheme =  null 
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
 
   window.hasTwitterEmbed =  null 
   if (window.hasTwitterEmbed) {
