@@ -9,7 +9,7 @@
     <title>Archives | Pepper的博客</title>
 
     
-<link href="/tx.jpg" rel="shortcut icon" type="image/x-icon" />
+<link href="/ico.jpg" rel="shortcut icon" type="image/x-icon" />
 
 
 
@@ -22,7 +22,7 @@
 
 
 <meta property="og:title" content="Archives" />
-<meta property="og:description" content="结构生物学/蛋白质设计/生物信息学/AI4S/深度学习/" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://uioqps.github.io/posts/" />
 
@@ -31,7 +31,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Archives"/>
-<meta name="twitter:description" content="结构生物学/蛋白质设计/生物信息学/AI4S/深度学习/"/>
+<meta name="twitter:description" content=""/>
 
 
 
@@ -81,7 +81,7 @@
         </a>
         
         
-        <div class="text-base-content/60 text-sm">生命要留给有价值的事物</div>
+        <div class="text-base-content/60 text-sm">生命要献给有价值的事物</div>
         
       </div>
       
@@ -160,23 +160,40 @@
       
 
       
-      
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="Archives">
-        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
-      </a>
-      
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
 
-      
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="All Categories">
-        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
-      </a>
-      
 
-      
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="All Tags">
-        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
-      </a>
-      
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+        </ul>
+      </div>
       
     </section>
   </div>
@@ -239,7 +256,9 @@
             <footer class="flex justify-between items-center gap-2 px-4 py-12">
               <div>
   
-  <p>© 2024 Pepper的博客</p>
+  <p>
+    © 2024 Pepper的博客
+  </p>
   
 
   
@@ -328,7 +347,7 @@ Deep Learning. (Drug Screening)</p>
   window.lightTheme = "emerald"
   window.darkTheme = "forest"
 
-  window.hasTwitterEmbed =  null 
+  window.hasTwitterEmbed =  true 
   if (window.hasTwitterEmbed) {
     
     window.twttr = (function (d, s, id) {

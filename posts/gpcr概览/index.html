@@ -9,12 +9,12 @@
     <title>GPCR概览 | Pepper的博客</title>
 
     
-<link href="/tx.jpg" rel="shortcut icon" type="image/x-icon" />
+<link href="/ico.jpg" rel="shortcut icon" type="image/x-icon" />
 
 
 
 
-<meta name="author" content="Pepper" />
+<meta name="author" content="Author Name" />
 <meta name="description" content="GPCR是一个7次跨膜蛋白。" />
 
 
@@ -24,16 +24,14 @@
 <meta property="og:title" content="GPCR概览" />
 <meta property="og:description" content="GPCR是一个7次跨膜蛋白。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/" /><meta property="og:image" content="https://uioqps.github.io/images.jpg" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-08-09T20:09:58+08:00" />
 <meta property="article:modified_time" content="2024-08-09T20:09:58+08:00" />
 
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://uioqps.github.io/images.jpg"/>
-
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GPCR概览"/>
 <meta name="twitter:description" content="GPCR是一个7次跨膜蛋白。"/>
 
@@ -98,7 +96,7 @@
         </a>
         
         
-        <div class="text-base-content/60 text-sm">生命要留给有价值的事物</div>
+        <div class="text-base-content/60 text-sm">生命要献给有价值的事物</div>
         
       </div>
       
@@ -177,23 +175,40 @@
       
 
       
-      
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="Archives">
-        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
-      </a>
-      
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
 
-      
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="All Categories">
-        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
-      </a>
-      
 
-      
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="All Tags">
-        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
-      </a>
-      
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+        </ul>
+      </div>
       
     </section>
   </div>
@@ -244,7 +259,7 @@
   <span>
   
     
-      Pepper
+      Author Name
     
   
   </span>
@@ -303,20 +318,33 @@
 
   <section class="max-w-[65ch] mx-auto space-y-4">
     
-
+    <article>
+      <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+        this.page.identifier = '\/posts\/gpcr%E6%A6%82%E8%A7%88\/';
+        this.page.title = 'GPCR概览';
+        this.page.url = 'https:\/\/uioqps.github.io\/posts\/gpcr%E6%A6%82%E8%A7%88\/';
+    };
+    function initDisqus() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "..." + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    };
+    setTimeout(() => {
+        initDisqus();
+    }, 3000);
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
     
-    <template x-if="['localhost', '127.0.0.1'].indexOf(window.location.hostname) == -1">
-      <article>
-        <script
-          src="https://utteranc.es/client.js"
-          repo="uioQPS/uioqps.github.io"
-          issue-term="og:title"
-          theme="github-light"
-          crossorigin="anonymous"
-          async>
-        </script>
-      </article>
-    </template>
+
     
 
     
@@ -327,7 +355,9 @@
             <footer class="flex justify-between items-center gap-2 px-4 py-12">
               <div>
   
-  <p>© 2024 Pepper的博客</p>
+  <p>
+    © 2024 Pepper的博客
+  </p>
   
 
   
@@ -416,7 +446,7 @@ Deep Learning. (Drug Screening)</p>
   window.lightTheme = "emerald"
   window.darkTheme = "forest"
 
-  window.hasTwitterEmbed =  null 
+  window.hasTwitterEmbed =  true 
   if (window.hasTwitterEmbed) {
     
     window.twttr = (function (d, s, id) {

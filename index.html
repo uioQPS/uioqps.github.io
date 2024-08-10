@@ -9,20 +9,20 @@
     <title>Home | Pepper的博客</title>
 
     
-<link href="/tx.jpg" rel="shortcut icon" type="image/x-icon" />
+<link href="/ico.jpg" rel="shortcut icon" type="image/x-icon" />
 
 
 
 
 <meta name="author" content="Pepper" />
-<meta name="description" content="结构生物学/蛋白质设计/生物信息学/AI4S/深度学习/" />
+<meta name="description" content="" />
 
 
 <link rel="canonical" href="https://uioqps.github.io/" />
 
 
 <meta property="og:title" content="Pepper的博客" />
-<meta property="og:description" content="结构生物学/蛋白质设计/生物信息学/AI4S/深度学习/" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://uioqps.github.io/" />
 
@@ -31,7 +31,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Pepper的博客"/>
-<meta name="twitter:description" content="结构生物学/蛋白质设计/生物信息学/AI4S/深度学习/"/>
+<meta name="twitter:description" content=""/>
 
 
 
@@ -81,7 +81,7 @@
         </a>
         
         
-        <div class="text-base-content/60 text-sm">生命要留给有价值的事物</div>
+        <div class="text-base-content/60 text-sm">生命要献给有价值的事物</div>
         
       </div>
       
@@ -160,23 +160,40 @@
       
 
       
-      
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="Archives">
-        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
-      </a>
-      
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
 
-      
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="All Categories">
-        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
-      </a>
-      
 
-      
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="All Tags">
-        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
-      </a>
-      
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+        </ul>
+      </div>
       
     </section>
   </div>
@@ -200,8 +217,8 @@
     
     
     <picture>
-      <source srcset="/images/default3_hu3d03a01dcc18bc5be0e67db3d8d209a6_69593_640x421_resize_q75_h2_box.webp" type="image/webp" />
-      <img src="/images/default3.jpg" alt="images/default3.jpg" />
+      <source srcset="/images/default4_hu3d03a01dcc18bc5be0e67db3d8d209a6_32836_640x426_resize_q75_h2_box.webp" type="image/webp" />
+      <img src="/images/default4.jpg" alt="images/default4.jpg" />
     </picture>
     
   
@@ -214,7 +231,11 @@
     Saturday, Aug 10, 2024
     </p>
 
-    文章中的cover图片和引用图片的位置放在哪？ collections: name: &lsquo;post&rsquo; label: &lsquo;Post&rsquo; folder: &lsquo;content/posts&rsquo; create: true slug: &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo; name: &lsquo;about&rsquo; label: &lsquo;About&rsquo; folder: &lsquo;content/about&rsquo; create: true slug: &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo; [collections] [[collections.post]] label= &lsquo;Post&rsquo; folder= &lsquo;content/posts&rsquo; create= true slug= &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo; [[collections.about]] label= 'About' folder= 'content/about' create= true slug= '{{year}}-{{month}}-{{day}}-{{slug}}' To use it, create an admin folder
+    文章中的cover图片和引用图片的位置放在哪？  collections:
+  name: &lsquo;post&rsquo; label: &lsquo;Post&rsquo; folder: &lsquo;content/posts&rsquo; create: true slug: &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo;
+  name: &lsquo;about&rsquo; label: &lsquo;About&rsquo; folder: &lsquo;content/about&rsquo; create: true slug: &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo;
+  [collections] [[collections.post]] label= &lsquo;Post&rsquo; folder= &lsquo;content/posts&rsquo; create= true slug= &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo;
+[[collections.about]] label= 'About' folder= 'content/about' create= true slug= '{{year}}-{{month}}-{{day}}-{{slug}}'  To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
 
     <div class="card-actions justify-between items-center mt-4">
       <div class="flex items-center">
@@ -249,8 +270,8 @@
     
     
     <picture>
-      <source srcset="/images/default4_hu3d03a01dcc18bc5be0e67db3d8d209a6_32836_640x426_resize_q75_h2_box.webp" type="image/webp" />
-      <img src="/images/default4.jpg" alt="images/default4.jpg" />
+      <source srcset="/images/default1_hu3d03a01dcc18bc5be0e67db3d8d209a6_69563_640x512_resize_q75_h2_box.webp" type="image/webp" />
+      <img src="/images/default1.jpg" alt="images/default1.jpg" />
     </picture>
     
   
@@ -274,7 +295,7 @@
   <span>
   
     
-      Pepper
+      Author Name
     
   
   </span>
@@ -298,8 +319,8 @@
     
     
     <picture>
-      <source srcset="/images/default4_hu3d03a01dcc18bc5be0e67db3d8d209a6_32836_640x426_resize_q75_h2_box.webp" type="image/webp" />
-      <img src="/images/default4.jpg" alt="images/default4.jpg" />
+      <source srcset="/images/default3_hu3d03a01dcc18bc5be0e67db3d8d209a6_69593_640x421_resize_q75_h2_box.webp" type="image/webp" />
+      <img src="/images/default3.jpg" alt="images/default3.jpg" />
     </picture>
     
   
@@ -312,7 +333,8 @@
     Friday, Aug 9, 2024
     </p>
 
-    部署 连接Github SSH的生成和连接 选择Hugo主题 Dream
+    部署 连接Github SSH的生成和连接
+选择Hugo主题 Dream
 
     <div class="card-actions justify-between items-center mt-4">
       <div class="flex items-center">
@@ -349,7 +371,9 @@
             <footer class="flex justify-between items-center gap-2 px-4 py-12">
               <div>
   
-  <p>© 2024 Pepper的博客</p>
+  <p>
+    © 2024 Pepper的博客
+  </p>
   
 
   
@@ -427,6 +451,38 @@ Deep Learning. (Drug Screening)</p>
 
   
   
+  <div class="w-full md:w-1/2 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+        this.page.identifier = '\/';
+        this.page.title = 'Pepper的博客';
+        this.page.url = 'https:\/\/uioqps.github.io\/';
+    };
+    function initDisqus() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "..." + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    };
+    setTimeout(() => {
+        initDisqus();
+    }, 3000);
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </article>
+  </div>
+  
 </div>
 
           </div>
@@ -438,7 +494,7 @@ Deep Learning. (Drug Screening)</p>
   window.lightTheme = "emerald"
   window.darkTheme = "forest"
 
-  window.hasTwitterEmbed =  null 
+  window.hasTwitterEmbed =  true 
   if (window.hasTwitterEmbed) {
     
     window.twttr = (function (d, s, id) {
