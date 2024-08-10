@@ -6,26 +6,14 @@
     <description>Recent content on Pepper的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 09 Aug 2024 23:37:20 +0800</lastBuildDate><atom:link href="https://uioqps.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Aug 2024 15:36:25 +0800</lastBuildDate><atom:link href="https://uioqps.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Me2</title>
-      <link>https://uioqps.github.io/about/me2/</link>
-      <pubDate>Fri, 09 Aug 2024 23:37:20 +0800</pubDate>
+      <title>Hugo主题框架介绍「1」</title>
+      <link>https://uioqps.github.io/posts/hugo%E4%B8%BB%E9%A2%98%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D1/</link>
+      <pubDate>Sat, 10 Aug 2024 15:36:25 +0800</pubDate>
       
-      <guid>https://uioqps.github.io/about/me2/</guid>
-      <description>The content covered includes but is not limited to:
- Structure Biology. (GPCR) Protein generation design. (AlphaFold) AI4S. (Biological information Data) Deep Learning. (Drug Screening)  </description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>https://uioqps.github.io/about/me/</link>
-      <pubDate>Fri, 09 Aug 2024 23:26:59 +0800</pubDate>
-      
-      <guid>https://uioqps.github.io/about/me/</guid>
-      <description>Hi! my name is Zheng Shuang. Welcome to my blog. I&amp;rsquo;ll record study notes here.
-The content covered includes but is not limited to:
- Structure Biology. (GPCR) Protein generation design. (AlphaFold) AI4S. (Biological information Data) Deep Learning. (Drug Screening)  </description>
+      <guid>https://uioqps.github.io/posts/hugo%E4%B8%BB%E9%A2%98%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D1/</guid>
+      <description>文章中的cover图片和引用图片的位置放在哪？ collections: name: &amp;lsquo;post&amp;rsquo; label: &amp;lsquo;Post&amp;rsquo; folder: &amp;lsquo;content/posts&amp;rsquo; create: true slug: &amp;lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&amp;rsquo; name: &amp;lsquo;about&amp;rsquo; label: &amp;lsquo;About&amp;rsquo; folder: &amp;lsquo;content/about&amp;rsquo; create: true slug: &amp;lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&amp;rsquo; [collections] [[collections.post]] label= &amp;lsquo;Post&amp;rsquo; folder= &amp;lsquo;content/posts&amp;rsquo; create= true slug= &amp;lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&amp;rsquo; [[collections.about]] label= &#39;About&#39; folder= &#39;content/about&#39; create= true slug= &#39;{{year}}-{{month}}-{{day}}-{{slug}}&#39; To use it, create an admin folder</description>
     </item>
     
     <item>
