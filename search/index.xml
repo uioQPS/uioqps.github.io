@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Search on Pepper的博客</title>
+    <title>Pepper的博客</title>
     <link>https://uioqps.github.io/search/</link>
-    <description>Recent content in Search on Pepper的博客</description>
+    <description>Recent content on Pepper的博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hans</language>
-    <lastBuildDate>Fri, 09 Aug 2024 23:39:23 +0800</lastBuildDate><atom:link href="https://uioqps.github.io/search/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-Hans</language><atom:link href="https://uioqps.github.io/search/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

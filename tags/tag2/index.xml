@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tag2 on Pepper的博客</title>
+    <link>https://uioqps.github.io/tags/tag2/</link>
+    <description>Recent content in tag2 on Pepper的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 11 Aug 2024 21:50:10 +0800</lastBuildDate><atom:link href="https://uioqps.github.io/tags/tag2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo部署与美化「2」</title>
+      <link>https://uioqps.github.io/posts/hugo%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BE%8E%E5%8C%962/</link>
+      <pubDate>Sun, 11 Aug 2024 21:50:10 +0800</pubDate>
+      
+      <guid>https://uioqps.github.io/posts/hugo%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BE%8E%E5%8C%962/</guid>
+      <description>&lt;p&gt;Cut out summary from your post content here.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

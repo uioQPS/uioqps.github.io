@@ -6,10 +6,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search | Pepper的博客</title>
+    <title>搜索 | Pepper的博客</title>
 
     
-<link href="/ico.jpg" rel="shortcut icon" type="image/x-icon" />
+<link href="/ico.ico" rel="shortcut icon" type="image/x-icon" />
 
 
 
@@ -21,7 +21,7 @@
 <link rel="canonical" href="https://uioqps.github.io/search/" />
 
 
-<meta property="og:title" content="Search" />
+<meta property="og:title" content="" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://uioqps.github.io/search/" />
@@ -30,7 +30,7 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Search"/>
+<meta name="twitter:title" content=""/>
 <meta name="twitter:description" content=""/>
 
 
@@ -48,6 +48,8 @@
 
      
 
+    
+    <link rel="stylesheet" href="/css/custom.css" />
     
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -67,9 +69,9 @@
 
   <div class="container flex justify-between px-4">
     <section class="flex items-center gap-4">
-      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="翻转！">
         <div class="h-10 rounded-full">
-          <img src="/tx.jpg" alt="Pepper的博客" />
+          <img src="/me.jpg" alt="Pepper的博客" />
         </div>
       </div>
 
@@ -81,7 +83,7 @@
         </a>
         
         
-        <div class="text-base-content/60 text-sm">生命要献给有价值的事物</div>
+        <div class="text-base-content/60 text-sm">生命留给有价值的事物才能创造价值</div>
         
       </div>
       
@@ -96,17 +98,17 @@
 
 
 <li>
-  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
-    <ion-icon name="information-circle"></ion-icon>About</div>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="关于">
+    <ion-icon name="information-circle"></ion-icon>关于</div>
 </li>
 
 
 
 
 <li>
-  <a class="group inline-flex items-center p-2 cursor-pointer" href="/search" title="Search">
+  <a class="group inline-flex items-center p-2 cursor-pointer" href="/search" title="搜索">
     <ion-icon name="search"></ion-icon>
-    Search
+    搜索
   </a>
 </li>
 
@@ -115,27 +117,27 @@
 
 
 <li>
-  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="归档">
     <ion-icon name="archive"></ion-icon>
-    Archives
+    归档
   </a>
 </li>
 
 
 
 <li>
-  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="所有分类">
     <ion-icon name="grid"></ion-icon>
-    All Categories
+    所有分类
   </a>
 </li>
 
 
 
 <li>
-  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="所有标签">
     <ion-icon name="pricetags"></ion-icon>
-    All Tags
+    所有标签
   </a>
 </li>
 
@@ -147,12 +149,12 @@
       
       
       
-      <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline" @click="flip = !flip" title="About">About</div>
+      <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline" @click="flip = !flip" title="关于">关于</div>
       
       
 
       
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/search" title="Search">
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/search" title="搜索">
         <ion-icon class="group-hover:text-primary-content" name="search"></ion-icon>
       </a>
       
@@ -161,19 +163,19 @@
 
       
       
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="Archives">
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="归档">
         <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
       </a>
       
 
       
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="All Categories">
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="所有分类">
         <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
       </a>
       
 
       
-      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="All Tags">
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="所有标签">
         <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
       </a>
       
@@ -194,7 +196,7 @@
   get posts() { return this.search !== '' ? window.fuse.search(this.search) : [] },
 }">
   <label class="input input-bordered flex items-center gap-2">
-    <input type="text" class="grow" placeholder="Search" x-model.debounce="search" />
+    <input type="text" class="grow" placeholder="搜索" x-model.debounce="search" />
     <ion-icon name="search"></ion-icon>
   </label>
 
@@ -230,7 +232,7 @@
 
           <div class="inline-flex items-center">
             <ion-icon name="time" class="mr-1"></ion-icon>
-            <span><span x-text="post.item.readingTime"></span> minutes read</span>
+            <span><span x-text="post.item.readingTime"></span> 分钟阅读</span>
           </div>
         </div>
       </div>
@@ -250,7 +252,13 @@
   
 
   
-  <p>🌱 Powered by Hugo</p>
+  <p class="text-sm">
+    🌱
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with theme
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
   
 </div>
 
@@ -295,17 +303,26 @@
       class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
     >
       <div class="card-body">
-        <div class="card-title">About</div>
+        <div class="card-title">About Me</div>
 
         <div class="prose dark:prose-invert">
-          <p>Hi! my name is Zheng Shuang.
-Welcome to my blog.
-I’ll record study notes here.</p>
+          <p>Hi! my name is Zheng Shuang.</p>
+<p>Welcome to my blog. I’ll record study notes here.</p>
 <p>The content covered includes but is not limited to:</p>
-<p>Structure Biology. (GPCR)
-Protein generation design. (AlphaFold)
-AI4S. (Biological information Data)
-Deep Learning. (Drug Screening)</p>
+<ul>
+<li>
+<p>Structure Biology. (GPCR)</p>
+</li>
+<li>
+<p>Protein generation design. (AlphaFold)</p>
+</li>
+<li>
+<p>AI4S. (Biological information Data)</p>
+</li>
+<li>
+<p>Deep Learning. (Drug Screening)</p>
+</li>
+</ul>
 
         </div>
       </div>
@@ -329,7 +346,7 @@ Deep Learning. (Drug Screening)</p>
   window.lightTheme = "emerald"
   window.darkTheme = "forest"
 
-  window.hasTwitterEmbed =  true 
+  window.hasTwitterEmbed =  null 
   if (window.hasTwitterEmbed) {
     
     window.twttr = (function (d, s, id) {
@@ -365,11 +382,9 @@ Deep Learning. (Drug Screening)</p>
 
 
 
-
-
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
 <script>
-  var fuseData = [{"author":"Pepper","avatar":null,"categories":["Web"],"description":"文章中的cover图片和引用图片的位置放在哪？  collections:\n  name: \u0026lsquo;post\u0026rsquo; label: \u0026lsquo;Post\u0026rsquo; folder: \u0026lsquo;content/posts\u0026rsquo; create: true slug: \u0026lsquo;{{year}}-{{month}}-{{day}}-{{slug}}\u0026rsquo;\n  name: \u0026lsquo;about\u0026rsquo; label: \u0026lsquo;About\u0026rsquo; folder: \u0026lsquo;content/about\u0026rsquo; create: true slug: \u0026lsquo;{{year}}-{{month}}-{{day}}-{{slug}}\u0026rsquo;\n  [collections] [[collections.post]] label= \u0026lsquo;Post\u0026rsquo; folder= \u0026lsquo;content/posts\u0026rsquo; create= true slug= \u0026lsquo;{{year}}-{{month}}-{{day}}-{{slug}}\u0026rsquo;\n[[collections.about]] label= 'About' folder= 'content/about' create= true slug= '{{year}}-{{month}}-{{day}}-{{slug}}'  To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.","readingTime":1,"tags":["HTML"],"title":"Hugo主题框架介绍「1」","url":"/posts/hugo%E4%B8%BB%E9%A2%98%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D1/"},{"author":"Author Name","avatar":null,"categories":null,"description":"GPCR是一个7次跨膜蛋白。","readingTime":1,"tags":null,"title":"GPCR概览","url":"/posts/gpcr%E6%A6%82%E8%A7%88/"},{"author":"Pepper","avatar":null,"categories":null,"description":"部署 连接Github SSH的生成和连接\n选择Hugo主题 Dream","readingTime":1,"tags":null,"title":"如何搭建自己的博客","url":"/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"}];
+  var fuseData = [{"author":"Pepper","avatar":"/me.jpg","categories":["结构生物学"],"description":"GPCR是一个7次跨膜蛋白。","readingTime":1,"tags":["GPCR"],"title":"GPCR概览","url":"/posts/gpcr%E6%A6%82%E8%A7%88/"},{"author":"Pepper","avatar":"/me.jpg","categories":["Web"],"description":"部署 连接Github SSH的生成和连接\n选择Hugo主题 Dream","readingTime":1,"tags":["Blog"],"title":"如何搭建自己的博客","url":"/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"}];
   var fuseOptions = {
     keys: [
       "title",

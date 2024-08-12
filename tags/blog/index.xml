@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pepper的博客</title>
-    <link>https://uioqps.github.io/</link>
-    <description>Recent content on Pepper的博客</description>
+    <title>Blog on Pepper的博客</title>
+    <link>https://uioqps.github.io/tags/blog/</link>
+    <description>Recent content in Blog on Pepper的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 09 Aug 2024 20:09:58 +0800</lastBuildDate><atom:link href="https://uioqps.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>GPCR概览</title>
-      <link>https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/</link>
-      <pubDate>Fri, 09 Aug 2024 20:09:58 +0800</pubDate>
-      
-      <guid>https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/</guid>
-      <description>GPCR是一个7次跨膜蛋白。</description>
-    </item>
-    
+    <lastBuildDate>Fri, 09 Aug 2024 19:11:45 +0800</lastBuildDate><atom:link href="https://uioqps.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何搭建自己的博客</title>
       <link>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
