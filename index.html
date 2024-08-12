@@ -202,8 +202,8 @@
     
     
     <picture>
-      <source srcset="/images/default1_hu3d03a01dcc18bc5be0e67db3d8d209a6_69563_640x512_resize_q75_h2_box.webp" type="image/webp" />
-      <img src="/images/default1.jpg" alt="images/default1.jpg" />
+      <source srcset="/images/default2_hu3d03a01dcc18bc5be0e67db3d8d209a6_92733_640x443_resize_q75_h2_box.webp" type="image/webp" />
+      <img src="/images/default2.jpg" alt="images/default2.jpg" />
     </picture>
     
   
@@ -257,8 +257,8 @@
     
     
     <picture>
-      <source srcset="/images/default1_hu3d03a01dcc18bc5be0e67db3d8d209a6_69563_640x512_resize_q75_h2_box.webp" type="image/webp" />
-      <img src="/images/default1.jpg" alt="images/default1.jpg" />
+      <source srcset="/images/default2_hu3d03a01dcc18bc5be0e67db3d8d209a6_92733_640x443_resize_q75_h2_box.webp" type="image/webp" />
+      <img src="/images/default2.jpg" alt="images/default2.jpg" />
     </picture>
     
   
@@ -275,6 +275,12 @@
 
     部署 连接Github SSH的生成和连接
 选择Hugo主题 Dream
+文章中的cover图片和引用图片的位置放在哪？ collections:
+name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+[[collections.about]] label= &lsquo;About&rsquo; folder= &lsquo;content/about&rsquo; create= true slug= &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo; To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
+Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index.
 
     <div class="card-actions justify-between items-center mt-4">
       <div class="flex items-center">

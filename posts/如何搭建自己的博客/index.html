@@ -16,7 +16,13 @@
 
 <meta name="author" content="Pepper" />
 <meta name="description" content="部署 连接Github SSH的生成和连接
-选择Hugo主题 Dream" />
+选择Hugo主题 Dream
+文章中的cover图片和引用图片的位置放在哪？ collections:
+name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+[[collections.about]] label= &amp;lsquo;About&amp;rsquo; folder= &amp;lsquo;content/about&amp;rsquo; create= true slug= &amp;lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&amp;rsquo; To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
+Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index." />
 
 
 <link rel="canonical" href="https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" />
@@ -24,7 +30,13 @@
 
 <meta property="og:title" content="如何搭建自己的博客" />
 <meta property="og:description" content="部署 连接Github SSH的生成和连接
-选择Hugo主题 Dream" />
+选择Hugo主题 Dream
+文章中的cover图片和引用图片的位置放在哪？ collections:
+name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+[[collections.about]] label= &lsquo;About&rsquo; folder= &lsquo;content/about&rsquo; create= true slug= &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo; To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
+Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-08-09T19:11:45+08:00" />
@@ -36,7 +48,13 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="如何搭建自己的博客"/>
 <meta name="twitter:description" content="部署 连接Github SSH的生成和连接
-选择Hugo主题 Dream"/>
+选择Hugo主题 Dream
+文章中的cover图片和引用图片的位置放在哪？ collections:
+name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+[[collections.about]] label= &lsquo;About&rsquo; folder= &lsquo;content/about&rsquo; create= true slug= &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo; To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
+Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index."/>
 
 
 
@@ -282,6 +300,19 @@
 <p>SSH的生成和连接</p>
 <h3 id="选择hugo主题">选择Hugo主题</h3>
 <p>Dream</p>
+<p>文章中的cover图片和引用图片的位置放在哪？
+collections:</p>
+<p>name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’</p>
+<p>name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’</p>
+<p>[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’</p>
+<p>[[collections.about]]
+label= &lsquo;About&rsquo;
+folder= &lsquo;content/about&rsquo;
+create= true
+slug= &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo;
+To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.</p>
+<p>Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index.html css images——default的一些图片 js page——可能是分页，123对应index.html posts——文章的html形式 public</p>
+<p>对比其他人的site.github admin——定义了config.yml 菜单项 页面——me\posts\search css img js page——1、2</p>
 <!-- raw HTML omitted -->
 
 
