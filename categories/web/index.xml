@@ -4,25 +4,16 @@
     <title>Web on Pepper的博客</title>
     <link>https://uioqps.github.io/categories/web/</link>
     <description>Recent content in Web on Pepper的博客</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 09 Aug 2024 19:11:45 +0800</lastBuildDate><atom:link href="https://uioqps.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Aug 2024 19:11:45 +0800</lastBuildDate>
+    <atom:link href="https://uioqps.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何搭建自己的博客</title>
       <link>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Fri, 09 Aug 2024 19:11:45 +0800</pubDate>
-      
       <guid>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
-      <description>部署 连接Github SSH的生成和连接
-选择Hugo主题 Dream
-文章中的cover图片和引用图片的位置放在哪？
-collections:
-name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[[collections.about]] label= &amp;lsquo;About&amp;rsquo; folder= &amp;lsquo;content/about&amp;rsquo; create= true slug= &amp;lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&amp;rsquo; To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
-Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index.</description>
+      <description>&lt;h2 id=&#34;部署&#34;&gt;部署&lt;/h2&gt;&#xA;&lt;h3 id=&#34;连接github&#34;&gt;连接Github&lt;/h3&gt;&#xA;&lt;p&gt;SSH的生成和连接&lt;br&gt;&#xA;将public文件夹分支存放到git里单独托管，这样只用管理静态文件&lt;/p&gt;&#xA;&lt;h3 id=&#34;选择hugo主题&#34;&gt;选择Hugo主题&lt;/h3&gt;&#xA;&lt;p&gt;Dream&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

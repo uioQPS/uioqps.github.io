@@ -16,54 +16,41 @@
 
 <meta name="author" content="Pepper" />
 <meta name="description" content="部署 连接Github SSH的生成和连接
+将public文件夹分支存放到git里单独托管，这样只用管理静态文件
 选择Hugo主题 Dream
-文章中的cover图片和引用图片的位置放在哪？
-collections:
-name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[[collections.about]] label= &amp;lsquo;About&amp;rsquo; folder= &amp;lsquo;content/about&amp;rsquo; create= true slug= &amp;lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&amp;rsquo; To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
-Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index." />
+" />
 
 
 <link rel="canonical" href="https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" />
 
 
-<meta property="og:title" content="如何搭建自己的博客" />
-<meta property="og:description" content="部署 连接Github SSH的生成和连接
-选择Hugo主题 Dream
-文章中的cover图片和引用图片的位置放在哪？
-collections:
-name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[[collections.about]] label= &lsquo;About&rsquo; folder= &lsquo;content/about&rsquo; create= true slug= &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo; To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
-Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" /><meta property="og:image" content="https://uioqps.github.io/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2.jpg" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-08-09T19:11:45+08:00" />
-<meta property="article:modified_time" content="2024-08-09T19:11:45+08:00" />
+<meta property="og:url" content="https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
+  <meta property="og:site_name" content="Pepper的博客">
+  <meta property="og:title" content="如何搭建自己的博客">
+  <meta property="og:description" content="部署 连接Github SSH的生成和连接
+将public文件夹分支存放到git里单独托管，这样只用管理静态文件
+选择Hugo主题 Dream">
+  <meta property="og:locale" content="zh_Hans">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-09T19:11:45+08:00">
+    <meta property="article:modified_time" content="2024-08-09T19:11:45+08:00">
+    <meta property="article:tag" content="Blog">
+    <meta property="og:image" content="https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2.jpg">
 
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://uioqps.github.io/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2.jpg"/>
-
-<meta name="twitter:title" content="如何搭建自己的博客"/>
-<meta name="twitter:description" content="部署 连接Github SSH的生成和连接
-选择Hugo主题 Dream
-文章中的cover图片和引用图片的位置放在哪？
-collections:
-name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[[collections.about]] label= &lsquo;About&rsquo; folder= &lsquo;content/about&rsquo; create= true slug= &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo; To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
-Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index."/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2.jpg">
+  <meta name="twitter:title" content="如何搭建自己的博客">
+  <meta name="twitter:description" content="部署 连接Github SSH的生成和连接
+将public文件夹分支存放到git里单独托管，这样只用管理静态文件
+选择Hugo主题 Dream">
 
 
 
-<meta name="generator" content="Hugo 0.95.0" />
+<meta name="generator" content="Hugo 0.131.0">
 
 <link rel="stylesheet" href="/css/output.css" />
 
@@ -91,6 +78,9 @@ Public静态文件夹 页面——about\categories\tags 每一个子节点都含
 
     
     <link rel="stylesheet" href="/css/custom.css" />
+    
+<link rel="stylesheet" href="https://uioqps.github.io/css/custom.min.bd79e66f1a98160ac0a2e0c4940dca2df1601bf0b41526cc21d80f4e1c6d590c.css" integrity="sha256-vXnmbxqYFgrAouDElA3KLfFgG/C0FSbMIdgPThxtWQw=">
+
     
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -245,6 +235,11 @@ Public静态文件夹 页面——about\categories\tags 每一个子节点都含
         <li><a href="#选择hugo主题">选择Hugo主题</a></li>
       </ul>
     </li>
+    <li><a href="#博客美化">博客美化</a>
+      <ul>
+        <li><a href="#图片引用">图片引用</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -299,30 +294,23 @@ Public静态文件夹 页面——about\categories\tags 每一个子节点都含
       </header>
 
       
+      <img src="%e5%a6%82%e4%bd%95%e6%90%ad%e5%bb%ba%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2.jpg" alt="如何搭建自己的博客" />
+      
 
       <h2 id="部署">部署</h2>
 <h3 id="连接github">连接Github</h3>
-<p>SSH的生成和连接</p>
+<p>SSH的生成和连接<br>
+将public文件夹分支存放到git里单独托管，这样只用管理静态文件</p>
 <h3 id="选择hugo主题">选择Hugo主题</h3>
 <p>Dream</p>
-<p>文章中的cover图片和引用图片的位置放在哪？</p>
-<img src='如何搭建自己的博客.jpg' alt="sym" width="100%">
-<p>collections:</p>
-<p>name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’</p>
-<p>name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’</p>
-<p>[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’</p>
-<p>[[collections.about]]
-label= &lsquo;About&rsquo;
-folder= &lsquo;content/about&rsquo;
-create= true
-slug= &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo;
-To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.</p>
-<p>Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index.html css images——default的一些图片 js page——可能是分页，123对应index.html posts——文章的html形式 public</p>
-<p>对比其他人的site.github admin——定义了config.yml 菜单项 页面——me\posts\search css img js page——1、2</p>
-<img style="border:1px solid black" src="/me.jpg" align="center" width="600" height="300"/>
-<img src="/images/background.jpg" alt="微信赞赏码" width="50%" />
-<p>nihao</p>
-<img src="/如何搭建自己的博客.jpg" alt="微信赞赏码" width="50%" />
+<h2 id="博客美化">博客美化</h2>
+<h3 id="图片引用">图片引用</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ae81ff">1.</span> 在content中建立post页面单独的文件夹<span style="color:#960050;background-color:#1e0010">，</span>存放对应图片<span style="color:#960050;background-color:#1e0010">，</span>直接引用
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>img src<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;如何搭建自己的博客.jpg&#39;</span> alt<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sym&#34;</span> width<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2.</span> 在static文件中存放的文件<span style="color:#960050;background-color:#1e0010">，</span>引用代码
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>img style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;border:1px solid black&#34;</span> src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/me.jpg&#34;</span> align<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;center&#34;</span> width<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;600&#34;</span> height<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;300&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>img src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/background.jpg&#34;</span> alt<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xxx&#34;</span> width<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;50%&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span></code></pre></div>
 
       
       <div class="divider"></div>
@@ -338,7 +326,13 @@ To use it, create an admin folder in your static directory, then copy the conten
         
 
         
-        <div></div>
+        <a class="group btn btn-outline" href="/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/" title="Illumina测序数据研究">
+          <div class="inline-flex flex-col items-end">
+            <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">下一页</span>
+            <span class="max-w-48 truncate">Illumina测序数据研究</span>
+          </div>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </a>
         
       </div>
       
@@ -419,24 +413,42 @@ To use it, create an admin folder in your static directory, then copy the conten
       class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
     >
       <div class="card-body">
-        <div class="card-title">About Me</div>
+        <div class="card-title">自我介绍</div>
 
         <div class="prose dark:prose-invert">
           <p>Hi! my name is Zheng Shuang.</p>
 <p>Welcome to my blog. I’ll record study notes here.</p>
-<p>The content covered includes but is not limited to:</p>
+<div style="display:table; width:100%;">
+    <div style="display:table-row">
+        <div style="display:table-cell" class="author__avatar">
+        <img src="/picme.jpg" class="author__avatar" /></div>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">关于博客</div>
+
+        <div class="prose dark:prose-invert">
+          <p>The content covered includes but is not limited to:</p>
 <ul>
 <li>
-<p>Structure Biology. (GPCR)</p>
+<p>🧬Structure Biology. (GPCR)</p>
 </li>
 <li>
-<p>Protein generation design. (AlphaFold)</p>
+<p>🧪Protein generation design. (AlphaFold)</p>
 </li>
 <li>
-<p>AI4S. (Biological information Data)</p>
+<p>💻AI4S. (Biological information Data)</p>
 </li>
 <li>
-<p>Deep Learning. (Drug Screening)</p>
+<p>🔬Deep Learning. (Drug Screening)</p>
 </li>
 </ul>
 
@@ -515,6 +527,8 @@ To use it, create an admin folder in your static directory, then copy the conten
 
 
 
+    
+    <script src="/js/custom.js"></script>
     
 
     

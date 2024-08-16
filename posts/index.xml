@@ -4,34 +4,37 @@
     <title>Archives on Pepper的博客</title>
     <link>https://uioqps.github.io/posts/</link>
     <description>Recent content in Archives on Pepper的博客</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 09 Aug 2024 20:09:58 +0800</lastBuildDate><atom:link href="https://uioqps.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Aug 2024 20:09:58 +0800</lastBuildDate>
+    <atom:link href="https://uioqps.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GPCR概览</title>
       <link>https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/</link>
       <pubDate>Fri, 09 Aug 2024 20:09:58 +0800</pubDate>
-      
       <guid>https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/</guid>
-      <description>GPCR是一个7次跨膜蛋白。</description>
+      <description>&lt;p&gt;GPCR是一个7次跨膜蛋白。&lt;/p&gt;&#xA;&lt;h2 id=&#34;muscarinic-receptor&#34;&gt;Muscarinic Receptor&lt;/h2&gt;</description>
     </item>
-    
     <item>
       <title>如何搭建自己的博客</title>
       <link>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Fri, 09 Aug 2024 19:11:45 +0800</pubDate>
-      
       <guid>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
-      <description>部署 连接Github SSH的生成和连接
-选择Hugo主题 Dream
-文章中的cover图片和引用图片的位置放在哪？
-collections:
-name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[[collections.about]] label= &amp;lsquo;About&amp;rsquo; folder= &amp;lsquo;content/about&amp;rsquo; create= true slug= &amp;lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&amp;rsquo; To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
-Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index.</description>
+      <description>&lt;h2 id=&#34;部署&#34;&gt;部署&lt;/h2&gt;&#xA;&lt;h3 id=&#34;连接github&#34;&gt;连接Github&lt;/h3&gt;&#xA;&lt;p&gt;SSH的生成和连接&lt;br&gt;&#xA;将public文件夹分支存放到git里单独托管，这样只用管理静态文件&lt;/p&gt;&#xA;&lt;h3 id=&#34;选择hugo主题&#34;&gt;选择Hugo主题&lt;/h3&gt;&#xA;&lt;p&gt;Dream&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>Illumina测序数据研究</title>
+      <link>https://uioqps.github.io/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</link>
+      <pubDate>Sun, 16 Feb 2020 15:16:40 +0000</pubDate>
+      <guid>https://uioqps.github.io/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</guid>
+      <description>&lt;h2 id=&#34;测序原理&#34;&gt;测序原理&lt;/h2&gt;&#xA;&lt;p&gt;sanger法测序及双脱氧链终止法，它采取DNA复制原理，通过在DNA复制过程中添加双脱氧三磷酸核苷酸（ddNTP）终止DNA链的延伸，在DNA链不同位置的延伸终止判断该位置的碱基类型。但是凝胶电泳的时间较长，导致sanger法测序通量低。illumina测序技术可以实现高通量，低成本，测序长度较短。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>关于测序数据文件「FASTA 与 FASTQ」</title>
+      <link>https://uioqps.github.io/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Sun, 16 Feb 2020 15:16:37 +0000</pubDate>
+      <guid>https://uioqps.github.io/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/</guid>
+      <description>&lt;p&gt;fastq和fasta这两种储存sequence是后续分析主要处理的两种数据格式：&lt;br&gt;&#xA;双序列比对（pairwise alignment）&lt;br&gt;&#xA;进化树构建（phylogenetic tree）&lt;br&gt;&#xA;高通量分析的回贴（mapping）数据的原始输入&lt;/p&gt;&#xA;&lt;hr&gt;</description>
+    </item>
   </channel>
 </rss>

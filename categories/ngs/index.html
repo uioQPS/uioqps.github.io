@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-Hans"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngs | Pepper的博客</title>
+
+    
+<link href="/ico.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="Pepper" />
+<meta name="description" content="" />
+
+
+<link rel="canonical" href="https://uioqps.github.io/categories/ngs/" />
+
+
+<meta property="og:url" content="https://uioqps.github.io/categories/ngs/">
+  <meta property="og:site_name" content="Pepper的博客">
+  <meta property="og:title" content="Ngs">
+  <meta property="og:locale" content="zh_Hans">
+  <meta property="og:type" content="website">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ngs">
+
+
+
+<meta name="generator" content="Hugo 0.131.0">
+
+<link rel="stylesheet" href="/css/output.css" />
+
+<style>
+
+
+
+</style>
+
+
+     
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+<link rel="stylesheet" href="https://uioqps.github.io/css/custom.min.bd79e66f1a98160ac0a2e0c4940dca2df1601bf0b41526cc21d80f4e1c6d590c.css" integrity="sha256-vXnmbxqYFgrAouDElA3KLfFgG/C0FSbMIdgPThxtWQw=">
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  <div class="container flex justify-between px-4">
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="翻转！">
+        <div class="h-10 rounded-full">
+          <img src="/me.jpg" alt="Pepper的博客" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="https://uioqps.github.io/" class="text-lg font-semibold cursor-pointer">
+          Pepper的博客
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">生命留给有价值的事物才能创造价值</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="关于">
+    <ion-icon name="information-circle"></ion-icon>关于</div>
+</li>
+
+
+
+
+<li>
+  <a class="group inline-flex items-center p-2 cursor-pointer" href="/search" title="搜索">
+    <ion-icon name="search"></ion-icon>
+    搜索
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="归档">
+    <ion-icon name="archive"></ion-icon>
+    归档
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="所有分类">
+    <ion-icon name="grid"></ion-icon>
+    所有分类
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="所有标签">
+    <ion-icon name="pricetags"></ion-icon>
+    所有标签
+  </a>
+</li>
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline" @click="flip = !flip" title="关于">关于</div>
+      
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/search" title="搜索">
+        <ion-icon class="group-hover:text-primary-content" name="search"></ion-icon>
+      </a>
+      
+
+      
+
+      
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="归档">
+        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="所有分类">
+        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="所有标签">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
+      
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+
+<div class="flex flex-col md:flex-row gap-4 mt-8 lg:mt-12 px-4">
+  <div class="md:basis-[200px] lg:basis-[300px] prose dark:prose-invert">
+    <h1 class="text-2xl">Ngs</h1>
+    <p class="text-sm">1篇文章</p>
+    <div class="flex flex-wrap gap-4 mt-6">
+      
+
+      
+      
+      <a href="/categories/bioinfo/" class="badge h-6 no-underline hover:badge-primary">
+        Bioinfo
+      </a>
+      
+      
+      
+      <span class="badge h-6 badge-primary">
+        Ngs
+      </span>
+      
+      
+      
+      <a href="/categories/web/" class="badge h-6 no-underline hover:badge-primary">
+        Web
+      </a>
+      
+      
+      
+      <a href="/categories/%E7%BB%93%E6%9E%84%E7%94%9F%E7%89%A9%E5%AD%A6/" class="badge h-6 no-underline hover:badge-primary">
+        结构生物学
+      </a>
+      
+      
+    </div>
+  </div>
+  <div class="divider divider-vertical md:divider-horizontal"></div>
+  <div class="flex-1 space-y-4">
+    
+    
+    <a class="card image-full card-compact" href="/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/">
+  <figure class="h-[200px]">
+  
+    
+    
+    <picture class="w-full">
+      <source srcset="/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/seq1_hu2124595321238330092.webp" type="image/webp" />
+      <img class="w-full" src="/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/seq1.png" alt="seq1.png" />
+    </picture>
+    
+  
+  </figure>
+
+  <div class="card-body">
+    <h2 class="card-title">Illumina测序数据研究</h2>
+
+    <p class="date">
+    
+      <span data-format="luxon">2020-02-16T15:16:40Z</span>
+    
+    </p>
+
+    <h2 id="测序原理">测序原理</h2>
+<p>sanger法测序及双脱氧链终止法，它采取DNA复制原理，通过在DNA复制过程中添加双脱氧三磷酸核苷酸（ddNTP）终止DNA链的延伸，在DNA链不同位置的延伸终止判断该位置的碱基类型。但是凝胶电泳的时间较长，导致sanger法测序通量低。illumina测序技术可以实现高通量，低成本，测序长度较短。</p>
+
+    <div class="card-actions justify-between items-center mt-4">
+      <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span>
+  
+    Pepper
+  
+  </span>
+</div>
+
+
+      <div class="inline-flex items-center">
+        <ion-icon name="time" class="mr-1"></ion-icon>
+        <span>1 分钟阅读</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+    
+
+    
+  </div>
+</div>
+
+
+
+            <footer class="flex justify-between items-center gap-2 px-4 py-12">
+              <div>
+  
+  <p>
+    © 2024 Pepper的博客
+  </p>
+  
+
+  
+  <p class="text-sm">
+    🌱
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with theme
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+              <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center h-[32px] px-2 gap-2 border border-base-300 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+            </footer>
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            <div class="dream-grid">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">自我介绍</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Hi! my name is Zheng Shuang.</p>
+<p>Welcome to my blog. I’ll record study notes here.</p>
+<div style="display:table; width:100%;">
+    <div style="display:table-row">
+        <div style="display:table-cell" class="author__avatar">
+        <img src="/picme.jpg" class="author__avatar" /></div>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">关于博客</div>
+
+        <div class="prose dark:prose-invert">
+          <p>The content covered includes but is not limited to:</p>
+<ul>
+<li>
+<p>🧬Structure Biology. (GPCR)</p>
+</li>
+<li>
+<p>🧪Protein generation design. (AlphaFold)</p>
+</li>
+<li>
+<p>💻AI4S. (Biological information Data)</p>
+</li>
+<li>
+<p>🔬Deep Learning. (Drug Screening)</p>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+
+  
+  
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+
+  window.hasTwitterEmbed =  null 
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/main.js"></script>
+
+    
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
+  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
+  crossorigin="anonymous"
+></script>
+<script>
+  format()
+
+  function format() {
+    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
+      const date = el.textContent
+
+      el.textContent = luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日")
+    })
+  }
+</script>
+
+
+
+
+
+    
+    <script src="/js/custom.js"></script>
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

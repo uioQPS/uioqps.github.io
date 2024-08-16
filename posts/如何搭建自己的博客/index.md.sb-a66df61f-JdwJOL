@@ -1,0 +1,63 @@
+---
+title: 如何搭建自己的博客
+date: 2024-08-09T19:11:45+08:00
+lastmod: 2024-08-09T19:11:45+08:00
+author: Pepper
+cover: 如何搭建自己的博客.jpg
+images: 
+    - 如何搭建自己的博客.jpg
+#cover: background.jpg
+avatar: /me.jpg
+#authorlink: https://author.site
+
+tags: 
+- Blog
+categories:
+- Web
+# nolastmod: true
+---
+## 部署
+### 连接Github
+ SSH的生成和连接
+### 选择Hugo主题
+ Dream
+ 
+ 
+ 文章中的cover图片和引用图片的位置放在哪？
+ <!--more-->
+<img src='如何搭建自己的博客.jpg' alt="sym" width="100%">
+
+collections:
+
+name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+
+name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+
+[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’
+
+[[collections.about]]
+	label= 'About'
+	folder= 'content/about'
+	create= true
+	slug= '{{year}}-{{month}}-{{day}}-{{slug}}'
+To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
+
+Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index.html css images——default的一些图片 js page——可能是分页，123对应index.html posts——文章的html形式 public
+
+对比其他人的site.github admin——定义了config.yml 菜单项 页面——me\posts\search css img js page——1、2
+ 
+<img style="border:1px solid black" src="/me.jpg" align="center" width="600" height="300"/>
+
+<img src="/images/background.jpg" alt="微信赞赏码" width="50%" />
+
+nihao
+
+
+
+
+插入图片的两种方法
+1. 在content中建立相同的文件夹，引用代码
+`<img src='如何搭建自己的博客.jpg' alt="sym" width="100%">`
+2. 在static文件中存放的文件，引用代码
+`<img style="border:1px solid black" src="/me.jpg" align="center" width="600" height="300"/>`
+`<img src="/images/background.jpg" alt="微信赞赏码" width="50%" />`

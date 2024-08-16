@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-Hans"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPCR概览 | Pepper的博客</title>
+
+    
+<link href="/ico.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="Pepper" />
+<meta name="description" content="GPCR是一个7次跨膜蛋白。
+Garlic bread with cheese: What the science tells us For years parents have espoused the health benefits of eating garlic bread with cheese to their children, with the food earning such an iconic status in our culture that kids will often dress up as warm, cheesy loaf for Halloween. But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases springing up around the country." />
+
+
+<link rel="canonical" href="http://localhost:1313/posts/gpcr%E6%A6%82%E8%A7%88/gpcr%E6%A6%82%E8%A7%88/" />
+
+
+<meta property="og:url" content="http://localhost:1313/posts/gpcr%E6%A6%82%E8%A7%88/gpcr%E6%A6%82%E8%A7%88/">
+  <meta property="og:site_name" content="Pepper的博客">
+  <meta property="og:title" content="GPCR概览">
+  <meta property="og:description" content="GPCR是一个7次跨膜蛋白。
+Garlic bread with cheese: What the science tells us For years parents have espoused the health benefits of eating garlic bread with cheese to their children, with the food earning such an iconic status in our culture that kids will often dress up as warm, cheesy loaf for Halloween. But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases springing up around the country.">
+  <meta property="og:locale" content="zh_Hans">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-09T20:09:58+08:00">
+    <meta property="article:modified_time" content="2024-08-09T20:09:58+08:00">
+    <meta property="article:tag" content="GPCR">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="GPCR概览">
+  <meta name="twitter:description" content="GPCR是一个7次跨膜蛋白。
+Garlic bread with cheese: What the science tells us For years parents have espoused the health benefits of eating garlic bread with cheese to their children, with the food earning such an iconic status in our culture that kids will often dress up as warm, cheesy loaf for Halloween. But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases springing up around the country.">
+
+
+
+<meta name="generator" content="Hugo 0.131.0">
+
+<link rel="stylesheet" href="/css/output.css" />
+
+<style>
+
+
+
+</style>
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+<link rel="stylesheet" href="http://localhost:1313/css/custom.min.0716ef4df48f378b03510f794a8207e2c5c951c4eba7cf969011e0da81a37283.css" integrity="sha256-BxbvTfSPN4sDUQ95SoIH4sXJUcTrp8&#43;WkBHg2oGjcoM=">
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  <div class="container flex justify-between px-4">
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="翻转！">
+        <div class="h-10 rounded-full">
+          <img src="/me.jpg" alt="Pepper的博客" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="http://localhost:1313/" class="text-lg font-semibold cursor-pointer">
+          Pepper的博客
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">生命留给有价值的事物才能创造价值</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="关于">
+    <ion-icon name="information-circle"></ion-icon>关于</div>
+</li>
+
+
+
+
+<li>
+  <a class="group inline-flex items-center p-2 cursor-pointer" href="/search" title="搜索">
+    <ion-icon name="search"></ion-icon>
+    搜索
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="归档">
+    <ion-icon name="archive"></ion-icon>
+    归档
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="所有分类">
+    <ion-icon name="grid"></ion-icon>
+    所有分类
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="所有标签">
+    <ion-icon name="pricetags"></ion-icon>
+    所有标签
+  </a>
+</li>
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline" @click="flip = !flip" title="关于">关于</div>
+      
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/search" title="搜索">
+        <ion-icon class="group-hover:text-primary-content" name="search"></ion-icon>
+      </a>
+      
+
+      
+
+      
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="归档">
+        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="所有分类">
+        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="所有标签">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
+      
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="mt-4 px-4">
+  
+  <div class="relative" x-data="{ height: '' }" x-init="height = $el.scrollHeight + 'px'">
+  
+    
+    <div class="absolute right-0 lg:w-36 xl:w-48 hidden lg:block" :style="{ height }">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
+    <article class="mx-auto prose dark:prose-invert" id="dream-single-post-main">
+      <header>
+        <h1>GPCR概览</h1>
+        <p class="text-sm">
+          
+            <span data-format="luxon">2024-08-09T20:09:58&#43;08:00</span>
+          
+
+          | <span>1 分钟阅读</span>
+
+          
+          | <span>更新于
+            
+              <span data-format="luxon">2024-08-09T20:09:58&#43;08:00</span>
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          <div class="flex items-center">
+  
+  <div class="avatar mr-1">
+    <div class="w-8 rounded-full">
+      <img class="my-0" src="/me.jpg" alt="Pepper" />
+    </div>
+  </div>
+  
+
+  <span>
+  
+    
+      Pepper
+    
+  
+  </span>
+</div>
+
+
+          <span class="flex items-center gap-2">
+  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=GPCR%e6%a6%82%e8%a7%88&url=http%3a%2f%2flocalhost%3a1313%2fposts%2fgpcr%25E6%25A6%2582%25E8%25A7%2588%2fgpcr%25E6%25A6%2582%25E8%25A7%2588%2f" title="Share on X">
+    <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+  </a>
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fgpcr%25E6%25A6%2582%25E8%25A7%2588%2fgpcr%25E6%25A6%2582%25E8%25A7%2588%2f" title="Share on Facebook">
+    <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+  </a>
+</span>
+
+        </div>
+      </header>
+
+      
+
+      <p>GPCR是一个7次跨膜蛋白。</p>
+  <h1>Garlic bread with cheese: What the science tells us</h1>
+  <p>
+    For years parents have espoused the health benefits of eating garlic bread with cheese to their
+    children, with the food earning such an iconic status in our culture that kids will often dress
+    up as warm, cheesy loaf for Halloween.
+  </p>
+  <p>
+    But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases
+    springing up around the country.
+  </p>
+<article class="prose prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600">
+  {{ markdown }}
+</article>
+<div class="grid grid-cols-4">
+  <div class="col-span-1">
+    2饿的我
+  </div>
+  <div class="col-span-3">
+   树胶
+    <article class="prose max-w-none">{{ markdown }}</article>
+  </div>
+</div>
+
+
+      
+      <div class="divider"></div>
+      <div class="flex flex-col md:flex-row justify-between gap-4 py-4">
+        
+        <div></div>
+        
+
+        
+        <a class="group btn btn-outline" href="/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" title="如何搭建自己的博客">
+          <div class="inline-flex flex-col items-end">
+            <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">下一页</span>
+            <span class="max-w-48 truncate">如何搭建自己的博客</span>
+          </div>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </a>
+        
+      </div>
+      
+    </article>
+  </div>
+
+  
+
+  
+
+  <section class="max-w-[65ch] mx-auto space-y-4">
+    
+
+    
+
+    
+  </section>
+</div>
+
+
+            <footer class="flex justify-between items-center gap-2 px-4 py-12">
+              <div>
+  
+  <p>
+    © 2024 Pepper的博客
+  </p>
+  
+
+  
+  <p class="text-sm">
+    🌱
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with theme
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+              <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center h-[32px] px-2 gap-2 border border-base-300 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+            </footer>
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            <div class="dream-grid">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">新布局</div>
+
+        <div class="prose dark:prose-invert">
+          <div style="display:table; width:100%;">
+    <div style="display:table-row">
+        <div style="display:table-cell; width:50%" class="author__avatar">
+        <img src="/me.jpg" class="author__avatar" alt="微信赞赏码"  />
+        </div>
+        <div style="display:table-cell; text-align:right; width:75%;">right text
+        </div>
+     </div>
+     </div> 
+<h3 id="nishuo">nishuo</h3>
+<p><code>nihao</code></p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">About Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Hi! my name is Zheng Shuang.</p>
+<p>Welcome to my blog. I’ll record study notes here.</p>
+<p>The content covered includes but is not limited to:</p>
+<ul>
+<li>
+<p>Structure Biology. (GPCR)</p>
+</li>
+<li>
+<p>Protein generation design. (AlphaFold)</p>
+</li>
+<li>
+<p>AI4S. (Biological information Data)</p>
+</li>
+<li>
+<p>Deep Learning. (Drug Screening)</p>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+
+  
+  
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+
+  window.hasTwitterEmbed =  null 
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/main.js"></script>
+
+    
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
+  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
+  crossorigin="anonymous"
+></script>
+<script>
+  format()
+
+  function format() {
+    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
+      const date = el.textContent
+
+      el.textContent = luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日")
+    })
+  }
+</script>
+
+
+
+
+
+
+
+    
+    <script src="/js/custom.js"></script>
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

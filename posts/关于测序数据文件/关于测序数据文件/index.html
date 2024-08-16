@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-Hans"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于测序数据文件「FASTA 与 FASTQ」 | Pepper的博客</title>
+
+    
+<link href="/ico.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="Pepper" />
+<meta name="description" content="fastq和fasta这两种储存sequence是后续分析主要处理的两种数据格式： 双序列比对（pairwise alignment） 进化树构建（phylogenetic tree） 高通量分析的回贴（mapping）数据的原始输入 *** ## FASTA fasta格式可以储存核酸序列（DNA/RNA）也可以储存蛋白质的氨基酸序列（Amino Acid sequence，简称AA序列）
+是以“&amp;gt;”为开始的一行主要储存的是序列的描述信息； 剩下的是序列部分，中间，前后都可以有空格。序列部分按照官方文档的说明应该是小于120就行，一般70到80左右。 实际操作中，程序处理的时候都是自动去掉空格和换行符，把序列读成1行再处理 氨基酸序列 &amp;gt;sp|P69905|HBA_HUMAN Hemoglobin subunit alpha OS=Homo sapiens GN=HBA1 MVLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHG KKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTP AVHASLDKFLASVSTVLTSKYR UniRef数据库中下载的人类血红蛋白α亚基的序列。
+P69905是这个序列在UniRef中的编号 HBA_HUMAN是这个序列的简称，Hemoglobin subunit alpha是全称 OS=Homo sapiens是物种 GN=HBA1是指基因的名字为HBA1 后面的内容就是这个HBA1基因对应的蛋白的序列 A alanine P proline B aspartate/asparagine Q glutamine C cystine R arginine D aspartate S serine E glutamate T threonine F phenylalanine U selenocysteine G glycine V valine H histidine W tryptophan I isoleucine Y tyrosine K lysine Z glutamate/glutamine L leucine X any M methionine * translation stop N asparagine - gap of indeterminate length 核酸序列 从NCBI RefSeq数据库中下载的人类血红蛋白a亚基对应的mRNA序列" />
+
+
+<link rel="canonical" href="http://localhost:1313/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/" />
+
+
+<meta property="og:url" content="http://localhost:1313/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/">
+  <meta property="og:site_name" content="Pepper的博客">
+  <meta property="og:title" content="关于测序数据文件「FASTA 与 FASTQ」">
+  <meta property="og:description" content="fastq和fasta这两种储存sequence是后续分析主要处理的两种数据格式： 双序列比对（pairwise alignment） 进化树构建（phylogenetic tree） 高通量分析的回贴（mapping）数据的原始输入 *** ## FASTA fasta格式可以储存核酸序列（DNA/RNA）也可以储存蛋白质的氨基酸序列（Amino Acid sequence，简称AA序列）
+是以“&gt;”为开始的一行主要储存的是序列的描述信息； 剩下的是序列部分，中间，前后都可以有空格。序列部分按照官方文档的说明应该是小于120就行，一般70到80左右。 实际操作中，程序处理的时候都是自动去掉空格和换行符，把序列读成1行再处理 氨基酸序列 &gt;sp|P69905|HBA_HUMAN Hemoglobin subunit alpha OS=Homo sapiens GN=HBA1 MVLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHG KKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTP AVHASLDKFLASVSTVLTSKYR UniRef数据库中下载的人类血红蛋白α亚基的序列。
+P69905是这个序列在UniRef中的编号 HBA_HUMAN是这个序列的简称，Hemoglobin subunit alpha是全称 OS=Homo sapiens是物种 GN=HBA1是指基因的名字为HBA1 后面的内容就是这个HBA1基因对应的蛋白的序列 A alanine P proline B aspartate/asparagine Q glutamine C cystine R arginine D aspartate S serine E glutamate T threonine F phenylalanine U selenocysteine G glycine V valine H histidine W tryptophan I isoleucine Y tyrosine K lysine Z glutamate/glutamine L leucine X any M methionine * translation stop N asparagine - gap of indeterminate length 核酸序列 从NCBI RefSeq数据库中下载的人类血红蛋白a亚基对应的mRNA序列">
+  <meta property="og:locale" content="zh_Hans">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-02-16T15:16:37+00:00">
+    <meta property="article:modified_time" content="2020-02-16T15:16:37+00:00">
+    <meta property="article:tag" content="Ngs">
+    <meta property="og:image" content="http://localhost:1313/seq.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/seq.png">
+  <meta name="twitter:title" content="关于测序数据文件「FASTA 与 FASTQ」">
+  <meta name="twitter:description" content="fastq和fasta这两种储存sequence是后续分析主要处理的两种数据格式： 双序列比对（pairwise alignment） 进化树构建（phylogenetic tree） 高通量分析的回贴（mapping）数据的原始输入 *** ## FASTA fasta格式可以储存核酸序列（DNA/RNA）也可以储存蛋白质的氨基酸序列（Amino Acid sequence，简称AA序列）
+是以“&gt;”为开始的一行主要储存的是序列的描述信息； 剩下的是序列部分，中间，前后都可以有空格。序列部分按照官方文档的说明应该是小于120就行，一般70到80左右。 实际操作中，程序处理的时候都是自动去掉空格和换行符，把序列读成1行再处理 氨基酸序列 &gt;sp|P69905|HBA_HUMAN Hemoglobin subunit alpha OS=Homo sapiens GN=HBA1 MVLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHG KKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTP AVHASLDKFLASVSTVLTSKYR UniRef数据库中下载的人类血红蛋白α亚基的序列。
+P69905是这个序列在UniRef中的编号 HBA_HUMAN是这个序列的简称，Hemoglobin subunit alpha是全称 OS=Homo sapiens是物种 GN=HBA1是指基因的名字为HBA1 后面的内容就是这个HBA1基因对应的蛋白的序列 A alanine P proline B aspartate/asparagine Q glutamine C cystine R arginine D aspartate S serine E glutamate T threonine F phenylalanine U selenocysteine G glycine V valine H histidine W tryptophan I isoleucine Y tyrosine K lysine Z glutamate/glutamine L leucine X any M methionine * translation stop N asparagine - gap of indeterminate length 核酸序列 从NCBI RefSeq数据库中下载的人类血红蛋白a亚基对应的mRNA序列">
+
+
+
+<meta name="generator" content="Hugo 0.131.0">
+
+<link rel="stylesheet" href="/css/output.css" />
+
+<style>
+
+
+
+</style>
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+<link rel="stylesheet" href="http://localhost:1313/css/custom.min.0716ef4df48f378b03510f794a8207e2c5c951c4eba7cf969011e0da81a37283.css" integrity="sha256-BxbvTfSPN4sDUQ95SoIH4sXJUcTrp8&#43;WkBHg2oGjcoM=">
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  <div class="container flex justify-between px-4">
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="翻转！">
+        <div class="h-10 rounded-full">
+          <img src="/me.jpg" alt="Pepper的博客" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="http://localhost:1313/" class="text-lg font-semibold cursor-pointer">
+          Pepper的博客
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">生命留给有价值的事物才能创造价值</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="关于">
+    <ion-icon name="information-circle"></ion-icon>关于</div>
+</li>
+
+
+
+
+<li>
+  <a class="group inline-flex items-center p-2 cursor-pointer" href="/search" title="搜索">
+    <ion-icon name="search"></ion-icon>
+    搜索
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="归档">
+    <ion-icon name="archive"></ion-icon>
+    归档
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="所有分类">
+    <ion-icon name="grid"></ion-icon>
+    所有分类
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="所有标签">
+    <ion-icon name="pricetags"></ion-icon>
+    所有标签
+  </a>
+</li>
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline" @click="flip = !flip" title="关于">关于</div>
+      
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/search" title="搜索">
+        <ion-icon class="group-hover:text-primary-content" name="search"></ion-icon>
+      </a>
+      
+
+      
+
+      
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="归档">
+        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="所有分类">
+        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="所有标签">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
+      
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="mt-4 px-4">
+  
+  <div class="relative" x-data="{ height: '' }" x-init="height = $el.scrollHeight + 'px'">
+  
+    
+    <div class="absolute right-0 lg:w-36 xl:w-48 hidden lg:block" :style="{ height }">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#氨基酸序列">氨基酸序列</a></li>
+        <li><a href="#核酸序列">核酸序列</a></li>
+      </ul>
+    </li>
+    <li><a href="#fastq">FASTQ</a>
+      <ul>
+        <li><a href="#详细谈谈fastq质量值的计算方法">详细谈谈FASTQ质量值的计算方法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+    <article class="mx-auto prose dark:prose-invert" id="dream-single-post-main">
+      <header>
+        <h1>关于测序数据文件「FASTA 与 FASTQ」</h1>
+        <p class="text-sm">
+          
+            <span data-format="luxon">2020-02-16T15:16:37Z</span>
+          
+
+          | <span>1 分钟阅读</span>
+
+          
+          | <span>更新于
+            
+              <span data-format="luxon">2020-02-16T15:16:37Z</span>
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span>
+  
+    Pepper
+  
+  </span>
+</div>
+
+
+          <span class="flex items-center gap-2">
+  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=%e5%85%b3%e4%ba%8e%e6%b5%8b%e5%ba%8f%e6%95%b0%e6%8d%ae%e6%96%87%e4%bb%b6%e3%80%8cFASTA%20%e4%b8%8e%20FASTQ%e3%80%8d&url=http%3a%2f%2flocalhost%3a1313%2fposts%2f%25E5%2585%25B3%25E4%25BA%258E%25E6%25B5%258B%25E5%25BA%258F%25E6%2595%25B0%25E6%258D%25AE%25E6%2596%2587%25E4%25BB%25B6%2f%25E5%2585%25B3%25E4%25BA%258E%25E6%25B5%258B%25E5%25BA%258F%25E6%2595%25B0%25E6%258D%25AE%25E6%2596%2587%25E4%25BB%25B6%2f" title="Share on X">
+    <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+  </a>
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2f%25E5%2585%25B3%25E4%25BA%258E%25E6%25B5%258B%25E5%25BA%258F%25E6%2595%25B0%25E6%258D%25AE%25E6%2596%2587%25E4%25BB%25B6%2f%25E5%2585%25B3%25E4%25BA%258E%25E6%25B5%258B%25E5%25BA%258F%25E6%2595%25B0%25E6%258D%25AE%25E6%2596%2587%25E4%25BB%25B6%2f" title="Share on Facebook">
+    <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+  </a>
+</span>
+
+        </div>
+      </header>
+
+      
+      <img src="seq.png" alt="关于测序数据文件「FASTA 与 FASTQ」" />
+      
+
+      <img src='seq.png' alt="sym" width="100%">
+fastq和fasta这两种储存sequence是后续分析主要处理的两种数据格式：  
+双序列比对（pairwise alignment）  
+进化树构建（phylogenetic tree）  
+高通量分析的回贴（mapping）数据的原始输入  
+***
+## FASTA
+<p>fasta格式可以储存核酸序列（DNA/RNA）也可以储存蛋白质的氨基酸序列（Amino Acid sequence，简称AA序列）</p>
+<ol>
+<li>是以“&gt;”为开始的一行主要储存的是序列的描述信息；</li>
+<li>剩下的是序列部分，中间，前后都可以有空格。序列部分按照官方文档的说明应该是小于120就行，一般70到80左右。</li>
+<li>实际操作中，程序处理的时候都是自动去掉空格和换行符，把序列读成1行再处理</li>
+</ol>
+<h3 id="氨基酸序列">氨基酸序列</h3>
+<pre tabindex="0"><code>&gt;sp|P69905|HBA_HUMAN Hemoglobin subunit alpha OS=Homo sapiens GN=HBA1
+MVLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHG
+KKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTP
+AVHASLDKFLASVSTVLTSKYR
+</code></pre><p>UniRef数据库中下载的人类血红蛋白α亚基的序列。</p>
+<ul>
+<li>P69905是这个序列在UniRef中的编号</li>
+<li>HBA_HUMAN是这个序列的简称，Hemoglobin subunit alpha是全称</li>
+<li>OS=Homo sapiens是物种</li>
+<li>GN=HBA1是指基因的名字为HBA1</li>
+<li>后面的内容就是这个HBA1基因对应的蛋白的序列</li>
+</ul>
+<pre tabindex="0"><code>A  alanine               P  proline       
+B  aspartate/asparagine  Q  glutamine      
+C  cystine               R  arginine      
+D  aspartate             S  serine      
+E  glutamate             T  threonine      
+F  phenylalanine         U  selenocysteine      
+G  glycine               V  valine        
+H  histidine             W  tryptophan        
+I  isoleucine            Y  tyrosine
+K  lysine                Z  glutamate/glutamine
+L  leucine               X  any
+M  methionine            *  translation stop
+N  asparagine            -  gap of indeterminate length
+</code></pre><h3 id="核酸序列">核酸序列</h3>
+<p>从NCBI RefSeq数据库中下载的人类血红蛋白a亚基对应的mRNA序列</p>
+<pre tabindex="0"><code>&gt;gi|13650073|gb|AF349571.1| Homo sapiens hemoglobin alpha-1 globin chain (HBA1) mRNA, complete cds
+CCCACAGACTCAGAGAGAACCCACCATGGTGCTGTCTCCTGACGACAAGACCAACGTCAAGGCCGCCTGG
+GGTAAGGTCGGCGCGCACGCTGGCGAGTATGGTGCGGAGGCCCTGGAGAGGATGTTCCTGTCCTTCCCCA
+CCACCAAGACCTACTTCCCGCACTTCGACCTGAGCCACGGCTCTGCCCAGGTTAAGGGCCACGGCAAGAA
+GGTGGCCGACGCGCTGACCAACGCCGTGGCGCACGTGGACGACATGCCCAACGCGCTGTCCGCCCTGAGC
+GACCTGCACGCGCACAAGCTTCGGGTGGACCCGGTCAACTTCAAGCTCCTAAGCCACTGCCTGCTGGTGA
+CCCTGGCCGCCCACCTCCCCGCCGAGTTCACCCCTGCGGTGCACGCCTCCCTGGACAAGTTCCTGGCTTC
+TGTGAGCACCGTGCTGACCTCCAAATACCGTTAAGCTGGAGCCTCGGTGGCCATGCTTCTTGCCCCTTTG
+G
+</code></pre><ul>
+<li>所有来自于NCBI的序列都有一个gi号，就是数据库中的流水号，具有唯一性。</li>
+<li>gb|AF349571.1是genebank编号的信息。</li>
+<li>后面是对序列的一个通俗的描述。这里使用的是mRNA，包含完整的CDS（Coding sequence）区域。</li>
+</ul>
+<p>为了下游的方便分析处理，无论RNA序列还是DNA序列都是使用T而不是U。对于核苷酸序列的信息，一般使用下面的对应表</p>
+<pre tabindex="0"><code>A  adenosine          C  cytidine             G  guanine
+T  thymidine          N  A/G/C/T (any)        U  uridine
+K  G/T (keto)         S  G/C (strong)         Y  T/C (pyrimidine)
+M  A/C (amino)        W  A/T (weak)           R  G/A (purine)        
+B  G/T/C              D  G/A/T                H  A/C/T      
+V  G/C/A              -  gap of indeterminate length
+</code></pre><p>基本上FASTA不适合储存测序数据。一个很重要的原因就是，<strong>它没有序列的质量信息。</strong> 那一般带有测序质量信息的FASTQ格式就成了储存测序数据的常用格式啦！</p>
+<h2 id="fastq">FASTQ</h2>
+<p>下面是一个Illumina平台测序的真实数据，其中包含了1条reads的信息。</p>
+<pre tabindex="0"><code>@ST-E00126:128:HJFLHCCXX:2:1101:7405:1133
+TTGCAAAAAATTTCTCTCATTCTGTAGGTTGCCTGTTCACTCTGATGATAGTTTGTTTTGG
++
+FFKKKFKKFKF&lt;KK&lt;F,AFKKKKK7FFK77&lt;FKK,&lt;F7K,,7AF&lt;FF7FKK7AA,7&lt;FA,,
+</code></pre><p>FASTQ格式储存的序列信息，每1条reads的信息，可以分成4行。</p>
+<ul>
+<li>第1行主要储存序列测序时的坐标等信息</li>
+</ul>
+<pre tabindex="0"><code>@ST-E00126:128:HJFLHCCXX:2:1101:7405:1133
+@	开始的标记符号			
+ST-E00126:128:HJFLHCCXX	测序仪唯一的设备名称
+2	lane的编号				
+1101	tail的坐标
+7405	在tail中的X坐标
+1133	在tail中的Y坐标
+</code></pre><ul>
+<li>第2行就是测序得到的序列信息，一般用ATCGN来表示，<strong>其中N表示荧光信号干扰无法判断到底是哪个碱基。</strong></li>
+<li>第3行以“+”开始，可以储存一些附加信息，一般是空的。</li>
+<li>第4行储存的是质量信息，与第2行的碱基序列是一一对应的，其中的<strong>每一个符号对应的ASCII值成为phred值，可以简单理解为对应位置碱基的质量值，越大说明测序的质量越好。</strong> 不同的版本对应的不同。</li>
+</ul>
+<h3 id="详细谈谈fastq质量值的计算方法">详细谈谈FASTQ质量值的计算方法</h3>
+<p>在测序仪进行测序的时候，会自动根据荧光信号的强弱给出一个参考的<strong>测序错误概率</strong>（error probility，P）根据定义来说，P值肯定是越小越好。</p>
+<p>1.将P取log10之后再乘以-10，得到的结果为Q。</p>
+<pre tabindex="0"><code>比如，P=1%，那么对应的Q=-10*log10（0.01）=20
+</code></pre><p>2.把这个Q加上33或者64转成一个新的数值，称为Phred，最后把Phred对应的ASCII字符对应到这个碱基。</p>
+<pre tabindex="0"><code>如Q=20，Phred = 20 + 33 = 53，对应的符号是”5”
+</code></pre><p>这样就可以用1个符号与1个碱基一一对应</p>
+
+
+      
+      <div class="divider"></div>
+      <div class="flex flex-col md:flex-row justify-between gap-4 py-4">
+        
+        <a class="group btn btn-outline" href="/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" title="如何搭建自己的博客">
+          <ion-icon name="chevron-back"></ion-icon>
+          <div class="inline-flex flex-col items-start">
+            <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">上一页</span>
+            <span class="max-w-48 truncate">如何搭建自己的博客</span>
+          </div>
+        </a>
+        
+
+        
+        <div></div>
+        
+      </div>
+      
+    </article>
+  </div>
+
+  
+
+  
+
+  <section class="max-w-[65ch] mx-auto space-y-4">
+    
+
+    
+
+    
+  </section>
+</div>
+
+
+            <footer class="flex justify-between items-center gap-2 px-4 py-12">
+              <div>
+  
+  <p>
+    © 2024 Pepper的博客
+  </p>
+  
+
+  
+  <p class="text-sm">
+    🌱
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with theme
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+              <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center h-[32px] px-2 gap-2 border border-base-300 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+            </footer>
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            <div class="dream-grid">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">新布局</div>
+
+        <div class="prose dark:prose-invert">
+          <div style="display:table; width:100%;">
+    <div style="display:table-row">
+        <div style="display:table-cell; width:50%" class="author__avatar">
+        <img src="/me.jpg" class="author__avatar" alt="微信赞赏码"  />
+        </div>
+        <div style="display:table-cell; text-align:right; width:75%;">right text
+        </div>
+     </div>
+     </div> 
+<h3 id="nishuo">nishuo</h3>
+<p><code>nihao</code></p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">About Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Hi! my name is Zheng Shuang.</p>
+<p>Welcome to my blog. I’ll record study notes here.</p>
+<p>The content covered includes but is not limited to:</p>
+<ul>
+<li>
+<p>Structure Biology. (GPCR)</p>
+</li>
+<li>
+<p>Protein generation design. (AlphaFold)</p>
+</li>
+<li>
+<p>AI4S. (Biological information Data)</p>
+</li>
+<li>
+<p>Deep Learning. (Drug Screening)</p>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+
+  
+  
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+
+  window.hasTwitterEmbed =  null 
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/main.js"></script>
+
+    
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
+  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
+  crossorigin="anonymous"
+></script>
+<script>
+  format()
+
+  function format() {
+    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
+      const date = el.textContent
+
+      el.textContent = luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日")
+    })
+  }
+</script>
+
+
+
+
+
+
+
+    
+    <script src="/js/custom.js"></script>
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

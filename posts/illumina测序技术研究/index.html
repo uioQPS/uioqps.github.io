@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-Hans"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illumina测序数据研究 | Pepper的博客</title>
+
+    
+<link href="/ico.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="Pepper" />
+<meta name="description" content="测序原理 sanger法测序及双脱氧链终止法，它采取DNA复制原理，通过在DNA复制过程中添加双脱氧三磷酸核苷酸（ddNTP）终止DNA链的延伸，在DNA链不同位置的延伸终止判断该位置的碱基类型。但是凝胶电泳的时间较长，导致sanger法测序通量低。illumina测序技术可以实现高通量，低成本，测序长度较短。
+" />
+
+
+<link rel="canonical" href="https://uioqps.github.io/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/" />
+
+
+<meta property="og:url" content="https://uioqps.github.io/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/">
+  <meta property="og:site_name" content="Pepper的博客">
+  <meta property="og:title" content="Illumina测序数据研究">
+  <meta property="og:description" content="测序原理 sanger法测序及双脱氧链终止法，它采取DNA复制原理，通过在DNA复制过程中添加双脱氧三磷酸核苷酸（ddNTP）终止DNA链的延伸，在DNA链不同位置的延伸终止判断该位置的碱基类型。但是凝胶电泳的时间较长，导致sanger法测序通量低。illumina测序技术可以实现高通量，低成本，测序长度较短。">
+  <meta property="og:locale" content="zh_Hans">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-02-16T15:16:40+00:00">
+    <meta property="article:modified_time" content="2020-02-16T15:16:40+00:00">
+    <meta property="article:tag" content="Illumina">
+    <meta property="og:image" content="https://uioqps.github.io/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/seq1.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://uioqps.github.io/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/seq1.png">
+  <meta name="twitter:title" content="Illumina测序数据研究">
+  <meta name="twitter:description" content="测序原理 sanger法测序及双脱氧链终止法，它采取DNA复制原理，通过在DNA复制过程中添加双脱氧三磷酸核苷酸（ddNTP）终止DNA链的延伸，在DNA链不同位置的延伸终止判断该位置的碱基类型。但是凝胶电泳的时间较长，导致sanger法测序通量低。illumina测序技术可以实现高通量，低成本，测序长度较短。">
+
+
+
+<meta name="generator" content="Hugo 0.131.0">
+
+<link rel="stylesheet" href="/css/output.css" />
+
+<style>
+
+
+
+</style>
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+<link rel="stylesheet" href="https://uioqps.github.io/css/custom.min.bd79e66f1a98160ac0a2e0c4940dca2df1601bf0b41526cc21d80f4e1c6d590c.css" integrity="sha256-vXnmbxqYFgrAouDElA3KLfFgG/C0FSbMIdgPThxtWQw=">
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  <div class="container flex justify-between px-4">
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="翻转！">
+        <div class="h-10 rounded-full">
+          <img src="/me.jpg" alt="Pepper的博客" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="https://uioqps.github.io/" class="text-lg font-semibold cursor-pointer">
+          Pepper的博客
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">生命留给有价值的事物才能创造价值</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="关于">
+    <ion-icon name="information-circle"></ion-icon>关于</div>
+</li>
+
+
+
+
+<li>
+  <a class="group inline-flex items-center p-2 cursor-pointer" href="/search" title="搜索">
+    <ion-icon name="search"></ion-icon>
+    搜索
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="归档">
+    <ion-icon name="archive"></ion-icon>
+    归档
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="所有分类">
+    <ion-icon name="grid"></ion-icon>
+    所有分类
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="所有标签">
+    <ion-icon name="pricetags"></ion-icon>
+    所有标签
+  </a>
+</li>
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline" @click="flip = !flip" title="关于">关于</div>
+      
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/search" title="搜索">
+        <ion-icon class="group-hover:text-primary-content" name="search"></ion-icon>
+      </a>
+      
+
+      
+
+      
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="归档">
+        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="所有分类">
+        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="所有标签">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
+      
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="mt-4 px-4">
+  
+  <div class="relative" x-data="{ height: '' }" x-init="height = $el.scrollHeight + 'px'">
+  
+    
+    <div class="absolute right-0 lg:w-36 xl:w-48 hidden lg:block" :style="{ height }">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#测序原理">测序原理</a></li>
+    <li><a href="#illumina测序技术细节">Illumina测序技术细节</a>
+      <ul>
+        <li><a href="#adapter">adapter</a></li>
+        <li><a href="#桥式pcr">桥式PCR</a></li>
+        <li><a href="#边合成边测序sbs">边合成边测序SBS</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+    <article class="mx-auto prose dark:prose-invert" id="dream-single-post-main">
+      <header>
+        <h1>Illumina测序数据研究</h1>
+        <p class="text-sm">
+          
+            <span data-format="luxon">2020-02-16T15:16:40Z</span>
+          
+
+          | <span>1 分钟阅读</span>
+
+          
+          | <span>更新于
+            
+              <span data-format="luxon">2020-02-16T15:16:40Z</span>
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span>
+  
+    Pepper
+  
+  </span>
+</div>
+
+
+          <span class="flex items-center gap-2">
+  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=Illumina%e6%b5%8b%e5%ba%8f%e6%95%b0%e6%8d%ae%e7%a0%94%e7%a9%b6&url=https%3a%2f%2fuioqps.github.io%2fposts%2fillumina%25E6%25B5%258B%25E5%25BA%258F%25E6%258A%2580%25E6%259C%25AF%25E7%25A0%2594%25E7%25A9%25B6%2f" title="Share on X">
+    <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+  </a>
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fuioqps.github.io%2fposts%2fillumina%25E6%25B5%258B%25E5%25BA%258F%25E6%258A%2580%25E6%259C%25AF%25E7%25A0%2594%25E7%25A9%25B6%2f" title="Share on Facebook">
+    <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+  </a>
+</span>
+
+        </div>
+      </header>
+
+      
+      <img src="seq1.png" alt="Illumina测序数据研究" />
+      
+
+      <h2 id="测序原理">测序原理</h2>
+<p>sanger法测序及双脱氧链终止法，它采取DNA复制原理，通过在DNA复制过程中添加双脱氧三磷酸核苷酸（ddNTP）终止DNA链的延伸，在DNA链不同位置的延伸终止判断该位置的碱基类型。但是凝胶电泳的时间较长，导致sanger法测序通量低。illumina测序技术可以实现高通量，低成本，测序长度较短。</p>
+<p>桥式PCR，主要用于扩大信号，4色荧光可逆终止反应，使illumina测序可以实现边合成边测序的技术。但Illumina测序技术不能像第1代测序技术一样测500bp以上，一方面测序时，经过长时间的PCR，会有不同步的情况。开始1个cluster中是100个完全一样的DNA链，但是经过1轮增加碱基，其中99个都加入了1个碱基，显示了红色，另外1个没有加入碱基，不显示颜色。这时候整体为红色，我们可以顺利得到结果。随后，在第2轮再加入碱基进行合成的时候，之前没有加入的加入了1个碱基显示红色，这个时候就会出现杂信号。当测序长度不断延长，这个杂信号会越来越多，最后很有可能出现50个红，50个绿色，这时信号不足以判断碱基类型，所以不支持长段测序。</p>
+<h2 id="illumina测序技术细节">Illumina测序技术细节</h2>
+<h3 id="adapter">adapter</h3>
+<p>illumina测序过程中关键一步是将文库片段固定在flowcell上，然后通过桥式PCR将片段扩增，在被打断成300~500bp的长度的片段末端被补平后，adaptor将被添加到片段两端，用于将片段固定在flowcell上，同时adaptor中还包含桥式PCR所需要的引物。</p>
+<h3 id="桥式pcr">桥式PCR</h3>
+<ul>
+<li>加上adaptor之后的DNA样品与flowcell上固定的oligo（寡链核苷酸）匹配后就被固定在flowcell上，通过桥式PCR进行扩增成cluster,便于后面的荧光测序。</li>
+<li>第一轮扩增，将序列补成双链。加入NaOH强碱性溶液破坏DNA的双链，并洗脱。由于最开始的序列是使用化学键连接的，所以不会被洗。</li>
+<li>加入缓冲溶液，这时候序列自由端的部分就会和旁边的oligo进行匹配。</li>
+<li>进行一轮PCR，在PCR的过程中，序列是弯成桥状，所以叫桥式PCR，一轮桥式PCR可以使得序列扩增1倍；如此循环下去，就会得到一个具有完全相同序列的cluster。</li>
+<li>一条lane能测得的数据量在30G左右，而一个样品的测序量一般不会这么大，所以在建库的时候对每一种样品的接头加上不同的标签序列，这个标签就叫做Index，有了index就可以同时在一个lane中测多种数据了，后期可以根据index将数据分开。</li>
+</ul>
+<h3 id="边合成边测序sbs">边合成边测序SBS</h3>
+<p>经过桥式PCR之后同一段序列已经成簇，下一段就是开始进行测序，这一步比较简单，就是加入primer，然后添加经过特殊处理的ATCG四种碱基，特殊的地方有两点：一个是碱基部分加入了荧光基团，可以激发出不同的颜色，另一个是脱氧核糖3号位加入了叠氮基团而不是常规的羟基，保证了每次只能够在序列上添加1个碱基。
+这样每1轮测序，保证只有1个碱基加入的当前测序链。这时候测序仪会发出激发光，并扫描荧光。因为一个cluster中所有的序列是一样的，所以理论上，这时候cluster中发出的荧光应该颜色一致。随后加入试剂，将脱氧核糖3号位的—N2改变成—OH，然后切掉部分荧光基团，使其在下一轮反应中，不再发出荧光。 <br>
+<strong>adapter1-Index-fragment-adapter2</strong>，adapter2通过与oligo互补连接在flowcell上，在进行完桥式PCR之后进行测序时，添加primer，这一段primer的序列是与Index互补的而非adapter1，所以最终拿到的测序结果应该是Index+fragment+adapter2</p>
+
+      
+      <div class="divider"></div>
+      <div class="flex flex-col md:flex-row justify-between gap-4 py-4">
+        
+        <a class="group btn btn-outline" href="/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" title="如何搭建自己的博客">
+          <ion-icon name="chevron-back"></ion-icon>
+          <div class="inline-flex flex-col items-start">
+            <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">上一页</span>
+            <span class="max-w-48 truncate">如何搭建自己的博客</span>
+          </div>
+        </a>
+        
+
+        
+        <a class="group btn btn-outline" href="/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/" title="关于测序数据文件「FASTA 与 FASTQ」">
+          <div class="inline-flex flex-col items-end">
+            <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">下一页</span>
+            <span class="max-w-48 truncate">关于测序数据文件「FASTA 与 FASTQ」</span>
+          </div>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </a>
+        
+      </div>
+      
+    </article>
+  </div>
+
+  
+
+  
+
+  <section class="max-w-[65ch] mx-auto space-y-4">
+    
+
+    
+
+    
+  </section>
+</div>
+
+
+            <footer class="flex justify-between items-center gap-2 px-4 py-12">
+              <div>
+  
+  <p>
+    © 2024 Pepper的博客
+  </p>
+  
+
+  
+  <p class="text-sm">
+    🌱
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with theme
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+              <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center h-[32px] px-2 gap-2 border border-base-300 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+            </footer>
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            <div class="dream-grid">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">自我介绍</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Hi! my name is Zheng Shuang.</p>
+<p>Welcome to my blog. I’ll record study notes here.</p>
+<div style="display:table; width:100%;">
+    <div style="display:table-row">
+        <div style="display:table-cell" class="author__avatar">
+        <img src="/picme.jpg" class="author__avatar" /></div>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">关于博客</div>
+
+        <div class="prose dark:prose-invert">
+          <p>The content covered includes but is not limited to:</p>
+<ul>
+<li>
+<p>🧬Structure Biology. (GPCR)</p>
+</li>
+<li>
+<p>🧪Protein generation design. (AlphaFold)</p>
+</li>
+<li>
+<p>💻AI4S. (Biological information Data)</p>
+</li>
+<li>
+<p>🔬Deep Learning. (Drug Screening)</p>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+
+  
+  
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+
+  window.hasTwitterEmbed =  null 
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/main.js"></script>
+
+    
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
+  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
+  crossorigin="anonymous"
+></script>
+<script>
+  format()
+
+  function format() {
+    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
+      const date = el.textContent
+
+      el.textContent = luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日")
+    })
+  }
+</script>
+
+
+
+
+
+
+
+    
+    <script src="/js/custom.js"></script>
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

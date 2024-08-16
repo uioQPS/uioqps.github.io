@@ -21,21 +21,21 @@
 <link rel="canonical" href="https://uioqps.github.io/" />
 
 
-<meta property="og:title" content="Pepper的博客" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://uioqps.github.io/" />
+<meta property="og:url" content="https://uioqps.github.io/">
+  <meta property="og:site_name" content="Pepper的博客">
+  <meta property="og:title" content="Pepper的博客">
+  <meta property="og:locale" content="zh_Hans">
+  <meta property="og:type" content="website">
 
 
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Pepper的博客"/>
-<meta name="twitter:description" content=""/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pepper的博客">
 
 
 
-<meta name="generator" content="Hugo 0.95.0" />
+<meta name="generator" content="Hugo 0.131.0">
 
 <link rel="stylesheet" href="/css/output.css" />
 
@@ -50,6 +50,9 @@
 
     
     <link rel="stylesheet" href="/css/custom.css" />
+    
+<link rel="stylesheet" href="https://uioqps.github.io/css/custom.min.bd79e66f1a98160ac0a2e0c4940dca2df1601bf0b41526cc21d80f4e1c6d590c.css" integrity="sha256-vXnmbxqYFgrAouDElA3KLfFgG/C0FSbMIdgPThxtWQw=">
+
     
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -202,8 +205,8 @@
     
     
     <picture>
-      <source srcset="/images/default1_hu3d03a01dcc18bc5be0e67db3d8d209a6_69563_640x512_resize_q75_h2_box.webp" type="image/webp" />
-      <img src="/images/default1.jpg" alt="images/default1.jpg" />
+      <source srcset="/posts/gpcr%E6%A6%82%E8%A7%88/GPCR_hu7964651723899819544.webp" type="image/webp" />
+      <img src="/posts/gpcr%E6%A6%82%E8%A7%88/GPCR.jpg" alt="GPCR.jpg" />
     </picture>
     
   
@@ -218,7 +221,8 @@
     
     </p>
 
-    GPCR是一个7次跨膜蛋白。
+    <p>GPCR是一个7次跨膜蛋白。</p>
+<h2 id="muscarinic-receptor">Muscarinic Receptor</h2>
 
     <div class="card-actions justify-between items-center mt-4">
       <div class="flex items-center">
@@ -257,8 +261,8 @@
     
     
     <picture>
-      <source srcset="/images/default3_hu3d03a01dcc18bc5be0e67db3d8d209a6_69593_640x421_resize_q75_h2_box.webp" type="image/webp" />
-      <img src="/images/default3.jpg" alt="images/default3.jpg" />
+      <source srcset="/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2_hu653192923901719219.webp" type="image/webp" />
+      <img src="/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2.jpg" alt="如何搭建自己的博客.jpg" />
     </picture>
     
   
@@ -273,15 +277,12 @@
     
     </p>
 
-    部署 连接Github SSH的生成和连接
-选择Hugo主题 Dream
-文章中的cover图片和引用图片的位置放在哪？
-collections:
-name: ‘post’ label: ‘Post’ folder: ‘content/posts’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-name: ‘about’ label: ‘About’ folder: ‘content/about’ create: true slug: ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[collections] [[collections.post]] label= ‘Post’ folder= ‘content/posts’ create= true slug= ‘{{year}}-{{month}}-{{day}}-{{slug}}’
-[[collections.about]] label= &lsquo;About&rsquo; folder= &lsquo;content/about&rsquo; create= true slug= &lsquo;{{year}}-{{month}}-{{day}}-{{slug}}&rsquo; To use it, create an admin folder in your static directory, then copy the contents of the decapCMS folder to the admin folder.
-Public静态文件夹 页面——about\categories\tags 每一个子节点都含有独立的index.
+    <h2 id="部署">部署</h2>
+<h3 id="连接github">连接Github</h3>
+<p>SSH的生成和连接<br>
+将public文件夹分支存放到git里单独托管，这样只用管理静态文件</p>
+<h3 id="选择hugo主题">选择Hugo主题</h3>
+<p>Dream</p>
 
     <div class="card-actions justify-between items-center mt-4">
       <div class="flex items-center">
@@ -298,6 +299,109 @@ Public静态文件夹 页面——about\categories\tags 每一个子节点都含
     
       Pepper
     
+  
+  </span>
+</div>
+
+
+      <div class="inline-flex items-center">
+        <ion-icon name="time" class="mr-1"></ion-icon>
+        <span>1 分钟阅读</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <a class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl cursor-pointer dark:border dark:border-base-content/30" href="/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/">
+  <figure>
+  
+    
+    
+    <picture>
+      <source srcset="/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/seq1_hu2124595321238330092.webp" type="image/webp" />
+      <img src="/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/seq1.png" alt="seq1.png" />
+    </picture>
+    
+  
+  </figure>
+
+  <div class="card-body">
+    <h2 class="card-title">Illumina测序数据研究</h2>
+
+    <p class="date text-base-content/60">
+    
+      <span data-format="luxon">2020-02-16T15:16:40Z</span>
+    
+    </p>
+
+    <h2 id="测序原理">测序原理</h2>
+<p>sanger法测序及双脱氧链终止法，它采取DNA复制原理，通过在DNA复制过程中添加双脱氧三磷酸核苷酸（ddNTP）终止DNA链的延伸，在DNA链不同位置的延伸终止判断该位置的碱基类型。但是凝胶电泳的时间较长，导致sanger法测序通量低。illumina测序技术可以实现高通量，低成本，测序长度较短。</p>
+
+    <div class="card-actions justify-between items-center mt-4">
+      <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span>
+  
+    Pepper
+  
+  </span>
+</div>
+
+
+      <div class="inline-flex items-center">
+        <ion-icon name="time" class="mr-1"></ion-icon>
+        <span>1 分钟阅读</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <a class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl cursor-pointer dark:border dark:border-base-content/30" href="/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/">
+  <figure>
+  
+    
+    
+    <picture>
+      <source srcset="/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/seq_hu7139222638901214430.webp" type="image/webp" />
+      <img src="/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/seq.png" alt="seq.png" />
+    </picture>
+    
+  
+  </figure>
+
+  <div class="card-body">
+    <h2 class="card-title">关于测序数据文件「FASTA 与 FASTQ」</h2>
+
+    <p class="date text-base-content/60">
+    
+      <span data-format="luxon">2020-02-16T15:16:37Z</span>
+    
+    </p>
+
+    <p>fastq和fasta这两种储存sequence是后续分析主要处理的两种数据格式：<br>
+双序列比对（pairwise alignment）<br>
+进化树构建（phylogenetic tree）<br>
+高通量分析的回贴（mapping）数据的原始输入</p>
+<hr>
+
+    <div class="card-actions justify-between items-center mt-4">
+      <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span>
+  
+    Pepper
   
   </span>
 </div>
@@ -379,24 +483,42 @@ Public静态文件夹 页面——about\categories\tags 每一个子节点都含
       class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
     >
       <div class="card-body">
-        <div class="card-title">About Me</div>
+        <div class="card-title">自我介绍</div>
 
         <div class="prose dark:prose-invert">
           <p>Hi! my name is Zheng Shuang.</p>
 <p>Welcome to my blog. I’ll record study notes here.</p>
-<p>The content covered includes but is not limited to:</p>
+<div style="display:table; width:100%;">
+    <div style="display:table-row">
+        <div style="display:table-cell" class="author__avatar">
+        <img src="/picme.jpg" class="author__avatar" /></div>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">关于博客</div>
+
+        <div class="prose dark:prose-invert">
+          <p>The content covered includes but is not limited to:</p>
 <ul>
 <li>
-<p>Structure Biology. (GPCR)</p>
+<p>🧬Structure Biology. (GPCR)</p>
 </li>
 <li>
-<p>Protein generation design. (AlphaFold)</p>
+<p>🧪Protein generation design. (AlphaFold)</p>
 </li>
 <li>
-<p>AI4S. (Biological information Data)</p>
+<p>💻AI4S. (Biological information Data)</p>
 </li>
 <li>
-<p>Deep Learning. (Drug Screening)</p>
+<p>🔬Deep Learning. (Drug Screening)</p>
 </li>
 </ul>
 
@@ -473,6 +595,8 @@ Public静态文件夹 页面——about\categories\tags 每一个子节点都含
 
 
 
+    
+    <script src="/js/custom.js"></script>
     
 
     
