@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>搜索 | Pepper的博客</title>
+    <title>AI4S | Pepper的博客</title>
 
     
 <link href="/ico.ico" rel="shortcut icon" type="image/x-icon" />
@@ -18,12 +18,12 @@
 <meta name="description" content="" />
 
 
-<link rel="canonical" href="https://uioqps.github.io/search/" />
+<link rel="canonical" href="https://uioqps.github.io/tags/ai4s/" />
 
 
-<meta property="og:url" content="https://uioqps.github.io/search/">
+<meta property="og:url" content="https://uioqps.github.io/tags/ai4s/">
   <meta property="og:site_name" content="Pepper的博客">
-  <meta property="og:title" content="Pepper的博客">
+  <meta property="og:title" content="AI4S">
   <meta property="og:locale" content="zh_Hans">
   <meta property="og:type" content="website">
 
@@ -31,7 +31,7 @@
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Pepper的博客">
+  <meta name="twitter:title" content="AI4S">
 
 
 
@@ -195,53 +195,107 @@
           <div class="container">
             
 
-<div class="mt-8 lg:mt-12 px-4" x-data="{
-  search: '',
-  get posts() { return this.search !== '' ? window.fuse.search(this.search) : [] },
-}">
-  <label class="input input-bordered flex items-center gap-2">
-    <input type="text" class="grow" placeholder="搜索" x-model.debounce="search" />
-    <ion-icon name="search"></ion-icon>
-  </label>
+<div class="flex flex-col md:flex-row gap-4 mt-8 lg:mt-12 px-4">
+  <div class="md:basis-[200px] lg:basis-[300px] prose dark:prose-invert">
+    <h1 class="text-2xl">AI4S</h1>
+    <p class="text-sm">1篇文章</p>
+    <div class="flex flex-wrap gap-4 mt-6">
+      
 
-  <div class="mt-8 space-y-4">
-  <template x-for="post in posts">
-    <a class="card card-compact bg-base-100 hover:bg-base-content/10 cursor-pointer border border-base-content/30" :href="post.item.url">
-      <div class="card-body">
-        <h2 class="card-title" x-text="post.item.title"></h2>
+      
+      
+      <span class="badge h-6 badge-primary">
+        AI4S
+      </span>
+      
+      
+      
+      <a href="/tags/blog/" class="badge h-6 no-underline hover:badge-primary">
+        Blog
+      </a>
+      
+      
+      
+      <a href="/tags/gpcr/" class="badge h-6 no-underline hover:badge-primary">
+        GPCR
+      </a>
+      
+      
+      
+      <a href="/tags/illumina/" class="badge h-6 no-underline hover:badge-primary">
+        Illumina
+      </a>
+      
+      
+      
+      <a href="/tags/ngs/" class="badge h-6 no-underline hover:badge-primary">
+        Ngs
+      </a>
+      
+      
+      
+      <a href="/tags/rfdiffusion/" class="badge h-6 no-underline hover:badge-primary">
+        RFdiffusion
+      </a>
+      
+      
+    </div>
+  </div>
+  <div class="divider divider-vertical md:divider-horizontal"></div>
+  <div class="flex-1 space-y-4">
+    
+    
+    <a class="card image-full card-compact" href="/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/">
+  <figure class="h-[200px]">
+  
+    
+    
+    <picture class="w-full">
+      <source srcset="/images/default1_hu18298318514717008910.webp" type="image/webp" />
+      <img class="w-full" src="/images/default1.jpg" alt="/images/default1.jpg" />
+    </picture>
+    
+  
+  </figure>
 
-        <div x-html="post.item.description"></div>
+  <div class="card-body">
+    <h2 class="card-title">David baker蛋白质设计方法</h2>
 
-        <div class="card-actions justify-between items-center mt-4">
-          <div class="flex items-center">
-            <template x-if="post.item.avatar">
-            <div class="avatar mr-1">
-              <div class="w-8 rounded-full">
-                <img class="my-0" :src="post.item.avatar" :alt="post.item.author" />
-              </div>
-            </div>
-            </template>
-            <template x-if="!post.item.avatar">
-            <span>@</span>
-            </template>
+    <p class="date">
+    
+      <span data-format="luxon">2024-08-31T17:25:47&#43;08:00</span>
+    
+    </p>
 
-            <template x-if="post.item.author">
-            <span x-text="post.item.author"></span>
-            </template>
-            <template x-if="!post.item.author">
-            <span x-text="Pepper"></span>
-            </template>
-            </span>
-          </div>
+    david baker开发了蛋白质设计diffusion模型
 
-          <div class="inline-flex items-center">
-            <ion-icon name="time" class="mr-1"></ion-icon>
-            <span><span x-text="post.item.readingTime"></span> 分钟阅读</span>
-          </div>
-        </div>
+    <div class="card-actions justify-between items-center mt-4">
+      <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span>
+  
+    
+      Pepper
+    
+  
+  </span>
+</div>
+
+
+      <div class="inline-flex items-center">
+        <ion-icon name="time" class="mr-1"></ion-icon>
+        <span>1 分钟阅读</span>
       </div>
-    </a>
-  </template>
+    </div>
+  </div>
+</a>
+
+    
+
+    
   </div>
 </div>
 
@@ -496,29 +550,24 @@ Tsinghua University</p>
     
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
+  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
+  crossorigin="anonymous"
+></script>
 <script>
-  var fuseData = [{"author":"Pepper","avatar":null,"categories":["蛋白质设计"],"description":"david baker开发了蛋白质设计diffusion模型","readingTime":1,"tags":["RFdiffusion","AI4S"],"title":"David baker蛋白质设计方法","url":"/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/"},{"author":"Pepper","avatar":"/me.jpg","categories":["结构生物学"],"description":"\u003cp\u003eGPCR是一个7次跨膜蛋白。\u003c/p\u003e\n\u003ch2 id=\"muscarinic-receptor\"\u003eMuscarinic Receptor\u003c/h2\u003e","readingTime":1,"tags":["GPCR"],"title":"GPCR概览","url":"/posts/gpcr%E6%A6%82%E8%A7%88/"},{"author":"Pepper","avatar":"/me.jpg","categories":["Web"],"description":"\u003ch2 id=\"部署\"\u003e部署\u003c/h2\u003e\n\u003ch3 id=\"连接github\"\u003e连接Github\u003c/h3\u003e\n\u003cp\u003eSSH的生成和连接\u003cbr\u003e\n将public文件夹分支存放到git里单独托管，这样只用管理静态文件\u003c/p\u003e\n\u003ch3 id=\"选择hugo主题\"\u003e选择Hugo主题\u003c/h3\u003e\n\u003cp\u003eDream\u003c/p\u003e","readingTime":1,"tags":["Blog"],"title":"如何搭建自己的博客","url":"/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"},{"author":null,"avatar":null,"categories":["ngs"],"description":"\u003ch2 id=\"测序原理\"\u003e测序原理\u003c/h2\u003e\n\u003cp\u003esanger法测序及双脱氧链终止法，它采取DNA复制原理，通过在DNA复制过程中添加双脱氧三磷酸核苷酸（ddNTP）终止DNA链的延伸，在DNA链不同位置的延伸终止判断该位置的碱基类型。但是凝胶电泳的时间较长，导致sanger法测序通量低。illumina测序技术可以实现高通量，低成本，测序长度较短。\u003c/p\u003e","readingTime":1,"tags":["illumina"],"title":"Illumina测序数据研究","url":"/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/"},{"author":null,"avatar":null,"categories":["bioinfo"],"description":"\u003cp\u003efastq和fasta这两种储存sequence是后续分析主要处理的两种数据格式：\u003cbr\u003e\n双序列比对（pairwise alignment）\u003cbr\u003e\n进化树构建（phylogenetic tree）\u003cbr\u003e\n高通量分析的回贴（mapping）数据的原始输入\u003c/p\u003e\n\u003chr\u003e","readingTime":1,"tags":["ngs"],"title":"关于测序数据文件「FASTA 与 FASTQ」","url":"/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/"}];
-  var fuseOptions = {
-    keys: [
-      "title",
-    ]
-  };
+  format()
 
-  var fuse = new Fuse(fuseData, fuseOptions);
+  function format() {
+    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
+      const date = el.textContent
+
+      el.textContent = luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日")
+    })
+  }
 </script>
+
+
 
 
 
