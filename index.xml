@@ -13,14 +13,7 @@
       <link>https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/</link>
       <pubDate>Sat, 31 Aug 2024 17:25:47 +0800</pubDate>
       <guid>https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/</guid>
-      <description>david baker开发了蛋白质设计diffusion模型</description>
-    </item>
-    <item>
-      <title>GPCR概览</title>
-      <link>https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/</link>
-      <pubDate>Fri, 09 Aug 2024 20:09:58 +0800</pubDate>
-      <guid>https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/</guid>
-      <description>&lt;p&gt;GPCR是一个7次跨膜蛋白。&lt;/p&gt;&#xA;&lt;h2 id=&#34;muscarinic-receptor&#34;&gt;Muscarinic Receptor&lt;/h2&gt;</description>
+      <description>david baker开发了蛋白质设计diffusion模型&#xA;蛋白质生成RFdiffusion 无约束单体设计contigmap 特定骨架引导的设计scaffoldguided&#xA;cryoem </description>
     </item>
     <item>
       <title>如何搭建自己的博客</title>
@@ -28,6 +21,13 @@
       <pubDate>Fri, 09 Aug 2024 19:11:45 +0800</pubDate>
       <guid>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
       <description>&lt;h2 id=&#34;部署&#34;&gt;部署&lt;/h2&gt;&#xA;&lt;h3 id=&#34;连接github&#34;&gt;连接Github&lt;/h3&gt;&#xA;&lt;p&gt;SSH的生成和连接&lt;br&gt;&#xA;将public文件夹分支存放到git里单独托管，这样只用管理静态文件&lt;/p&gt;&#xA;&lt;h3 id=&#34;选择hugo主题&#34;&gt;选择Hugo主题&lt;/h3&gt;&#xA;&lt;p&gt;Dream&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GPCR概览</title>
+      <link>https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/</link>
+      <pubDate>Fri, 09 Sep 2022 20:09:58 +0800</pubDate>
+      <guid>https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/</guid>
+      <description>&lt;h2 id=&#34;前沿&#34;&gt;前沿&lt;/h2&gt;&#xA;&lt;h3 id=&#34;gpcr的定义&#34;&gt;GPCR的定义&lt;/h3&gt;&#xA;&lt;p&gt;G蛋白偶联受体(GPCR)家族是最大和研究最多的细胞表面蛋白家族之一，在人类基因组中发现了近800个成员。GPCRs是七种跨膜受体蛋白，它们被一系列刺激物激活，包括蛋白质、肽、脂质、氨基酸、离子、生物胺、光和气味剂。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Illumina测序数据研究</title>
