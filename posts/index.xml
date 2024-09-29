@@ -13,14 +13,14 @@
       <link>https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/</link>
       <pubDate>Sat, 31 Aug 2024 17:25:47 +0800</pubDate>
       <guid>https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/</guid>
-      <description>david baker开发了蛋白质设计diffusion模型&#xA;蛋白质生成RFdiffusion 无约束单体设计contigmap 特定骨架引导的设计scaffoldguided&#xA;cryoem </description>
+      <description>david baker开发了蛋白质设计diffusion模型 蛋白质生成RFdiffusion 无约束单体设计contigmap 特定骨架引导的设计scaf</description>
     </item>
     <item>
       <title>如何搭建自己的博客</title>
       <link>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Fri, 09 Aug 2024 19:11:45 +0800</pubDate>
       <guid>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
-      <description>&lt;h2 id=&#34;部署&#34;&gt;部署&lt;/h2&gt;&#xA;&lt;h3 id=&#34;连接github&#34;&gt;连接Github&lt;/h3&gt;&#xA;&lt;p&gt;SSH的生成和连接&lt;br&gt;&#xA;将public文件夹分支存放到git里单独托管，这样只用管理静态文件&lt;/p&gt;&#xA;&lt;h3 id=&#34;选择hugo主题&#34;&gt;选择Hugo主题&lt;/h3&gt;&#xA;&lt;p&gt;Dream&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;hugo简介&#34;&gt;Hugo简介&lt;/h2&gt;&#xA;&lt;h3 id=&#34;hugo建站优点&#34;&gt;Hugo建站优点&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;超高速的生成速度&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;快速构建&lt;/strong&gt;：Hugo 能在几秒钟内生成上千个页面，大大提高了开发效率。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;即时预览&lt;/strong&gt;：内置的开发服务器支持实时预览，更改内容后页面立即刷新。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;&lt;strong&gt;简单易用&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;易于安装&lt;/strong&gt;：无需复杂的依赖环境，下载即可使用。&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>GPCR概览</title>

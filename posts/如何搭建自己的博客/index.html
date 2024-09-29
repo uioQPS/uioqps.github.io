@@ -15,10 +15,7 @@
 
 
 <meta name="author" content="Pepper" />
-<meta name="description" content="部署 连接Github SSH的生成和连接
-将public文件夹分支存放到git里单独托管，这样只用管理静态文件
-选择Hugo主题 Dream
-" />
+<meta name="description" content="Hugo简介 Hugo建站优点 超高速的生成速度 快速构建：Hugo 能在几秒钟内生成上千个页面，大大提高了开发效率。 即时预览：内置的开发服务器支持实时预览，更改内容后页面立即刷新。 简单易用 易于安装：无需复杂的依赖环境，下载即可使用。 " />
 
 
 <link rel="canonical" href="https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" />
@@ -27,9 +24,7 @@
 <meta property="og:url" content="https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
   <meta property="og:site_name" content="Pepper的博客">
   <meta property="og:title" content="如何搭建自己的博客">
-  <meta property="og:description" content="部署 连接Github SSH的生成和连接
-将public文件夹分支存放到git里单独托管，这样只用管理静态文件
-选择Hugo主题 Dream">
+  <meta property="og:description" content="Hugo简介 Hugo建站优点 超高速的生成速度 快速构建：Hugo 能在几秒钟内生成上千个页面，大大提高了开发效率。 即时预览：内置的开发服务器支持实时预览，更改内容后页面立即刷新。 简单易用 易于安装：无需复杂的依赖环境，下载即可使用。 ">
   <meta property="og:locale" content="zh_Hans">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -44,9 +39,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2.jpg">
   <meta name="twitter:title" content="如何搭建自己的博客">
-  <meta name="twitter:description" content="部署 连接Github SSH的生成和连接
-将public文件夹分支存放到git里单独托管，这样只用管理静态文件
-选择Hugo主题 Dream">
+  <meta name="twitter:description" content="Hugo简介 Hugo建站优点 超高速的生成速度 快速构建：Hugo 能在几秒钟内生成上千个页面，大大提高了开发效率。 即时预览：内置的开发服务器支持实时预览，更改内容后页面立即刷新。 简单易用 易于安装：无需复杂的依赖环境，下载即可使用。 ">
 
 
 
@@ -79,7 +72,7 @@
     
     <link rel="stylesheet" href="/css/custom.css" />
     
-<link rel="stylesheet" href="https://uioqps.github.io/css/custom.min.8b4bfd4788edc8e45c6485bca18fa156afa621049ea7c343e5a6c98fa324e56d.css" integrity="sha256-i0v9R4jtyORcZIW8oY&#43;hVq&#43;mIQSep8ND5abJj6Mk5W0=">
+<link rel="stylesheet" href="https://uioqps.github.io/css/custom.min.34652102f539e3c96b43b56230791645cd61e905bd91d2aa835c1a736a2c674e.css" integrity="sha256-NGUhAvU548lrQ7ViMHkWRc1h6QW9kdKqg1wac2osZ04=">
 <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 
     
@@ -230,15 +223,17 @@
     <div class="absolute right-0 lg:w-36 xl:w-48 hidden lg:block" :style="{ height }">
       <nav id="TableOfContents">
   <ul>
+    <li><a href="#hugo简介">Hugo简介</a>
+      <ul>
+        <li><a href="#hugo建站优点">Hugo建站优点</a></li>
+        <li><a href="#hugo建站步骤">Hugo建站步骤</a></li>
+      </ul>
+    </li>
     <li><a href="#部署">部署</a>
       <ul>
         <li><a href="#连接github">连接Github</a></li>
-        <li><a href="#选择hugo主题">选择Hugo主题</a></li>
-      </ul>
-    </li>
-    <li><a href="#博客美化">博客美化</a>
-      <ul>
-        <li><a href="#图片引用">图片引用</a></li>
+        <li><a href="#托管静态文件">托管静态文件</a></li>
+        <li><a href="#博客美化">博客美化</a></li>
       </ul>
     </li>
   </ul>
@@ -253,7 +248,7 @@
             <span data-format="luxon">2024-08-09T19:11:45&#43;08:00</span>
           
 
-          | <span>1 分钟阅读</span>
+          | <span>3 分钟阅读</span>
 
           
           | <span>更新于
@@ -298,14 +293,114 @@
       <img src="%e5%a6%82%e4%bd%95%e6%90%ad%e5%bb%ba%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2.jpg" alt="如何搭建自己的博客" />
       
 
-      <h2 id="部署">部署</h2>
+      <h2 id="hugo简介">Hugo简介</h2>
+<h3 id="hugo建站优点">Hugo建站优点</h3>
+<ol>
+<li><strong>超高速的生成速度</strong></li>
+</ol>
+<ul>
+<li><strong>快速构建</strong>：Hugo 能在几秒钟内生成上千个页面，大大提高了开发效率。</li>
+<li><strong>即时预览</strong>：内置的开发服务器支持实时预览，更改内容后页面立即刷新。</li>
+</ul>
+<ol start="2">
+<li><strong>简单易用</strong></li>
+</ol>
+<ul>
+<li><strong>易于安装</strong>：无需复杂的依赖环境，下载即可使用。</li>
+</ul>
+<ul>
+<li><strong>易于配置</strong>：配置文件简单明了，支持 <strong>YAML</strong>、<strong>TOML</strong> 和 <strong>JSON</strong> 格式。</li>
+</ul>
+<ol start="3">
+<li><strong>灵活的内容管理</strong></li>
+</ol>
+<ul>
+<li><strong>支持多种格式</strong>：可使用 <strong>Markdown</strong>、<strong>HTML</strong> 等格式撰写内容。</li>
+<li><strong>强大的模板引擎</strong>：使用 <strong>Go 语言模板</strong>，支持复杂的模板定制。</li>
+<li><strong>多语言支持</strong>：内置国际化功能，方便创建多语言站点。</li>
+</ul>
+<ol start="4">
+<li><strong>静态网站优势</strong></li>
+</ol>
+<ul>
+<li><strong>安全性高</strong>：纯静态文件，无需数据库，减少安全漏洞。</li>
+<li><strong>部署方便</strong>：可部署到任意支持静态文件的服务器或平台，如 <strong>GitHub Pages</strong>、<strong>Netlify</strong> 等。</li>
+<li><strong>性能优秀</strong>：页面加载速度快，用户体验佳。</li>
+</ul>
+<h3 id="hugo建站步骤">Hugo建站步骤</h3>
+<p>步骤 1：安装 Hugo</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>macOS（使用 Homebrew）
+</span></span><span style="display:flex;"><span>  brew install hugo
+</span></span></code></pre></div><p>步骤 2：创建新站点</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  hugo new site myblog
+</span></span></code></pre></div><p>步骤 3：选择并安装主题</p>
+<ul>
+<li>进入站点目录：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  cd myblog
+</span></span></code></pre></div><ul>
+<li>创建 themes 文件夹（如果不存在）：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  mkdir themes
+</span></span></code></pre></div><ul>
+<li>克隆主题仓库（以dream主题为例）：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  git clone https://github.com/g1eny0ung/hugo-theme-dream.git
+</span></span></code></pre></div><h2 id="部署">部署</h2>
+<p>分离发布和开发：</p>
+<ul>
+<li><code>分离管理</code>：将public目录作为子模块，意味着您可以将内容管理和静态站点托管分离开来。public仓库只负责托管生成的静态文件，而主仓库则用于存储Hugo站点源文件。</li>
+<li><code>便于协作</code>：子模块允许团队成员分别在不同的仓库中工作。例如，一个人负责站点内容更新，另一个人负责站点的部署。每个模块仓库可以独立管理。</li>
+<li><code>便于管理和维护</code>：当您更新了博客内容时，您只需重新生成public目录的静态文件，并将其推送到子模块仓库。这样，主仓库和发布仓库可以分别独立更新和管理。</li>
+</ul>
 <h3 id="连接github">连接Github</h3>
-<p>SSH的生成和连接<br>
-将public文件夹分支存放到git里单独托管，这样只用管理静态文件</p>
-<h3 id="选择hugo主题">选择Hugo主题</h3>
-<p>Dream</p>
-<h2 id="博客美化">博客美化</h2>
-<h3 id="图片引用">图片引用</h3>
+<p><strong>创建 GitHub 仓库</strong>：</p>
+<ul>
+<li>登录 <a href="https://github.com">GitHub</a>。</li>
+<li>点击右上角的 <code>+</code> 号并选择 <code>New repository</code>。</li>
+<li>设置仓库名称，例如 <code>my-hugo-site</code>。</li>
+<li>选择 <strong>Public</strong> 作为可见性。</li>
+<li>点击 <code>Create repository</code>。</li>
+</ul>
+<h4 id="ssh的生成和连接">SSH的生成和连接</h4>
+<ol>
+<li>初始化 Git 仓库： 进入新创建的 Hugo 项目目录，初始化 Git 仓库</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  cd myblog
+</span></span><span style="display:flex;"><span>  git init
+</span></span></code></pre></div><ol start="2">
+<li>连接 GitHub 仓库： 在本地仓库中设置远程仓库，将仓库链接到 GitHub</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  git remote add origin https://github.com/your-username/myblog.git
+</span></span></code></pre></div><ol start="3">
+<li>提交站点文件</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>将所有项目文件添加到 Git 暂存区
+</span></span><span style="display:flex;"><span>  git add .
+</span></span><span style="display:flex;"><span>提交更改
+</span></span><span style="display:flex;"><span>  git commit -m <span style="color:#e6db74">&#34;Initial commit&#34;</span>
+</span></span><span style="display:flex;"><span>推送到 GitHub： 将代码推送到 GitHub 仓库
+</span></span><span style="display:flex;"><span>  git push -u origin main
+</span></span></code></pre></div><h3 id="托管静态文件">托管静态文件</h3>
+<p>将public文件夹分支存放到git里单独托管，这样只用管理静态文件</p>
+<h4 id="将public目录作为submodule部署">将public目录作为Submodule部署</h4>
+<p>创建一个单独的仓库用于部署静态文件：在GitHub上创建另一个仓库，例如my-hugo-site-public，用于托管生成的静态文件。   <br>
+将public目录作为Git子模块：回到本地Hugo项目目录，将public目录添加为Git子模块</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  git submodule add https:<span style="color:#f92672">//</span>github<span style="color:#f92672">.</span>com<span style="color:#f92672">/</span>your<span style="color:#f92672">-</span>username<span style="color:#f92672">/</span>my<span style="color:#f92672">-</span>hugo<span style="color:#f92672">-</span>site<span style="color:#f92672">-</span>public<span style="color:#f92672">.</span>git public
+</span></span></code></pre></div><p>提交子模块设置： 提交子模块的引用到主仓库中</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  git add <span style="color:#f92672">.</span>gitmodules public
+</span></span><span style="display:flex;"><span>  git commit <span style="color:#f92672">-</span>m <span style="color:#e6db74">&#34;Add public as a submodule&#34;</span>
+</span></span><span style="display:flex;"><span>  git push
+</span></span></code></pre></div><h4 id="git部署推送">git部署推送</h4>
+<p>生成站点： 每次更新博客后，运行以下命令生成最新的静态文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  hugo
+</span></span></code></pre></div><p>提交并推送静态文件到public仓库：进入public目录，将生成的静态文件推送到public仓库</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  cd public
+</span></span><span style="display:flex;"><span>  git add <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  git commit <span style="color:#f92672">-</span>m <span style="color:#e6db74">&#34;Update public site&#34;</span>
+</span></span><span style="display:flex;"><span>  git push origin main
+</span></span></code></pre></div><h3 id="博客美化">博客美化</h3>
+<h4 id="图片引用">图片引用</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ae81ff">1.</span> 在content中建立post页面单独的文件夹<span style="color:#960050;background-color:#1e0010">，</span>存放对应图片<span style="color:#960050;background-color:#1e0010">，</span>直接引用
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>img src<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;如何搭建自己的博客.jpg&#39;</span> alt<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sym&#34;</span> width<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">2.</span> 在static文件中存放的文件<span style="color:#960050;background-color:#1e0010">，</span>引用代码

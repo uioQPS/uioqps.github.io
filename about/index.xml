@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on Pepper的博客</title>
+    <link>http://localhost:1313/about/</link>
+    <description>Recent content in Abouts on Pepper的博客</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 31 Aug 2024 17:36:28 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/about/me2/</link>
+      <pubDate>Sat, 10 Aug 2024 10:45:23 +0800</pubDate>
+      <guid>http://localhost:1313/about/me2/</guid>
+      <description>Zheng Shuang&#xA;Tsinghua University&#xA;Incoming PhD student at School of Pharamaceutical Sciences</description>
+    </item>
+    <item>
+      <title>💻 Internships</title>
+      <link>http://localhost:1313/about/me4/</link>
+      <pubDate>Sat, 31 Aug 2024 17:36:28 +0800</pubDate>
+      <guid>http://localhost:1313/about/me4/</guid>
+      <description> </description>
+    </item>
+    <item>
+      <title>关于博客</title>
+      <link>http://localhost:1313/about/me-p/</link>
+      <pubDate>Fri, 30 Aug 2024 18:10:15 +0800</pubDate>
+      <guid>http://localhost:1313/about/me-p/</guid>
+      <description>The content covered includes but is not limited to:&#xA;🧪Protein generation design(AF3)&#xA;💻AI4S(Biological information Data)&#xA;🔬Deep Learning(Drug Screening)</description>
+    </item>
+    <item>
+      <title>📝 Publications</title>
+      <link>http://localhost:1313/about/me3/</link>
+      <pubDate>Mon, 26 Aug 2024 12:09:47 +0800</pubDate>
+      <guid>http://localhost:1313/about/me3/</guid>
+      <description> </description>
+    </item>
+  </channel>
+</rss>

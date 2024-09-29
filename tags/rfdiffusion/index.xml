@@ -2,18 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RFdiffusion on Pepper的博客</title>
-    <link>https://uioqps.github.io/tags/rfdiffusion/</link>
+    <link>http://localhost:1313/tags/rfdiffusion/</link>
     <description>Recent content in RFdiffusion on Pepper的博客</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sat, 31 Aug 2024 17:25:47 +0800</lastBuildDate>
-    <atom:link href="https://uioqps.github.io/tags/rfdiffusion/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>David baker蛋白质设计方法</title>
-      <link>https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/</link>
-      <pubDate>Sat, 31 Aug 2024 17:25:47 +0800</pubDate>
-      <guid>https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/</guid>
-      <description>david baker开发了蛋白质设计diffusion模型&#xA;蛋白质生成RFdiffusion 无约束单体设计contigmap 特定骨架引导的设计scaffoldguided&#xA;cryoem </description>
-    </item>
+    <atom:link href="http://localhost:1313/tags/rfdiffusion/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
