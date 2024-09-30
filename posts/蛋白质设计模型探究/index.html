@@ -15,7 +15,7 @@
 
 
 <meta name="author" content="Pepper" />
-<meta name="description" content="david baker开发了蛋白质设计diffusion模型 蛋白质生成RFdiffusion 无约束单体设计contigmap 特定骨架引导的设计scaf" />
+<meta name="description" content="蛋白质设计diffusion模型 AlphaFold和RoseTTAFold在蛋白质三维结构预测方面取得的突破性进展已经向人们展示了深度学习在" />
 
 
 <link rel="canonical" href="https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/" />
@@ -24,7 +24,7 @@
 <meta property="og:url" content="https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/">
   <meta property="og:site_name" content="Pepper的博客">
   <meta property="og:title" content="David baker蛋白质设计方法">
-  <meta property="og:description" content="david baker开发了蛋白质设计diffusion模型 蛋白质生成RFdiffusion 无约束单体设计contigmap 特定骨架引导的设计scaf">
+  <meta property="og:description" content="蛋白质设计diffusion模型 AlphaFold和RoseTTAFold在蛋白质三维结构预测方面取得的突破性进展已经向人们展示了深度学习在">
   <meta property="og:locale" content="zh_Hans">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -37,7 +37,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="David baker蛋白质设计方法">
-  <meta name="twitter:description" content="david baker开发了蛋白质设计diffusion模型 蛋白质生成RFdiffusion 无约束单体设计contigmap 特定骨架引导的设计scaf">
+  <meta name="twitter:description" content="蛋白质设计diffusion模型 AlphaFold和RoseTTAFold在蛋白质三维结构预测方面取得的突破性进展已经向人们展示了深度学习在">
 
 
 
@@ -221,7 +221,12 @@
     <div class="absolute right-0 lg:w-36 xl:w-48 hidden lg:block" :style="{ height }">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#cryoem">cryoem</a></li>
+    <li><a href="#蛋白质设计diffusion模型">蛋白质设计diffusion模型</a>
+      <ul>
+        <li><a href="#2023-rfdiffusion从头设计蛋白质结构">2023 RFdiffusion从头设计蛋白质结构</a></li>
+        <li><a href="#2024-rfdiffusionproteinmpnn从头设计蛋白质开关">2024 RFdiffusion、ProteinMPNN从头设计蛋白质开关</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -234,7 +239,7 @@
             <span data-format="luxon">2024-08-31T17:25:47&#43;08:00</span>
           
 
-          | <span>1 分钟阅读</span>
+          | <span>2 分钟阅读</span>
 
           
           | <span>更新于
@@ -272,12 +277,33 @@
       </header>
 
       
+      <img src="rf2.png" alt="David baker蛋白质设计方法" />
+      
 
-      <p>david baker开发了蛋白质设计diffusion模型</p>
-<p>蛋白质生成RFdiffusion
-无约束单体设计contigmap
-特定骨架引导的设计scaffoldguided</p>
-<h2 id="cryoem">cryoem</h2>
+      <h2 id="蛋白质设计diffusion模型">蛋白质设计diffusion模型</h2>
+<p>AlphaFold和RoseTTAFold在蛋白质三维结构预测方面取得的突破性进展已经向人们展示了深度学习在理解和设计复杂生物分子系统方面的巨大潜力。去噪扩散概率模型（DDPM）是一类强大的机器学习模型，最近被证明可以响应文本提示生成全新逼真的图像，RFdiffusion在原有RoseTTAFold的基础上引入了扩散（diffusion）模型，这也是首次将扩散模型应用到蛋白质设计。</p>
+<h3 id="2023-rfdiffusion从头设计蛋白质结构">2023 RFdiffusion从头设计蛋白质结构</h3>
+<p>RFdiffusion模型的核心思想是将蛋白质设计问题转化为一个逆向去噪任务。
+<img src='rf.jpg' style="margin: 0 auto;" alt="sym" width="60%">
+RFdiffusion是一种基于扩散模型的生成模型，它能够在条件约束下对蛋白质的初始随机结构进行编码，然后通过一系列的扩散步骤，逐步减少噪声，同时保留结构的重要特征。在每一步中，模型都会预测当前结构与目标结构之间的差异，并据此进行调整。 <br>
+<img src='heat.jpg'  width="100%">
+模型对从蛋白质数据库（PDB）采样的大量的3D蛋白质结构进行多达 200 步的噪声来生成训练输入。对于无条件单体蛋白设计任务，从随机噪声开始，RFdiffusion可以很容易地产生复杂的蛋白质结构，与训练期间看到的结构几乎没有整体结构相似性，这表明PDB之外有相当大的泛化，并且具有极高的热稳定性。<br>
+<img src='binder.jpg'  width="100%">
+RFdiffusion在生成高亲和力蛋白质结合剂方面也表现优异，模型生成的结合剂能够精确地靶向治疗重要的蛋白质。通过蛋白质复合物结构的RFdiffusion进行微调，提供了一个特征作为输入，指示扩散链结合的目标链（称为“interface hotspots”）上残基的子集。针对五个靶点进行了binder设计：</p>
+<ul>
+<li>甲型流感H1血凝素（HA）</li>
+<li>白细胞介素-7受体-ɑ（IL-7Rɑ）</li>
+<li>程序性死亡配体1（PD-L1）</li>
+<li>胰岛素受体（InsR）</li>
+<li>原肌球蛋白受体激酶A（TrkA）
+BLI反应大于或等于阳性对照的50%的命中，计算机模拟成功率很高。</li>
+</ul>
+<h4 id="总结">总结</h4>
+<p>文章提出了无条件和拓扑约束的单体蛋白设计、蛋白质结合剂设计、对称寡聚体设计、酶活性位点支架以及对称基序支架用于治疗和金属结合蛋白设计。</p>
+<ul>
+<li><em>Watson, J.L. et al., &ldquo;De novo design of protein structure and function with RFdiffusion&rdquo;. Nature, 2023.</em></li>
+</ul>
+<h3 id="2024-rfdiffusionproteinmpnn从头设计蛋白质开关">2024 RFdiffusion、ProteinMPNN从头设计蛋白质开关</h3>
 
 
       
