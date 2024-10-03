@@ -225,6 +225,7 @@
       <ul>
         <li><a href="#2023-rfdiffusion从头设计蛋白质结构">2023 RFdiffusion从头设计蛋白质结构</a></li>
         <li><a href="#2024-rfdiffusionproteinmpnn从头设计蛋白质开关">2024 RFdiffusion、ProteinMPNN从头设计蛋白质开关</a></li>
+        <li><a href="#202410-endotags-for-lytac">2024.10 EndoTags for LYTAC</a></li>
       </ul>
     </li>
   </ul>
@@ -239,7 +240,7 @@
             <span data-format="luxon">2024-09-27T17:25:47&#43;08:00</span>
           
 
-          | <span>2 分钟阅读</span>
+          | <span>6 分钟阅读</span>
 
           
           | <span>更新于
@@ -304,6 +305,35 @@ BLI反应大于或等于阳性对照的50%的命中，计算机模拟成功率�
 <li><em>Watson, J.L. et al., &ldquo;De novo design of protein structure and function with RFdiffusion&rdquo;. Nature, 2023.</em></li>
 </ul>
 <h3 id="2024-rfdiffusionproteinmpnn从头设计蛋白质开关">2024 RFdiffusion、ProteinMPNN从头设计蛋白质开关</h3>
+<p>设计能够响应特定分子信号改变结构并最终发挥功能的蛋白质，这种现象被称为变构调节，一直是蛋白质工程的长期目标。本文受Monod-Wyman-Changeux (MWC) 协同模型启发，研究了通过将肽可切换铰链模块与蛋白质界面进行刚体（rigid-body）耦合来从头设计变构，从而指导替代寡聚状态的形成。所有结合位点都被填满，或者根本没有，即同源效应物结合是高度协同的。
+<img src='allosteric.jpg' style="margin: 0 auto;" alt="sym" width="60%">
+环状低聚物是通过两类从头蛋白质的模块化融合构建的：</p>
+<ul>
+<li>（1）三种铰链蛋白（cs074、cs221、js007），之前已证实可在肽结合后在两种定义的构象状态“X”和“Y”之间切换；</li>
+<li>（2）异二聚体α-β蛋白 (LHD)，设计为在动态平衡中可逆地结合和解离。</li>
+</ul>
+<p>之后用HFuse设计螺旋重复(DHR)融合库，其中包含LHD内的每个单体。然后使用Rosetta FastDesign 重新设计LHD和DHR之间的连接，并进行主链移动，以稳定地填充它们之间的连接。然后用alphafold v.2（AF2）预测这些设计，并筛选出报告模型pLDDT（预测局部距离差异测试）得分大于88且C-α r.m.s.d.（均方根偏差小于2.5Å的设计到原始HFuse主链。</p>
+<p>为了确保这些融合物的溶解性和刚性，用ProteinMPNN重新设计了WORMS生成的连接处的残基，同时确定残基的氨基酸对铰链构象转换至关重要，以及介导LHD界面处组装成环。使用ProteinMPNN为每个设计生成四个序列。然后，在没有肽的情况下，这些序列被预测为单体，从而产生推定的X状态结构。我们筛选了ProteinMPNN设计的环蛋白，其pLDDT大于86，并且 C-α r.m.s.d.与上述生成的X状态设计模型的偏差低于2.75Å。</p>
+<h4 id="总结-1">总结</h4>
+<p>本文证明计算蛋白质设计的精确控制允许构建各种动态、变构可切换的蛋白质组装体，这些组装体遵循的基本原理与MWC模型的基本原理相似。明显简化了天然变构系统，说明了自上而下的设计相对于自然进化可以产生的可预测性和模块化。本文报道的变构可切换寡聚体在自然界中没有直接的功能类似物，因此将变构调节扩展到自然进化未探索的蛋白质空间区域。</p>
+<h3 id="202410-endotags-for-lytac">2024.10 EndoTags for LYTAC</h3>
+<p>LYTAC技术是一种基于细胞内吞-溶酶体机制的膜蛋白降解技术，可针对传统PROTAC分子难以降解的膜蛋白靶点。一些天然内吞诱导配体能够促使细胞内吞以及胞内溶酶体输运过程，如甘露糖-6-磷酸（M6P）、N-乙酰半乳糖苷（GalNAc）等，但这些天然的内吞受体配体往往在应用中有局限性。
+<img src='endo.jpg' style="margin: 0 auto;" alt="sym" width="100%"></p>
+<ul>
+<li>
+<p>(1) 转铁蛋白受体TfR，结合到受体上与天然配体不重叠的位点就足够引发内吞效应</p>
+</li>
+<li>
+<p>(2) IGF2R，需要诱导其胞外结构域的构象变化才能够诱导内吞</p>
+</li>
+</ul>
+<p>针对IGF2R结构域的微型结合剂通过基于Rosetta的方法进行计算设计。使用 Rosetta Fastrelax和坐标约束对IGF2R结构域6（PDB 6UM2）和IGF2R结构域11（PDB 1GP0）的结构进行细化。每个结构域的IGF2结合位点残基被选为“热点”残基。螺旋蛋白支架通过<code>Patchdock</code>和<code>Rifdock</code>协议与热点残基对接。再使用Rosetta FastDesign进行序列优化并使用Rosetta指标（包括ddg和contact_molecular_surface）进行过滤后，使用Rosetta Motifgraft和FastDesign对最佳候选物进行重新采样。对通过蛋白再次使用暴露疏水性（sap_score）进行过滤。</p>
+<ul>
+<li>(3) 对于ASGPR，通过聚集刺激内吞作用，结合应该诱导其寡聚化</li>
+</ul>
+<p>ASGPR(PDB 5JQ1)的晶体结构经过改进，螺旋蛋白支架通过Patchdock和Rifdock与暴露的疏水残基对接。使用Protein-MPNN优化序列，使用Rosetta Fastrelax计算界面分数。然后使用AlphaFold2预测模型，并在Fastrelax后评分。选择pae_interaction&lt;10和Relaxed_ddg &lt; −40的设计进行重采样，再进行一轮Protein-MPNN预测，然后进行 Rosetta Fastrelax。在使用pae_interaction、relaxed_ddg和sap_score进行最后一轮过滤后，进一步优化序列，使其净电荷为−7。</p>
+<h4 id="总结-2">总结</h4>
+<p>本文设计了基于融合蛋白的pLYTAC。无论是基于TfR、IGF2R还是ASGPR的EndoTags均表现出了对EGFR良好的降解效率，且会随着受体在体内分布的特点而出现组织特异性。</p>
 
 
       
