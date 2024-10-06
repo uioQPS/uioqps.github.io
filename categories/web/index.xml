@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web on Pepper的博客</title>
-    <link>http://localhost:1313/categories/web/</link>
+    <link>https://uioqps.github.io/categories/web/</link>
     <description>Recent content in Web on Pepper的博客</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sat, 21 Sep 2024 19:11:45 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://uioqps.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何搭建自己的博客</title>
-      <link>http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sat, 21 Sep 2024 19:11:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
       <description>&lt;h2 id=&#34;hugo简介&#34;&gt;Hugo简介&lt;/h2&gt;&#xA;&lt;h3 id=&#34;hugo建站优点&#34;&gt;Hugo建站优点&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;超高速的生成速度&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;快速构建&lt;/strong&gt;：Hugo 能在几秒钟内生成上千个页面，大大提高了开发效率。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;即时预览&lt;/strong&gt;：内置的开发服务器支持实时预览，更改内容后页面立即刷新。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;&lt;strong&gt;简单易用&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;易于安装&lt;/strong&gt;：无需复杂的依赖环境，下载即可使用。&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Illumina on Pepper的博客</title>
-    <link>http://localhost:1313/tags/illumina/</link>
+    <link>https://uioqps.github.io/tags/illumina/</link>
     <description>Recent content in Illumina on Pepper的博客</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Mon, 16 Sep 2024 15:16:40 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/illumina/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://uioqps.github.io/tags/illumina/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Illumina测序数据研究</title>
-      <link>http://localhost:1313/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</link>
+      <link>https://uioqps.github.io/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</link>
       <pubDate>Mon, 16 Sep 2024 15:16:40 +0000</pubDate>
-      <guid>http://localhost:1313/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</guid>
+      <guid>https://uioqps.github.io/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</guid>
       <description>&lt;h2 id=&#34;测序原理&#34;&gt;测序原理&lt;/h2&gt;&#xA;&lt;p&gt;sanger法测序及双脱氧链终止法，它采取DNA复制原理，通过在DNA复制过程中添加双脱氧三磷酸核苷酸（ddNTP）终止DNA链的延伸，在DNA链不同位置的延伸终止判断该位置的碱基类型。但是凝胶电泳的时间较长，导致sanger法测序通量低。illumina测序技术可以实现高通量，低成本，测序长度较短。&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Pepper的博客</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://uioqps.github.io/tags/</link>
     <description>Recent content in Tags on Pepper的博客</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sun, 06 Oct 2024 15:18:49 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://uioqps.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI4S</title>
-      <link>http://localhost:1313/tags/ai4s/</link>
+      <link>https://uioqps.github.io/tags/ai4s/</link>
       <pubDate>Sun, 06 Oct 2024 15:18:49 +0800</pubDate>
-      <guid>http://localhost:1313/tags/ai4s/</guid>
+      <guid>https://uioqps.github.io/tags/ai4s/</guid>
       <description></description>
     </item>
     <item>
       <title>Blog</title>
-      <link>http://localhost:1313/tags/blog/</link>
+      <link>https://uioqps.github.io/tags/blog/</link>
       <pubDate>Sat, 21 Sep 2024 19:11:45 +0800</pubDate>
-      <guid>http://localhost:1313/tags/blog/</guid>
+      <guid>https://uioqps.github.io/tags/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>GPCR</title>
-      <link>http://localhost:1313/tags/gpcr/</link>
+      <link>https://uioqps.github.io/tags/gpcr/</link>
       <pubDate>Fri, 20 Sep 2024 20:09:58 +0800</pubDate>
-      <guid>http://localhost:1313/tags/gpcr/</guid>
+      <guid>https://uioqps.github.io/tags/gpcr/</guid>
       <description></description>
     </item>
     <item>
       <title>Illumina</title>
-      <link>http://localhost:1313/tags/illumina/</link>
+      <link>https://uioqps.github.io/tags/illumina/</link>
       <pubDate>Mon, 16 Sep 2024 15:16:40 +0000</pubDate>
-      <guid>http://localhost:1313/tags/illumina/</guid>
+      <guid>https://uioqps.github.io/tags/illumina/</guid>
       <description></description>
     </item>
     <item>
       <title>Ngs</title>
-      <link>http://localhost:1313/tags/ngs/</link>
+      <link>https://uioqps.github.io/tags/ngs/</link>
       <pubDate>Mon, 16 Sep 2024 15:16:37 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ngs/</guid>
+      <guid>https://uioqps.github.io/tags/ngs/</guid>
       <description></description>
     </item>
   </channel>
