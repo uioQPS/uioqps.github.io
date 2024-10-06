@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ngs on Pepper的博客</title>
-    <link>https://uioqps.github.io/tags/ngs/</link>
+    <link>http://localhost:1313/tags/ngs/</link>
     <description>Recent content in Ngs on Pepper的博客</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Mon, 16 Sep 2024 15:16:37 +0000</lastBuildDate>
-    <atom:link href="https://uioqps.github.io/tags/ngs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/ngs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于测序数据文件「FASTA 与 FASTQ」</title>
-      <link>https://uioqps.github.io/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/</link>
+      <link>http://localhost:1313/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/</link>
       <pubDate>Mon, 16 Sep 2024 15:16:37 +0000</pubDate>
-      <guid>https://uioqps.github.io/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/</guid>
+      <guid>http://localhost:1313/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/</guid>
       <description>&lt;p&gt;fastq和fasta这两种储存sequence是后续分析主要处理的两种数据格式：&lt;br&gt;&#xA;双序列比对（pairwise alignment）&lt;br&gt;&#xA;进化树构建（phylogenetic tree）&lt;br&gt;&#xA;高通量分析的回贴（mapping）数据的原始输入&lt;/p&gt;&#xA;&lt;hr&gt;</description>
     </item>
   </channel>

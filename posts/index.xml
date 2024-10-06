@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Archives on Pepper的博客</title>
-    <link>https://uioqps.github.io/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Archives on Pepper的博客</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sun, 06 Oct 2024 15:18:49 +0800</lastBuildDate>
-    <atom:link href="https://uioqps.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BindCraft:功能性蛋白质binder的设计</title>
-      <link>https://uioqps.github.io/posts/bindcraft/</link>
+      <link>http://localhost:1313/posts/bindcraft/</link>
       <pubDate>Sun, 06 Oct 2024 15:18:49 +0800</pubDate>
-      <guid>https://uioqps.github.io/posts/bindcraft/</guid>
+      <guid>http://localhost:1313/posts/bindcraft/</guid>
       <description>&lt;p&gt;一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，&lt;/p&gt;</description>
     </item>
     <item>
       <title>David baker蛋白质设计方法</title>
-      <link>https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/</link>
+      <link>http://localhost:1313/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/</link>
       <pubDate>Fri, 27 Sep 2024 17:25:47 +0800</pubDate>
-      <guid>https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/</guid>
+      <guid>http://localhost:1313/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/</guid>
       <description>蛋白质设计diffusion模型 AlphaFold和RoseTTAFold在蛋白质三维结构预测方面取得的突破性进展已经向人们展示了深度学习在</description>
     </item>
     <item>
       <title>如何搭建自己的博客</title>
-      <link>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+      <link>http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sat, 21 Sep 2024 19:11:45 +0800</pubDate>
-      <guid>https://uioqps.github.io/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
       <description>&lt;h2 id=&#34;hugo简介&#34;&gt;Hugo简介&lt;/h2&gt;&#xA;&lt;h3 id=&#34;hugo建站优点&#34;&gt;Hugo建站优点&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;超高速的生成速度&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;快速构建&lt;/strong&gt;：Hugo 能在几秒钟内生成上千个页面，大大提高了开发效率。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;即时预览&lt;/strong&gt;：内置的开发服务器支持实时预览，更改内容后页面立即刷新。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;&lt;strong&gt;简单易用&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;易于安装&lt;/strong&gt;：无需复杂的依赖环境，下载即可使用。&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>GPCR概览</title>
-      <link>https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/</link>
+      <link>http://localhost:1313/posts/gpcr%E6%A6%82%E8%A7%88/</link>
       <pubDate>Fri, 20 Sep 2024 20:09:58 +0800</pubDate>
-      <guid>https://uioqps.github.io/posts/gpcr%E6%A6%82%E8%A7%88/</guid>
+      <guid>http://localhost:1313/posts/gpcr%E6%A6%82%E8%A7%88/</guid>
       <description>&lt;h2 id=&#34;前沿&#34;&gt;前沿&lt;/h2&gt;&#xA;&lt;h3 id=&#34;gpcr的定义&#34;&gt;GPCR的定义&lt;/h3&gt;&#xA;&lt;p&gt;G蛋白偶联受体(GPCR)家族是最大和研究最多的细胞表面蛋白家族之一，在人类基因组中发现了近800个成员。GPCRs是七种跨膜受体蛋白，它们被一系列刺激物激活，包括蛋白质、肽、脂质、氨基酸、离子、生物胺、光和气味剂。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Illumina测序数据研究</title>
-      <link>https://uioqps.github.io/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</link>
+      <link>http://localhost:1313/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</link>
       <pubDate>Mon, 16 Sep 2024 15:16:40 +0000</pubDate>
-      <guid>https://uioqps.github.io/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</guid>
+      <guid>http://localhost:1313/posts/illumina%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</guid>
       <description>&lt;h2 id=&#34;测序原理&#34;&gt;测序原理&lt;/h2&gt;&#xA;&lt;p&gt;sanger法测序及双脱氧链终止法，它采取DNA复制原理，通过在DNA复制过程中添加双脱氧三磷酸核苷酸（ddNTP）终止DNA链的延伸，在DNA链不同位置的延伸终止判断该位置的碱基类型。但是凝胶电泳的时间较长，导致sanger法测序通量低。illumina测序技术可以实现高通量，低成本，测序长度较短。&lt;/p&gt;</description>
     </item>
     <item>
       <title>关于测序数据文件「FASTA 与 FASTQ」</title>
-      <link>https://uioqps.github.io/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/</link>
+      <link>http://localhost:1313/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/</link>
       <pubDate>Mon, 16 Sep 2024 15:16:37 +0000</pubDate>
-      <guid>https://uioqps.github.io/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/</guid>
+      <guid>http://localhost:1313/posts/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6/</guid>
       <description>&lt;p&gt;fastq和fasta这两种储存sequence是后续分析主要处理的两种数据格式：&lt;br&gt;&#xA;双序列比对（pairwise alignment）&lt;br&gt;&#xA;进化树构建（phylogenetic tree）&lt;br&gt;&#xA;高通量分析的回贴（mapping）数据的原始输入&lt;/p&gt;&#xA;&lt;hr&gt;</description>
     </item>
   </channel>
