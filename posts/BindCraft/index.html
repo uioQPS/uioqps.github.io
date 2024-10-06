@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David baker蛋白质设计方法 | Pepper的博客</title>
+    <title>BindCraft:功能性蛋白质binder的设计 | Pepper的博客</title>
 
     
 <link href="/ico.ico" rel="shortcut icon" type="image/x-icon" />
@@ -14,30 +14,31 @@
 
 
 
-<meta name="author" content="Pepper" />
-<meta name="description" content="蛋白质设计diffusion模型 AlphaFold和RoseTTAFold在蛋白质三维结构预测方面取得的突破性进展已经向人们展示了深度学习在" />
+<meta name="author" content="pepper" />
+<meta name="description" content="一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，
+" />
 
 
-<link rel="canonical" href="https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/" />
+<link rel="canonical" href="https://uioqps.github.io/posts/bindcraft/" />
 
 
-<meta property="og:url" content="https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/">
+<meta property="og:url" content="https://uioqps.github.io/posts/bindcraft/">
   <meta property="og:site_name" content="Pepper的博客">
-  <meta property="og:title" content="David baker蛋白质设计方法">
-  <meta property="og:description" content="蛋白质设计diffusion模型 AlphaFold和RoseTTAFold在蛋白质三维结构预测方面取得的突破性进展已经向人们展示了深度学习在">
+  <meta property="og:title" content="BindCraft:功能性蛋白质binder的设计">
+  <meta property="og:description" content="一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，">
   <meta property="og:locale" content="zh_Hans">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-09-27T17:25:47+08:00">
-    <meta property="article:modified_time" content="2024-09-27T17:25:47+08:00">
+    <meta property="article:published_time" content="2024-10-06T15:18:49+08:00">
+    <meta property="article:modified_time" content="2024-10-06T15:18:49+08:00">
     <meta property="article:tag" content="AI4S">
 
 
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="David baker蛋白质设计方法">
-  <meta name="twitter:description" content="蛋白质设计diffusion模型 AlphaFold和RoseTTAFold在蛋白质三维结构预测方面取得的突破性进展已经向人们展示了深度学习在">
+  <meta name="twitter:title" content="BindCraft:功能性蛋白质binder的设计">
+  <meta name="twitter:description" content="一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，">
 
 
 
@@ -221,23 +222,21 @@
     <div class="absolute right-0 lg:w-36 xl:w-48 hidden lg:block" :style="{ height }">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#蛋白质设计diffusion模型">蛋白质设计diffusion模型</a>
-      <ul>
-        <li><a href="#2023-rfdiffusion从头设计蛋白质结构">2023 RFdiffusion从头设计蛋白质结构</a></li>
-        <li><a href="#2024-rfdiffusionproteinmpnn从头设计蛋白质开关">2024 RFdiffusion、ProteinMPNN从头设计蛋白质开关</a></li>
-        <li><a href="#202410-endotags-for-lytac">2024.10 EndoTags for LYTAC</a></li>
-      </ul>
-    </li>
+    <li><a href="#principle-content">Principle content</a></li>
+    <li><a href="#bindcraft-design-protocol">BindCraft design protocol</a></li>
+    <li><a href="#bindcraft设计流程的步骤总结">BindCraft设计流程的步骤总结</a></li>
+    <li><a href="#design-settings-for-individual-target-proteins">Design settings for individual target proteins</a></li>
+    <li><a href="#示例代码">示例代码</a></li>
   </ul>
 </nav>
     </div>
     
     <article class="mx-auto prose dark:prose-invert" id="dream-single-post-main">
       <header>
-        <h1>David baker蛋白质设计方法</h1>
+        <h1>BindCraft:功能性蛋白质binder的设计</h1>
         <p class="text-sm">
           
-            <span data-format="luxon">2024-09-27T17:25:47&#43;08:00</span>
+            <span data-format="luxon">2024-10-06T15:18:49&#43;08:00</span>
           
 
           | <span>6 分钟阅读</span>
@@ -245,20 +244,24 @@
           
           | <span>更新于
             
-              <span data-format="luxon">2024-09-27T17:25:47&#43;08:00</span>
+              <span data-format="luxon">2024-10-06T15:18:49&#43;08:00</span>
             </span>
           
         </p>
         <div class="flex justify-between">
           <div class="flex items-center">
   
-  <span>@</span>
+  <div class="avatar mr-1">
+    <div class="w-8 rounded-full">
+      <img class="my-0" src="/me.jpg" alt="pepper" />
+    </div>
+  </div>
   
 
   <span>
   
     
-      Pepper
+      pepper
     
   
   </span>
@@ -266,10 +269,10 @@
 
 
           <span class="flex items-center gap-2">
-  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=David%20baker%e8%9b%8b%e7%99%bd%e8%b4%a8%e8%ae%be%e8%ae%a1%e6%96%b9%e6%b3%95&url=https%3a%2f%2fuioqps.github.io%2fposts%2f%25E8%259B%258B%25E7%2599%25BD%25E8%25B4%25A8%25E8%25AE%25BE%25E8%25AE%25A1%25E6%25A8%25A1%25E5%259E%258B%25E6%258E%25A2%25E7%25A9%25B6%2f" title="Share on X">
+  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=BindCraft%3a%e5%8a%9f%e8%83%bd%e6%80%a7%e8%9b%8b%e7%99%bd%e8%b4%a8binder%e7%9a%84%e8%ae%be%e8%ae%a1&url=https%3a%2f%2fuioqps.github.io%2fposts%2fbindcraft%2f" title="Share on X">
     <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
   </a>
-  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fuioqps.github.io%2fposts%2f%25E8%259B%258B%25E7%2599%25BD%25E8%25B4%25A8%25E8%25AE%25BE%25E8%25AE%25A1%25E6%25A8%25A1%25E5%259E%258B%25E6%258E%25A2%25E7%25A9%25B6%2f" title="Share on Facebook">
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fuioqps.github.io%2fposts%2fbindcraft%2f" title="Share on Facebook">
     <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
   </a>
 </span>
@@ -278,82 +281,232 @@
       </header>
 
       
-      <img src="rf2.png" alt="David baker蛋白质设计方法" />
+      <img src="bind.jpg" alt="BindCraft:功能性蛋白质binder的设计" />
       
 
-      <h2 id="蛋白质设计diffusion模型">蛋白质设计diffusion模型</h2>
-<p>AlphaFold和RoseTTAFold在蛋白质三维结构预测方面取得的突破性进展已经向人们展示了深度学习在理解和设计复杂生物分子系统方面的巨大潜力。去噪扩散概率模型（DDPM）是一类强大的机器学习模型，最近被证明可以响应文本提示生成全新逼真的图像，RFdiffusion在原有RoseTTAFold的基础上引入了扩散（diffusion）模型，这也是首次将扩散模型应用到蛋白质设计。</p>
-<h3 id="2023-rfdiffusion从头设计蛋白质结构">2023 RFdiffusion从头设计蛋白质结构</h3>
-<p>RFdiffusion模型的核心思想是将蛋白质设计问题转化为一个逆向去噪任务。
-<img src='rf.jpg' style="margin: 0 auto;" alt="sym" width="60%">
-RFdiffusion是一种基于扩散模型的生成模型，它能够在条件约束下对蛋白质的初始随机结构进行编码，然后通过一系列的扩散步骤，逐步减少噪声，同时保留结构的重要特征。在每一步中，模型都会预测当前结构与目标结构之间的差异，并据此进行调整。 <br>
-<img src='heat.jpg'  width="100%">
-模型对从蛋白质数据库（PDB）采样的大量的3D蛋白质结构进行多达 200 步的噪声来生成训练输入。对于无条件单体蛋白设计任务，从随机噪声开始，RFdiffusion可以很容易地产生复杂的蛋白质结构，与训练期间看到的结构几乎没有整体结构相似性，这表明PDB之外有相当大的泛化，并且具有极高的热稳定性。<br>
-<img src='binder.jpg'  width="100%">
-RFdiffusion在生成高亲和力蛋白质结合剂方面也表现优异，模型生成的结合剂能够精确地靶向治疗重要的蛋白质。通过蛋白质复合物结构的RFdiffusion进行微调，提供了一个特征作为输入，指示扩散链结合的目标链（称为“interface hotspots”）上残基的子集。针对五个靶点进行了binder设计：</p>
+      <p>一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，</p>
+<p>而无需高通量筛选或实验优化，即使在没有已知结合位点的情况下也是如此。成功地针对多种具有挑战性的靶标设计了结合剂，包括细胞表面受体、常见过敏原、从头设计的蛋白质和多域核酸酶，例如CRISPR-Cas9。</p>
+<h2 id="principle-content">Principle content</h2>
+<p>基于物理的方法（如Rosetta）通过支架和侧链优化在早期结合剂设计中发挥了重要作用。然而，这种方法的实验成功率非常低（通常不到0.1%），并且需要生成和采样大量的设计，范围从数十万到数百万。此外，由于这种方法通常需要将预定义的支架对接到固定的靶标结构上，因此靶标和结合剂表面之间的不兼容性可能导致结合相互作用不理想，甚至会阻碍某些表位的靶向性。在大型蛋白质结构和序列数据集上训练的模型，AlphaFold2 (AF2)和RoseTTAFold2 (RF2)，在准确预测蛋白质结构和建模复杂PPI 方面表现出了卓越的能力。事实上，AF2过滤已被证明可以通过评估预测复合物的合理性来显著提高结合剂设计的成功率。</p>
+<p>本文假设可以利用其训练的权重和学习到的蛋白质结构模式直接用于蛋白质结合剂的设计提出BindCraft，用于从头设计蛋白质结合剂。本文利用通过AF2网络的反向传播来有效地产生新的结合剂和界面，而无需进行大量采样。在十个不同、具有挑战性和治疗相关的蛋白质靶标上展示了我们的流程的效率，并确了几种高亲和力结合剂，而无需通过实验对数百到数千个设计进行高通量筛选。AF2 网络可以通过识别最有效满足损失函数的热点来自动选择最佳结合位点。</p>
+<p>通过训练后的AF2权重反向传播结合剂序列并计算误差梯度。该误差梯度用于更新和优化结合剂序列以适应指定的损失函数和设计标准。这些包括AF2置信度得分、分子内和分子间接触、螺旋含量和回转半径。通过在网络上进行迭代，可以生成高质量的设计。
+<img src='PLD.jpg'  width="80%" style="margin: 0 auto;">
+生物层干涉法 (BLI)以二价Fc融合形式纯化和筛选了53种结合设计。观察到13种结合剂的结合信号，其中最佳结合剂显示出低于1 nM的表观解离常数 (Kd)。与特征明确的抗PD-1单克隆抗体pembrolizumab进行了竞争试验，该抗体应该与相同的结合位点结合。针对PD-L1的最佳结合剂4显示出615 nM的Kd和通过圆二色性(CD)测量的预期α螺旋特征。</p>
+<h2 id="bindcraft-design-protocol">BindCraft design protocol</h2>
 <ul>
-<li>甲型流感H1血凝素（HA）</li>
-<li>白细胞介素-7受体-ɑ（IL-7Rɑ）</li>
-<li>程序性死亡配体1（PD-L1）</li>
-<li>胰岛素受体（InsR）</li>
-<li>原肌球蛋白受体激酶A（TrkA）
-BLI反应大于或等于阳性对照的50%的命中，计算机模拟成功率很高。</li>
+<li><code>最小和最大结合体长度</code> 根据用户定义。</li>
+<li><code>设计损失函数的权重</code>
+<ul>
+<li>pLDDT：0.1</li>
+<li>i_pTM：0.05</li>
+<li>pAE（结合体内）：0.4</li>
+<li>pAE（结合体与目标之间）：0.1</li>
+<li>结合体内残基接触损失：1.0</li>
+<li>结合体与目标残基接触损失：1.0</li>
+<li>回转半径：0.3</li>
+<li>螺旋损失：-0.3</li>
 </ul>
-<h4 id="总结">总结</h4>
-<p>文章提出了无条件和拓扑约束的单体蛋白设计、蛋白质结合剂设计、对称寡聚体设计、酶活性位点支架以及对称基序支架用于治疗和金属结合蛋白设计。</p>
-<ul>
-<li><em>Watson, J.L. et al., &ldquo;De novo design of protein structure and function with RFdiffusion&rdquo;. Nature, 2023.</em></li>
-</ul>
-<h3 id="2024-rfdiffusionproteinmpnn从头设计蛋白质开关">2024 RFdiffusion、ProteinMPNN从头设计蛋白质开关</h3>
-<p>设计能够响应特定分子信号改变结构并最终发挥功能的蛋白质，这种现象被称为变构调节，一直是蛋白质工程的长期目标。本文受Monod-Wyman-Changeux (MWC) 协同模型启发，研究了通过将肽可切换铰链模块与蛋白质界面进行刚体（rigid-body）耦合来从头设计变构，从而指导替代寡聚状态的形成。所有结合位点都被填满，或者根本没有，即同源效应物结合是高度协同的。
-<img src='allosteric.jpg' style="margin: 0 auto;" alt="sym" width="60%">
-环状低聚物是通过两类从头蛋白质的模块化融合构建的：</p>
-<ul>
-<li>（1）三种铰链蛋白（cs074、cs221、js007），之前已证实可在肽结合后在两种定义的构象状态“X”和“Y”之间切换；</li>
-<li>（2）异二聚体α-β蛋白 (LHD)，设计为在动态平衡中可逆地结合和解离。</li>
-</ul>
-<p>之后用HFuse设计螺旋重复(DHR)融合库，其中包含LHD内的每个单体。然后使用Rosetta FastDesign 重新设计LHD和DHR之间的连接，并进行主链移动，以稳定地填充它们之间的连接。然后用alphafold v.2（AF2）预测这些设计，并筛选出报告模型pLDDT（预测局部距离差异测试）得分大于88且C-α r.m.s.d.（均方根偏差小于2.5Å的设计到原始HFuse主链。</p>
-<p>为了确保这些融合物的溶解性和刚性，用ProteinMPNN重新设计了WORMS生成的连接处的残基，同时确定残基的氨基酸对铰链构象转换至关重要，以及介导LHD界面处组装成环。使用ProteinMPNN为每个设计生成四个序列。然后，在没有肽的情况下，这些序列被预测为单体，从而产生推定的X状态结构。我们筛选了ProteinMPNN设计的环蛋白，其pLDDT大于86，并且 C-α r.m.s.d.与上述生成的X状态设计模型的偏差低于2.75Å。</p>
-<h4 id="总结-1">总结</h4>
-<p>本文证明计算蛋白质设计的精确控制允许构建各种动态、变构可切换的蛋白质组装体，这些组装体遵循的基本原理与MWC模型的基本原理相似。明显简化了天然变构系统，说明了自上而下的设计相对于自然进化可以产生的可预测性和模块化。本文报道的变构可切换寡聚体在自然界中没有直接的功能类似物，因此将变构调节扩展到自然进化未探索的蛋白质空间区域。</p>
-<h3 id="202410-endotags-for-lytac">2024.10 EndoTags for LYTAC</h3>
-<p>LYTAC技术是一种基于细胞内吞-溶酶体机制的膜蛋白降解技术，可针对传统PROTAC分子难以降解的膜蛋白靶点。一些天然内吞诱导配体能够促使细胞内吞以及胞内溶酶体输运过程，如甘露糖-6-磷酸（M6P）、N-乙酰半乳糖苷（GalNAc）等，但这些天然的内吞受体配体往往在应用中有局限性。
-<img src='endo.jpg' style="margin: 0 auto;" alt="sym" width="100%"></p>
-<ul>
-<li>
-<p>(1) 转铁蛋白受体TfR，结合到受体上与天然配体不重叠的位点就足够引发内吞效应</p>
 </li>
-<li>
-<p>(2) IGF2R，需要诱导其胞外结构域的构象变化才能够诱导内吞</p>
+<li><code>优化阶段</code>
+<ul>
+<li>第一阶段：50次迭代后终止置信度低的路径，额外进行25次迭代。</li>
+<li>第二阶段：45次迭代。</li>
+<li>第三阶段：5次迭代。</li>
+<li>第四阶段：15次迭代，X=0.05*结合体长度。</li>
+</ul>
+</li>
+<li><code>筛选条件</code>
+<ul>
+<li>pLDDT&gt;0.8</li>
+<li>i_pTM&gt;0.5</li>
+<li>i_pAE&gt;0.35</li>
+<li>界面形状互补性&gt;0.55</li>
+<li>未饱和氢键&lt;3</li>
+<li>结合体表面疏水性&lt;35%</li>
+<li>RMSD&lt;3.5Å</li>
+</ul>
 </li>
 </ul>
-<p>针对IGF2R结构域的微型结合剂通过基于Rosetta的方法进行计算设计。使用 Rosetta Fastrelax和坐标约束对IGF2R结构域6（PDB 6UM2）和IGF2R结构域11（PDB 1GP0）的结构进行细化。每个结构域的IGF2结合位点残基被选为“热点”残基。螺旋蛋白支架通过<code>Patchdock</code>和<code>Rifdock</code>协议与热点残基对接。再使用Rosetta FastDesign进行序列优化并使用Rosetta指标（包括ddg和contact_molecular_surface）进行过滤后，使用Rosetta Motifgraft和FastDesign对最佳候选物进行重新采样。对通过蛋白再次使用暴露疏水性（sap_score）进行过滤。</p>
+<h2 id="bindcraft设计流程的步骤总结">BindCraft设计流程的步骤总结</h2>
+<ol>
+<li>
+<p><strong>输入文件与设计设置</strong>：</p>
 <ul>
-<li>(3) 对于ASGPR，通过聚集刺激内吞作用，结合应该诱导其寡聚化</li>
+<li>设计过程通过用户友好的JSON文件配置，要求指定目标PDB格式的结构、期望的最小和最大结合体长度、以及最终筛选的设计数量。</li>
+<li>可以选择指定目标热点（可为特定残基或整个链），或者不指定，由设计损失函数选择结合位点。</li>
 </ul>
-<p>ASGPR(PDB 5JQ1)的晶体结构经过改进，螺旋蛋白支架通过Patchdock和Rifdock与暴露的疏水残基对接。使用Protein-MPNN优化序列，使用Rosetta Fastrelax计算界面分数。然后使用AlphaFold2预测模型，并在Fastrelax后评分。选择pae_interaction&lt;10和Relaxed_ddg &lt; −40的设计进行重采样，再进行一轮Protein-MPNN预测，然后进行 Rosetta Fastrelax。在使用pae_interaction、relaxed_ddg和sap_score进行最后一轮过滤后，进一步优化序列，使其净电荷为−7。</p>
-<h4 id="总结-2">总结</h4>
-<p>本文设计了基于融合蛋白的pLYTAC。无论是基于TfR、IGF2R还是ASGPR的EndoTags均表现出了对EGFR良好的降解效率，且会随着受体在体内分布的特点而出现组织特异性。</p>
-
+</li>
+<li>
+<p><strong>结合体生成过程</strong>：</p>
+<ul>
+<li>结合体生成通过ColabDesign的AF2实现，初始结合体使用随机序列并预测结构。</li>
+<li>通过AF2网络获取结构预测并计算设计损失。</li>
+</ul>
+</li>
+<li>
+<p><strong>设计损失函数的组成</strong>（默认权重在括号中）：</p>
+<ul>
+<li>结合体置信度pLDDT(权重:0.1)</li>
+<li>界面置信度i_pTM(权重:0.05)</li>
+<li>结合体内的归一化预测对齐误差pAE(权重:0.4)</li>
+<li>结合体与目标之间的归一化预测对齐误差pAE(权重:0.1)</li>
+<li>结合体内的残基接触损失(权重:1.0)</li>
+<li>结合体和目标之间的残基接触损失(权重:1.0)</li>
+<li>结合体的回转半径(权重:0.3)</li>
+<li>&ldquo;螺旋损失&rdquo; (促进或惩罚3个残基偏移的骨架接触，以促进螺旋或非螺旋结构)(权重:-0.3)</li>
+</ul>
+</li>
+<li>
+<p><strong>优化过程</strong>：</p>
+<ul>
+<li>损失函数用于计算位置特定的误差，然后通过AF2网络反向传播生成Lx20的误差梯度，其中L为序列长度。</li>
+<li>使用随机梯度下降优化，每次迭代重新计算误差梯度，生成下一个迭代的结合体序列以最小化损失。</li>
+</ul>
+</li>
+<li>
+<p><strong>四个优化阶段</strong>：</p>
+<ul>
+<li><strong>第一阶段</strong>：在连续序列空间中优化结合体序列，50次迭代后终止置信度较低的路径。如果检测到β片段结构，增加迭代次数至3次循环。此阶段再进行25次迭代。</li>
+<li><strong>第二阶段</strong>：使用softmax函数将序列logit归一化为序列概率，持续45次迭代，温度参数根据迭代次数递减。</li>
+<li><strong>第三阶段</strong>：使用straight-through估计器，允许模型看到one-hot表示，进行5次迭代。</li>
+<li><strong>第四阶段</strong>：将序列输入转换为one-hot离散编码，执行15次迭代，每步测试并固定X次随机突变，X=0.05*结合体长度。</li>
+</ul>
+</li>
+<li>
+<p><strong>结合体设计筛选</strong>：</p>
+<ul>
+<li>设计路径中pLDDT低于0.7、界面接触少于7个、或出现显著骨架碰撞的将被拒绝。</li>
+</ul>
+</li>
+<li>
+<p><strong>MPNNsol序列优化</strong>：</p>
+<ul>
+<li>使用MPNNsol优化序列，保留目标界面4Å范围内的结合体残基，使用ProteinMPNN的可溶性权重为其余结合体核心和表面残基设计20个新序列。</li>
+<li>优化后的序列通过AF2单体模型进行重新预测（3次循环和2个基于模板的模型）。</li>
+<li>使用Rosetta的FastRelax协议进行200次迭代的能量最小化，并使用InterfaceAnalyzer计算界面评分。</li>
+</ul>
+</li>
+<li>
+<p><strong>设计筛选过滤条件</strong>：</p>
+<ul>
+<li>AF2置信度pLDDT&gt;0.8</li>
+<li>AF2界面置信度i_pTM&gt;0.5</li>
+<li>AF2界面对齐误差i_pAE&gt;0.35</li>
+<li>Rosetta界面形状互补性&gt;0.55</li>
+<li>界面未饱和氢键数&lt;3</li>
+<li>结合体表面疏水性&lt;35%</li>
+<li>结合体在结合与未结合形式中的RMSD&lt;3.5Å</li>
+</ul>
+</li>
+<li>
+<p><strong>设计多样性</strong>：</p>
+<ul>
+<li>每条AF2设计路径仅允许2个MPNNsol生成的序列通过筛选，以促进结合体设计的界面多样性。</li>
+</ul>
+</li>
+<li>
+<p><strong>最终选择</strong>：</p>
+</li>
+</ol>
+<ul>
+<li>设计流程继续运行直到至少有100个设计通过筛选。最终通常从排名前20的设计中挑选10个进行实验测试。</li>
+</ul>
+<h2 id="design-settings-for-individual-target-proteins">Design settings for individual target proteins</h2>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Input PDB</th>
+<th>Hotspots</th>
+<th>Binder length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PD-1</td>
+<td>AF2 prediction, trimmed to 32-146</td>
+<td>64, 126, 129, 133</td>
+<td>80-150</td>
+</tr>
+<tr>
+<td>PD-L1</td>
+<td>AF2 prediction, trimmed to 18-132</td>
+<td>54, 56, 66, 115</td>
+<td>65-155</td>
+</tr>
+<tr>
+<td>IFNAR2</td>
+<td>2LAG<sup>45</sup>, trimmed to 8-110</td>
+<td>52, 80, 82, 84, 96, 98</td>
+<td>60-175</td>
+</tr>
+<tr>
+<td>CD45</td>
+<td>AF2 prediction of 5FMV<sup>46</sup>, split by extracellular fibronectin domains</td>
+<td>d1, d2, d3, d4, d1-d2, d2-d3, d3-d4</td>
+<td>80-200</td>
+</tr>
+<tr>
+<td>BBF-14</td>
+<td>Crystal structure (in preparation)</td>
+<td>none</td>
+<td>70-250</td>
+</tr>
+<tr>
+<td>CrSAS-6</td>
+<td>AF2 prediction, trimmed to 15-160</td>
+<td>none</td>
+<td>90-200</td>
+</tr>
+<tr>
+<td>Der f7</td>
+<td>AF2 prediction with 3UV1 template<sup>47</sup>, trimmed to 18-213</td>
+<td>132 or 178 or 201</td>
+<td>70-185</td>
+</tr>
+<tr>
+<td>Der f21</td>
+<td>AF2 dimer prediction with 5YNY template<sup>26</sup>, trimmed to 25-136</td>
+<td>34 or 52 or 87 or 105 or 116</td>
+<td>70-185</td>
+</tr>
+<tr>
+<td>Bet v1</td>
+<td>AF2 prediction</td>
+<td>24</td>
+<td>70-185</td>
+</tr>
+<tr>
+<td>SpCas9</td>
+<td>AF2 prediction with 4ZT0<sup>33</sup> template, trimmed to 96-174 + 306-446</td>
+<td>360</td>
+<td>70-150</td>
+</tr>
+</tbody>
+</table>
+<h2 id="示例代码">示例代码</h2>
+<pre tabindex="0"><code class="language-nashorn" data-lang="nashorn">sbatch bindcraft.slurm --settings &#39;path/to/settings_target/.json&#39; --filters &#39;path/to/settings_filters/.json&#39; --advanced &#39;path/to/settings_advanced/.json&#39;
+</code></pre><p>if your machine does not support SLURM, try ⬇️</p>
+<pre tabindex="0"><code class="language-nashorn" data-lang="nashorn">python -u /work/lpdi/users/mpacesa/Pipelines/BindCraft/bindcraft.py --settings &#39;path/to/settings_target/.json&#39; --filters &#39;path/to/settings_filters/.json&#39; --advanced &#39;path/to/settings_advanced/.json&#39;
+</code></pre><p><strong><mark>note</mark></strong></p>
+<ul>
+<li>迭代次数、设计权重或过滤器可能需要调整。目标位点选择也很重要，但如果未指定热点，AF2非常擅长检测良好的结合位点。</li>
+<li>AF2 在预测/设计亲水性方面比在疏水性界面方面更差。</li>
+<li>有时轨迹最终会变形或“被压扁”。这对于AF2多聚体设计来说是正常的，因为它对序列输入非常敏感，如果不重新训练模型，这是无法避免的。然而，这些轨迹很快就会被检测到并丢弃。</li>
+</ul>
 
       
       <div class="divider"></div>
       <div class="flex flex-col md:flex-row justify-between gap-4 py-4">
         
-        <a class="group btn btn-outline" href="/posts/bindcraft/" title="BindCraft:功能性蛋白质binder的设计">
-          <ion-icon name="chevron-back"></ion-icon>
-          <div class="inline-flex flex-col items-start">
-            <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">上一页</span>
-            <span class="max-w-48 truncate">BindCraft:功能性蛋白质binder的设计</span>
-          </div>
-        </a>
+        <div></div>
         
 
         
-        <a class="group btn btn-outline" href="/posts/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" title="如何搭建自己的博客">
+        <a class="group btn btn-outline" href="/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/" title="David baker蛋白质设计方法">
           <div class="inline-flex flex-col items-end">
             <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">下一页</span>
-            <span class="max-w-48 truncate">如何搭建自己的博客</span>
+            <span class="max-w-48 truncate">David baker蛋白质设计方法</span>
           </div>
           <ion-icon name="chevron-forward"></ion-icon>
         </a>

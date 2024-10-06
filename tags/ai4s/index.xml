@@ -6,8 +6,15 @@
     <description>Recent content in AI4S on Pepper的博客</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 27 Sep 2024 17:25:47 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 06 Oct 2024 15:18:49 +0800</lastBuildDate>
     <atom:link href="https://uioqps.github.io/tags/ai4s/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BindCraft:功能性蛋白质binder的设计</title>
+      <link>https://uioqps.github.io/posts/bindcraft/</link>
+      <pubDate>Sun, 06 Oct 2024 15:18:49 +0800</pubDate>
+      <guid>https://uioqps.github.io/posts/bindcraft/</guid>
+      <description>&lt;p&gt;一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，&lt;/p&gt;</description>
+    </item>
     <item>
       <title>David baker蛋白质设计方法</title>
       <link>https://uioqps.github.io/posts/%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E6%8E%A2%E7%A9%B6/</link>
