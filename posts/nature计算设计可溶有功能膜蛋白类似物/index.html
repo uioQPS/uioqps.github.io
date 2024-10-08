@@ -232,6 +232,7 @@
         <li><a href="#computational-design-protocol">Computational design protocol</a></li>
       </ul>
     </li>
+    <li><a href="#filtered-by-proteinmpnn">Filtered by ProteinMPNN</a></li>
     <li><a href="#设计claudin-1和claudin-4的功能类似物">设计claudin-1和claudin-4的功能类似物</a></li>
     <li><a href="#gpcr构象特异性设计">GPCR构象特异性设计</a></li>
     <li><a href="#筛选选择">筛选选择</a></li>
@@ -492,11 +493,15 @@
 根据与目标的结构相似性、置信度和序列多样性，ProteinMPNN在每个AF2序列设计轨迹中，进行了500轮梯度下降优化。并非所有claudin、rhomboid蛋白酶和GPCR的设计轨迹都收敛，因此，本文从成功的轨迹中采样序列并引入突变，同时禁用了距离矩阵损失(distogram loss)。这些序列随后被用作新设计轨迹的起点，称之为`soft starts`，从而提高了收敛率。
 ## MPNNsol模型的训练
 截至2021年8月2日通过X射线晶体学或冷冻电镜解析、分辨率优于3.5Å并且残基数少于10,000的PDB中的蛋白质组装体。在采样过程中，对极性氨基酸（如丝氨酸、苏氨酸、天冬酰胺、谷氨酰胺等）给予正采样偏差，即增加它们被选中的概率（极性氨基酸通常参与关键的分子相互作用），同时对丙氨酸给予负采样偏差，即减少其被选中的概率，可以得到最佳的设计结果。
-## Filtered by ProteinMPNN
-1. **vanilla ProteinMPNN模型**：
-   - 使用了已经训练好的模型权重，这些权重来自ProteinMPNN的官方模型。
-   - 该模型是在一个带有0.1Å高斯噪声的数据集上进行训练的。加入噪声是为了让模型更具泛化能力，即使在有少量结构误差的情况下仍能有效工作。
-<ol start="2">
+<h2 id="filtered-by-proteinmpnn">Filtered by ProteinMPNN</h2>
+<ol>
+<li>
+<p><strong>vanilla ProteinMPNN模型</strong>：</p>
+<ul>
+<li>使用了已经训练好的模型权重，这些权重来自ProteinMPNN的官方模型。</li>
+<li>该模型是在一个带有0.1Å高斯噪声的数据集上进行训练的。加入噪声是为了让模型更具泛化能力，即使在有少量结构误差的情况下仍能有效工作。</li>
+</ul>
+</li>
 <li>
 <p><strong>MPNN偏差版本</strong>：</p>
 <ul>
