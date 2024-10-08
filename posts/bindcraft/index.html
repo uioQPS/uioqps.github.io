@@ -15,7 +15,7 @@
 
 
 <meta name="author" content="Pepper" />
-<meta name="description" content="一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，
+<meta name="description" content="一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，而无需高通量筛选或实验优化，即使在没有已知结合位点的情况下也是如此。成功地针对多种具有挑战性的靶标设计了结合剂，包括细胞表面受体、常见过敏原、从头设计的蛋白质和多域核酸酶，例如CRISPR-Cas9。
 " />
 
 
@@ -25,7 +25,7 @@
 <meta property="og:url" content="https://uioqps.github.io/posts/bindcraft/">
   <meta property="og:site_name" content="Pepper的博客">
   <meta property="og:title" content="BindCraft————功能性蛋白质binder的设计">
-  <meta property="og:description" content="一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，">
+  <meta property="og:description" content="一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，而无需高通量筛选或实验优化，即使在没有已知结合位点的情况下也是如此。成功地针对多种具有挑战性的靶标设计了结合剂，包括细胞表面受体、常见过敏原、从头设计的蛋白质和多域核酸酶，例如CRISPR-Cas9。">
   <meta property="og:locale" content="zh_Hans">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -38,7 +38,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="BindCraft————功能性蛋白质binder的设计">
-  <meta name="twitter:description" content="一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，">
+  <meta name="twitter:description" content="一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，而无需高通量筛选或实验优化，即使在没有已知结合位点的情况下也是如此。成功地针对多种具有挑战性的靶标设计了结合剂，包括细胞表面受体、常见过敏原、从头设计的蛋白质和多域核酸酶，例如CRISPR-Cas9。">
 
 
 
@@ -284,8 +284,7 @@
       <img src="bind.jpg" alt="BindCraft————功能性蛋白质binder的设计" />
       
 
-      <p>一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，</p>
-<p>而无需高通量筛选或实验优化，即使在没有已知结合位点的情况下也是如此。成功地针对多种具有挑战性的靶标设计了结合剂，包括细胞表面受体、常见过敏原、从头设计的蛋白质和多域核酸酶，例如CRISPR-Cas9。</p>
+      <p>一个用于从头蛋白质结合剂设计的开源自动化流程，实验成功率号称10-100%。BindCraft利用 AlphaFold2经过训练的深度学习权重来生成纳摩尔结合剂，而无需高通量筛选或实验优化，即使在没有已知结合位点的情况下也是如此。成功地针对多种具有挑战性的靶标设计了结合剂，包括细胞表面受体、常见过敏原、从头设计的蛋白质和多域核酸酶，例如CRISPR-Cas9。</p>
 <h2 id="principle-content">Principle content</h2>
 <p>基于物理的方法（如Rosetta）通过支架和侧链优化在早期结合剂设计中发挥了重要作用。然而，这种方法的实验成功率非常低（通常不到0.1%），并且需要生成和采样大量的设计，范围从数十万到数百万。此外，由于这种方法通常需要将预定义的支架对接到固定的靶标结构上，因此靶标和结合剂表面之间的不兼容性可能导致结合相互作用不理想，甚至会阻碍某些表位的靶向性。在大型蛋白质结构和序列数据集上训练的模型，AlphaFold2 (AF2)和RoseTTAFold2 (RF2)，在准确预测蛋白质结构和建模复杂PPI 方面表现出了卓越的能力。事实上，AF2过滤已被证明可以通过评估预测复合物的合理性来显著提高结合剂设计的成功率。</p>
 <p>本文假设可以利用其训练的权重和学习到的蛋白质结构模式直接用于蛋白质结合剂的设计提出BindCraft，用于从头设计蛋白质结合剂。本文利用通过AF2网络的反向传播来有效地产生新的结合剂和界面，而无需进行大量采样。在十个不同、具有挑战性和治疗相关的蛋白质靶标上展示了我们的流程的效率，并确了几种高亲和力结合剂，而无需通过实验对数百到数千个设计进行高通量筛选。AF2 网络可以通过识别最有效满足损失函数的热点来自动选择最佳结合位点。</p>
@@ -499,7 +498,13 @@
       <div class="divider"></div>
       <div class="flex flex-col md:flex-row justify-between gap-4 py-4">
         
-        <div></div>
+        <a class="group btn btn-outline" href="/posts/nature%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1%E5%8F%AF%E6%BA%B6%E6%9C%89%E5%8A%9F%E8%83%BD%E8%86%9C%E8%9B%8B%E7%99%BD%E7%B1%BB%E4%BC%BC%E7%89%A9/" title="Nature|计算设计可溶有功能膜蛋白类似物">
+          <ion-icon name="chevron-back"></ion-icon>
+          <div class="inline-flex flex-col items-start">
+            <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">上一页</span>
+            <span class="max-w-48 truncate">Nature|计算设计可溶有功能膜蛋白类似物</span>
+          </div>
+        </a>
         
 
         

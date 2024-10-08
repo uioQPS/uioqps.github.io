@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-Hans"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature|计算设计可溶有功能膜蛋白类似物 | Pepper的博客</title>
+
+    
+<link href="/ico.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="Pepper" />
+<meta name="description" content="一种基于深度学习的从头蛋白质设计计算流程。
+" />
+
+
+<link rel="canonical" href="https://uioqps.github.io/posts/nature%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1%E5%8F%AF%E6%BA%B6%E6%9C%89%E5%8A%9F%E8%83%BD%E8%86%9C%E8%9B%8B%E7%99%BD%E7%B1%BB%E4%BC%BC%E7%89%A9/" />
+
+
+<meta property="og:url" content="https://uioqps.github.io/posts/nature%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1%E5%8F%AF%E6%BA%B6%E6%9C%89%E5%8A%9F%E8%83%BD%E8%86%9C%E8%9B%8B%E7%99%BD%E7%B1%BB%E4%BC%BC%E7%89%A9/">
+  <meta property="og:site_name" content="Pepper的博客">
+  <meta property="og:title" content="Nature|计算设计可溶有功能膜蛋白类似物">
+  <meta property="og:description" content="一种基于深度学习的从头蛋白质设计计算流程。">
+  <meta property="og:locale" content="zh_Hans">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-08T21:04:28+08:00">
+    <meta property="article:modified_time" content="2024-10-08T21:04:28+08:00">
+    <meta property="article:tag" content="AI4S">
+    <meta property="og:image" content="https://uioqps.github.io/posts/nature%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1%E5%8F%AF%E6%BA%B6%E6%9C%89%E5%8A%9F%E8%83%BD%E8%86%9C%E8%9B%8B%E7%99%BD%E7%B1%BB%E4%BC%BC%E7%89%A9/mem.jpg">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://uioqps.github.io/posts/nature%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1%E5%8F%AF%E6%BA%B6%E6%9C%89%E5%8A%9F%E8%83%BD%E8%86%9C%E8%9B%8B%E7%99%BD%E7%B1%BB%E4%BC%BC%E7%89%A9/mem.jpg">
+  <meta name="twitter:title" content="Nature|计算设计可溶有功能膜蛋白类似物">
+  <meta name="twitter:description" content="一种基于深度学习的从头蛋白质设计计算流程。">
+
+
+
+<meta name="generator" content="Hugo 0.131.0">
+
+<link rel="stylesheet" href="/css/output.css" />
+
+<style>
+
+
+
+</style>
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+<link rel="stylesheet" href="https://uioqps.github.io/css/custom.min.34652102f539e3c96b43b56230791645cd61e905bd91d2aa835c1a736a2c674e.css" integrity="sha256-NGUhAvU548lrQ7ViMHkWRc1h6QW9kdKqg1wac2osZ04=">
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  <div class="container flex justify-between px-4">
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="翻转！">
+        <div class="h-10 rounded-full">
+          <img src="/me.jpg" alt="Pepper的博客" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="https://uioqps.github.io/" class="text-lg font-semibold cursor-pointer">
+          Pepper的博客
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">生命留给有价值的事物才能创造价值</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="关于">
+    <ion-icon name="information-circle"></ion-icon>关于</div>
+</li>
+
+
+
+
+<li>
+  <a class="group inline-flex items-center p-2 cursor-pointer" href="/search" title="搜索">
+    <ion-icon name="search"></ion-icon>
+    搜索
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="归档">
+    <ion-icon name="archive"></ion-icon>
+    归档
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="所有分类">
+    <ion-icon name="grid"></ion-icon>
+    所有分类
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="所有标签">
+    <ion-icon name="pricetags"></ion-icon>
+    所有标签
+  </a>
+</li>
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline" @click="flip = !flip" title="关于">关于</div>
+      
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/search" title="搜索">
+        <ion-icon class="group-hover:text-primary-content" name="search"></ion-icon>
+      </a>
+      
+
+      
+
+      
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="归档">
+        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="所有分类">
+        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="所有标签">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
+      
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="mt-4 px-4">
+  
+  <div class="relative" x-data="{ height: '' }" x-init="height = $el.scrollHeight + 'px'">
+  
+    
+    <div class="absolute right-0 lg:w-36 xl:w-48 hidden lg:block" :style="{ height }">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#inversion-of-the-af2-network">Inversion of the AF2 network</a>
+      <ul>
+        <li><a href="#设计目标准备">设计目标准备</a></li>
+        <li><a href="#损失函数的使用">损失函数的使用</a></li>
+        <li><a href="#梯度下降">梯度下降</a></li>
+        <li><a href="#computational-design-protocol">Computational design protocol</a></li>
+      </ul>
+    </li>
+    <li><a href="#设计claudin-1和claudin-4的功能类似物">设计claudin-1和claudin-4的功能类似物</a></li>
+    <li><a href="#gpcr构象特异性设计">GPCR构象特异性设计</a></li>
+    <li><a href="#筛选选择">筛选选择</a></li>
+  </ul>
+</nav>
+    </div>
+    
+    <article class="mx-auto prose dark:prose-invert" id="dream-single-post-main">
+      <header>
+        <h1>Nature|计算设计可溶有功能膜蛋白类似物</h1>
+        <p class="text-sm">
+          
+            <span data-format="luxon">2024-10-08T21:04:28&#43;08:00</span>
+          
+
+          | <span>7 分钟阅读</span>
+
+          
+          | <span>更新于
+            
+              <span data-format="luxon">2024-10-08T21:04:28&#43;08:00</span>
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          <div class="flex items-center">
+  
+  <div class="avatar mr-1">
+    <div class="w-8 rounded-full">
+      <img class="my-0" src="/me.jpg" alt="Pepper" />
+    </div>
+  </div>
+  
+
+  <span>
+  
+    
+      Pepper
+    
+  
+  </span>
+</div>
+
+
+          <span class="flex items-center gap-2">
+  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=Nature%7c%e8%ae%a1%e7%ae%97%e8%ae%be%e8%ae%a1%e5%8f%af%e6%ba%b6%e6%9c%89%e5%8a%9f%e8%83%bd%e8%86%9c%e8%9b%8b%e7%99%bd%e7%b1%bb%e4%bc%bc%e7%89%a9&url=https%3a%2f%2fuioqps.github.io%2fposts%2fnature%25E8%25AE%25A1%25E7%25AE%2597%25E8%25AE%25BE%25E8%25AE%25A1%25E5%258F%25AF%25E6%25BA%25B6%25E6%259C%2589%25E5%258A%259F%25E8%2583%25BD%25E8%2586%259C%25E8%259B%258B%25E7%2599%25BD%25E7%25B1%25BB%25E4%25BC%25BC%25E7%2589%25A9%2f" title="Share on X">
+    <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+  </a>
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fuioqps.github.io%2fposts%2fnature%25E8%25AE%25A1%25E7%25AE%2597%25E8%25AE%25BE%25E8%25AE%25A1%25E5%258F%25AF%25E6%25BA%25B6%25E6%259C%2589%25E5%258A%259F%25E8%2583%25BD%25E8%2586%259C%25E8%259B%258B%25E7%2599%25BD%25E7%25B1%25BB%25E4%25BC%25BC%25E7%2589%25A9%2f" title="Share on Facebook">
+    <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+  </a>
+</span>
+
+        </div>
+      </header>
+
+      
+      <img src="mem.jpg" alt="Nature|计算设计可溶有功能膜蛋白类似物" />
+      
+
+      <p>一种基于深度学习的从头蛋白质设计计算流程。</p>
+<p>该过程利用AlphaFold2 (AF2)生成蛋白质结构，利用ProteinMPNN优化序列，这种方法可以设计稳定的蛋白质折叠。本文计算设计了以前非常具有挑战性的高度稳定的折叠（免疫球蛋白样折叠 (IGF)、β-桶状结构 (BBF) 和 TIM-桶状结构 (TBF)）以及整合膜蛋白折叠的可溶性类似物（紧密连接蛋白claudin、菱形蛋白酶rhomboid protease、G 蛋白偶联受体 (GPCR)），而无需参数设计限制或后续实验优化。最后，证明了可溶性类似物可以以构象特异性的方式设计，同时保留具有结构复杂特征且具有生物和治疗相关性的天然功能基序，例如G蛋白结合界面和毒素-受体相互作用位点。</p>
+<p>目前Rosetta蛋白质生成的约束：</p>
+<p>1、 需要参数和对称约束来指导设计过程 <br>
+2、 需要大量的实验筛选和优化</p>
+<p>所以，设计具有复杂结构（包括非局部拓扑和大尺寸）的蛋白质折叠仍然具有挑战性。本文分析了蛋白质结构分类(SCOP)数据库中的蛋白质折叠空间，并观察到可溶性蛋白质和细胞膜环境中的蛋白质在结构层面上的分离。</p>
+<h2 id="inversion-of-the-af2-network">Inversion of the AF2 network</h2>
+<h3 id="设计目标准备">设计目标准备</h3>
+<p>AF2通过损失函数优化生成初始序列，对所有生成的序列进行了三次循环预测，随后在AMBER力场中进行松弛。这样得到了高质量的结构，作为输入用于ProteinMPNN进行序列生成。</p>
+<h3 id="损失函数的使用">损失函数的使用</h3>
+<p><code>复合损失函数</code>计算误差梯度</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow class="MJX-TeXAtom-ORD">
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi mathvariant="normal">l</mi>
+      <mi mathvariant="normal">o</mi>
+      <mi mathvariant="normal">s</mi>
+      <mi mathvariant="normal">s</mi>
+    </mrow>
+  </mrow>
+  <mo>=</mo>
+  <msub>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>W</mi>
+    </mrow>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">F</mi>
+          <mi mathvariant="normal">A</mi>
+          <mi mathvariant="normal">P</mi>
+          <mi mathvariant="normal">E</mi>
+        </mrow>
+      </mrow>
+    </mrow>
+  </msub>
+  <msub>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>L</mi>
+    </mrow>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">F</mi>
+          <mi mathvariant="normal">A</mi>
+          <mi mathvariant="normal">P</mi>
+          <mi mathvariant="normal">E</mi>
+        </mrow>
+      </mrow>
+    </mrow>
+  </msub>
+  <mo>+</mo>
+  <msub>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>W</mi>
+    </mrow>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">d</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">s</mi>
+          <mi mathvariant="normal">t</mi>
+        </mrow>
+      </mrow>
+    </mrow>
+  </msub>
+  <msub>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>L</mi>
+    </mrow>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">d</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">s</mi>
+          <mi mathvariant="normal">t</mi>
+        </mrow>
+      </mrow>
+    </mrow>
+  </msub>
+  <mo>+</mo>
+  <msub>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>W</mi>
+    </mrow>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">L</mi>
+          <mi mathvariant="normal">D</mi>
+          <mi mathvariant="normal">D</mi>
+          <mi mathvariant="normal">T</mi>
+        </mrow>
+      </mrow>
+    </mrow>
+  </msub>
+  <msub>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>L</mi>
+    </mrow>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">L</mi>
+          <mi mathvariant="normal">D</mi>
+          <mi mathvariant="normal">D</mi>
+          <mi mathvariant="normal">T</mi>
+        </mrow>
+      </mrow>
+    </mrow>
+  </msub>
+  <mo>+</mo>
+  <msub>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>W</mi>
+    </mrow>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">T</mi>
+          <mi mathvariant="normal">M</mi>
+        </mrow>
+      </mrow>
+    </mrow>
+  </msub>
+  <msub>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>L</mi>
+    </mrow>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">T</mi>
+          <mi mathvariant="normal">M</mi>
+        </mrow>
+      </mrow>
+    </mrow>
+  </msub>
+</math>
+<ul>
+<li>框架对齐点误差(FAPE)损失量化了预测的Cα原子和目标结构之间的L2范数</li>
+<li>距离损失(dist)是Cβ距离（对于非甘氨酸残基）和Cα距离（对于甘氨酸而言）的交叉熵</li>
+<li>Cα位置的模型置信度(pLDDT)损失通过取 1−pLDDT 计算得出，对低置信度进行惩罚</li>
+<li>pTM分数损失是一个关注整体结构相似性的预测置信度指标</li>
+</ul>
+<p>本文W<sub>FAPE</sub>=1.0，W<sub>pLDDT</sub>=0.2和W<sub>pTM</sub>=0.2生成设计。在初始轨迹期间，W<sub>dist</sub>设置为0.5，而在轨迹重生成期间将其禁用。</p>
+<h3 id="梯度下降">梯度下降</h3>
+<p>通过初始的序列设计、AF2 结构预测、损失计算和优化，不断迭代来设计出符合目标结构的蛋白质序列。</p>
+<ol>
+<li>
+<p><strong>初始化氨基酸序列</strong>：最开始，设计的氨基酸序列是根据目标蛋白质的二级结构（如螺旋、β折叠、环）来进行初始化。为了简化这个过程，分别用几种常见的氨基酸来代表这些二级结构：</p>
+<ul>
+<li><strong>螺旋</strong>：用丙氨酸(A)表示</li>
+<li><strong>β折叠</strong>：用缬氨酸(V)表示</li>
+<li><strong>环状结构</strong>：用甘氨酸(G)表示</li>
+</ul>
+<p>这样可以帮助生成的序列更接近目标结构。</p>
+</li>
+<li>
+<p><strong>引入随机突变</strong>：为了让设计更具多样性，不局限于一个固定的序列，在初始的氨基酸序列中，随机地把10%的氨基酸替换掉。这是为了让设计过程有一些随机性，避免“卡”在某个固定解上。</p>
+</li>
+<li>
+<p><strong>通过AlphaFold2预测结构</strong>：将这个突变后的序列输入到AlphaFold2（AF2）网络中，生成5个可能的三维蛋白质结构。这些结构是根据预测的折叠方式生成的。</p>
+</li>
+<li>
+<p><strong>计算损失值</strong>：接下来，使用一个预定义的损失函数来评估生成的结构与目标结构的差异。损失值是为了衡量生成的结构与目标结构的“差距”。</p>
+</li>
+<li>
+<p><strong>计算误差梯度</strong>：通过计算损失值，我们可以得到每个氨基酸的误差梯度，表示每个氨基酸对最终错误的贡献。这个误差梯度是一个5×20×N的矩阵，意思是：</p>
+<ul>
+<li>5：每个结构对应一个误差矩阵</li>
+<li>20：代表20种可能的氨基酸</li>
+<li>N：表示序列的长度</li>
+</ul>
+<p>然后，将这5个矩阵平均，得到一个表示整体误差的平均矩阵（20×N），用于后续的优化。</p>
+</li>
+<li>
+<p><strong>更新评分矩阵(PSSM)</strong>：使用ADAM优化算法和归一化误差梯度来更新PSSM（位置特异性评分矩阵）。这个矩阵大小为20×N，表示每个位置对应的氨基酸的打分。</p>
+</li>
+<li>
+<p><strong>softmax函数和选定氨基酸</strong>：更新后的PSSM经过softmax函数处理，将评分矩阵转化为每个位置上氨基酸的概率分布。接着使用argmax函数选择每个位置上最可能的氨基酸，从而得到一个新的氨基酸序列。</p>
+</li>
+<li>
+<p><strong>避免半胱氨酸</strong>：为了避免生成的序列中包含半胱氨酸，在整个过程中，PSSM中的半胱氨酸被掩盖掉。</p>
+</li>
+<li>
+<p><strong>重复迭代</strong>：这个流程会不断重复，通过每次迭代产生新的氨基酸序列，并在每次迭代中优化，使设计的蛋白质序列越来越接近目标折叠结构。</p>
+</li>
+</ol>
+<h3 id="computational-design-protocol">Computational design protocol</h3>
+  <img src='scaffold.jpg'  width="100%">
+根据与目标的结构相似性、置信度和序列多样性，ProteinMPNN在每个AF2序列设计轨迹中，进行了500轮梯度下降优化。并非所有claudin、rhomboid蛋白酶和GPCR的设计轨迹都收敛，因此，本文从成功的轨迹中采样序列并引入突变，同时禁用了距离矩阵损失(distogram loss)。这些序列随后被用作新设计轨迹的起点，称之为`soft starts`，从而提高了收敛率。
+## MPNNsol模型的训练
+截至2021年8月2日通过X射线晶体学或冷冻电镜解析、分辨率优于3.5Å并且残基数少于10,000的PDB中的蛋白质组装体。在采样过程中，对极性氨基酸（如丝氨酸、苏氨酸、天冬酰胺、谷氨酰胺等）给予正采样偏差，即增加它们被选中的概率（极性氨基酸通常参与关键的分子相互作用），同时对丙氨酸给予负采样偏差，即减少其被选中的概率，可以得到最佳的设计结果。
+## Filtered by ProteinMPNN
+1. **vanilla ProteinMPNN模型**：
+   - 使用了已经训练好的模型权重，这些权重来自ProteinMPNN的官方模型。
+   - 该模型是在一个带有0.1Å高斯噪声的数据集上进行训练的。加入噪声是为了让模型更具泛化能力，即使在有少量结构误差的情况下仍能有效工作。
+<ol start="2">
+<li>
+<p><strong>MPNN偏差版本</strong>：</p>
+<ul>
+<li>有一个“有偏差的ProteinMPNN”版本，也称为<strong>MPNN偏差</strong>，是对官方提供的脚本进行修改后的结果（修改了<code>submit_example_8.sh</code>脚本）。</li>
+<li>在这个版本中，<strong>对极性氨基酸赋予正采样偏差</strong>，而对<strong>丙氨酸赋予负采样偏差</strong>。这意味着模型在生成序列时，更倾向于选择极性氨基酸，而较少选择丙氨酸。这样可以得到更符合预期的设计结果。</li>
+</ul>
+</li>
+<li>
+<p><strong>MPNN sol模型</strong>：</p>
+<ul>
+<li>使用了两种不同版本的MPNN sol模型，它们在不同噪声水平的数据集上进行训练：
+<ul>
+<li>一种模型是在0.1Å噪声下训练的。</li>
+<li>另一种是在0.2Å噪声下训练的。</li>
+</ul>
+</li>
+<li>通过使用不同噪声训练的模型，尝试捕捉结构中可能存在的不同程度的变化。</li>
+</ul>
+</li>
+<li>
+<p><strong>生成序列</strong>：</p>
+<ul>
+<li>对于每个AF2生成的主干，使用ProteinMPNN生成<strong>两个序列</strong>。这意味着，对于每一个输入的主干，模型会生成两个不同的候选序列。</li>
+<li>在输入的主干中，<strong>不添加额外的高斯噪声</strong>，这意味着主干结构是直接来自AF2的，保持其原始精度。</li>
+<li>在生成过程中，<strong>掩盖了半胱氨酸残基</strong>，即不允许设计出的序列中包含半胱氨酸。这是为了避免生成不必要的二硫键结构（半胱氨酸可以形成二硫键）。</li>
+</ul>
+</li>
+</ol>
+<p>使用不同版本的 ProteinMPNN（包括vanilla、MPNN偏差版本和不同噪声水平的MPNN sol模型）来生成新的氨基酸序列，通过加入采样偏差、掩盖半胱氨酸等策略来优化设计，使其更符合目标结构的需求，这个过程最终会为每个AF2主干生成多个优化的蛋白质序列，并帮助加速蛋白质设计过程。</p>
+<h2 id="设计claudin-1和claudin-4的功能类似物">设计claudin-1和claudin-4的功能类似物</h2>
+<img src='solubilize.jpg'  width="100%">
+本文首先使用AF2进行结构预测，启用了MSA（多序列比对）和模板，因为缺少高分辨率的实验结构。这些预测结果随后用作设计和重新预测的结构模板，因为AF2在单序列模式下无法预测野生型胞外区域。为了减少折叠偏差，本文从模板中移除了所有序列和侧链信息。
+<p>尝试了几种claudin功能设计策略，其中两种成功：</p>
+<ul>
+<li>（1）仅重新设计跨膜表面，大约占序列的40%；</li>
+<li>（2）重新设计整个跨膜区，包括核心区域，大约占序列的60%。</li>
+</ul>
+<h2 id="gpcr构象特异性设计">GPCR构象特异性设计</h2>
+<img src='scaffold2.jpg'  width="100%">
+本文使用了活性构象与mini-Gs结合的腺苷A2A GPCR模板（PDB 5G53）和非活性构象（PDB 3VGA）的模板，分别设计每种状态。在每种状态设计中固定了与G蛋白相互作用的残基和进化上保守的DRY基序，设计得到的结构具有相同的长度和相同的功能位点。对于活性构象的设计，我们发现如果没有G蛋白存在，无法生成高置信度的设计；因此，梯度下降和预测是在mini-Gs结合物存在的情况下进行的。
+<h2 id="筛选选择">筛选选择</h2>
+<p>所有生成的序列均使用AF2在AMBER力场中进行三次循环和一个松弛步骤进行预测。接下来，使用以下标准筛选序列：</p>
+<ol>
+<li>
+<p><strong>TM得分要求</strong>：</p>
+<ul>
+<li>除菱形蛋白酶外，所有设计的TM得分 &gt; 0.80。</li>
+<li>菱形蛋白酶在设计轨迹中产生的TM得分略低，因此选择了截止值0.75。</li>
+</ul>
+</li>
+<li>
+<p><strong>pLDDT得分要求</strong>：</p>
+<ul>
+<li>除菱形蛋白酶外，所有设计的pLDDT &gt; 80。</li>
+<li>对于菱形蛋白酶，pLDDT &gt; 75。</li>
+</ul>
+</li>
+<li>
+<p><strong>序列新颖性要求</strong>：</p>
+<ul>
+<li>e值阈值 &gt; 0.1，用以确保设计的序列在新颖性上的可靠性。</li>
+</ul>
+</li>
+</ol>
+
+      
+      <div class="divider"></div>
+      <div class="flex flex-col md:flex-row justify-between gap-4 py-4">
+        
+        <div></div>
+        
+
+        
+        <a class="group btn btn-outline" href="/posts/bindcraft/" title="BindCraft————功能性蛋白质binder的设计">
+          <div class="inline-flex flex-col items-end">
+            <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">下一页</span>
+            <span class="max-w-48 truncate">BindCraft————功能性蛋白质binder的设计</span>
+          </div>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </a>
+        
+      </div>
+      
+    </article>
+  </div>
+
+  
+
+  
+
+  <section class="max-w-[65ch] mx-auto space-y-4">
+    
+
+    
+
+    
+  </section>
+</div>
+
+
+            <footer class="flex justify-between items-center gap-2 px-4 py-12">
+              <div>
+  
+  <p>
+    © 2024 Pepper的博客
+  </p>
+  
+
+  
+  <p class="text-sm">
+    🌱
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with theme
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+              <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center h-[32px] px-2 gap-2 border border-base-300 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+            </footer>
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            <div class="dream-grid">
+  
+  
+  
+    
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title"></div>
+
+        <div class="prose dark:prose-invert">
+          <div style="display:table; width:100%;">
+    <div style="display:table-row">
+        <div style="display:table-cell" class="author__avatar">
+        <img src="/picme.jpg" class="author__avatar" /></div></div></div>
+<p><strong>Zheng Shuang</strong><br>
+Tsinghua University</p>
+<p>Incoming PhD student at School of Pharamaceutical Sciences</p>
+<ul class="social-icons">    
+<li><i class="fa fa-fw fa-map-marker"></i>  Haidian, Beijing </li>
+<li><i class="fa fa-fw fa-envelope" aria-hidden="true"></i><a href="mailto:zhengs4ent@gamil.com">  Email</a></li>   
+<li><i class="fa fa-fw fa-github" aria-hidden="true"></i><a href="https://github.com/uioQPS">  Github</a></li> 
+<li><i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i><a href="https://orcid.org/0009-0008-0660-4864">  Orcid</a></li>   
+</ul>
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+    
+  
+      <div class="w-full md:w-1/2 lg:w-1/3 p-4 dream-column">
+        <article class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30">
+          <div class="card-body">
+            <div class="card-title">📖 Educations</div>
+            <div class="prose dark:prose-invert">
+              <div class="paper-box-text">
+<p>2019.09 - now, PhD of Science in Structural Biology, School of Pharmacy of Tsinghua University, Beijing, China </p>    
+<p>Supervised by <a href="https://www.sps.tsinghua.edu.cn/info/1018/1638.htm">Dr. Xiangyu Liu</a></p>          
+<p>2015.09 - 2019.07, Bachelor of Biology, Wuhan University, Wuhan, China</p>
+</div>
+
+            </div>
+          </div>
+        </article>
+      </div>
+  
+  
+    
+  
+      <div class="w-full md:w-1/2 lg:w-1/3 p-4 dream-column">
+        <article class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30">
+          <div class="card-body">
+            <div class="card-title">📝 Publications</div>
+            <div class="prose dark:prose-invert">
+              <div class="paper-box">
+<div class="paper-box-image">
+<div>
+<div class="badge">2024</div>
+<img src="/TOC.jpg" width="100%">
+</img>
+</div>
+</div>
+<div class="paper-box-text">
+<p>
+<a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cplu.202400288" previewlistener="true">Molecular Mechanism of the β3AR Agonist Activity of a β-Blocker</a></p>
+<p><strong>Shuang Zheng</strong>, Shuhao Zhang  </p>
+<p><a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cplu.202400288"><strong>Project</strong></a> | <strong>SCI Journal Paper</strong></p>
+<li>   Chempluschem 2024 Pages e202400288 Accession Number: 39046191 DOI: 10.1002/cplu.202400288</li>
+</div>
+</div>
+
+            </div>
+          </div>
+        </article>
+      </div>
+  
+  
+    
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">关于博客</div>
+
+        <div class="prose dark:prose-invert">
+          <p>The content covered includes but is not limited to:</p>
+<p>
+🧬Structure Biology(GPCR) 
+<p>🧪Protein generation design(AF3)</p>
+<p>💻AI4S(Biological information Data)</p>
+<p>🔬Deep Learning(Drug Screening)</p>
+</p>
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+    
+  
+      <div class="w-full md:w-1/2 lg:w-1/3 p-4 dream-column">
+        <article class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30">
+          <div class="card-body">
+            <div class="card-title">💻 Internships</div>
+            <div class="prose dark:prose-invert">
+              <div class="paper-box">
+<div class="paper-box-image">
+<div>
+<div class="badge">Securities</div>
+<img src="/images/debang.jpg" width="100%">
+</img>
+</div>
+</div>
+<div class="paper-box-text">
+<p>
+<a href="https://www.tebon.com.cn/main/businessGuide/investBank/index.html" previewlistener="true">德邦证券医药组</a></p>
+<p><strong>Department · Biopharmaceuticals · Intern Analyst | Industry Research Report · Securities Daily</strong></p>
+<li>   Advised by Mrs. Yan Wang</li>
+<li>   Mar. 2023 - July. 2023</li>
+</div>
+</div>
+<div class="paper-box">
+<div class="paper-box-image">
+<div>
+<div class="badge">Health CRO</div>
+<img src="/images/IQVIA.jpg" width="100%">
+</img>
+</div>
+</div>
+<div class="paper-box-text">
+<p>
+<a href="https://www.iqvia.com/solutions/commercialization/pricing-and-market-access" previewlistener="true">IQVIA Consumer Health</a></p>
+<p><strong>Department · Drug Access · Management Consulting Online Intern| Write Meeting Minutes · private reserch</strong></p>
+<li>   Advised by Mrs. Zhe Yang</li>
+<li>   July. 2023 - Dec. 2023</li>
+</div>
+</div>
+            </div>
+          </div>
+        </article>
+      </div>
+  
+  
+  
+
+  
+
+  
+  
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+
+  window.hasTwitterEmbed =  null 
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/main.js"></script>
+
+    
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
+  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
+  crossorigin="anonymous"
+></script>
+<script>
+  format()
+
+  function format() {
+    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
+      const date = el.textContent
+
+      el.textContent = luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日")
+    })
+  }
+</script>
+
+
+
+
+
+
+
+    
+    <script src="/js/custom.js"></script>
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
