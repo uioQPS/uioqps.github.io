@@ -6,8 +6,15 @@
     <description>Recent content in AI4S on Pepper的博客</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 08 Oct 2024 21:04:28 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2024 23:43:55 +0800</lastBuildDate>
     <atom:link href="https://uioqps.github.io/tags/ai4s/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI4S大模型一则范例</title>
+      <link>https://uioqps.github.io/posts/ai4s%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Tue, 08 Oct 2024 23:43:55 +0800</pubDate>
+      <guid>https://uioqps.github.io/posts/ai4s%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/</guid>
+      <description>&lt;h2 id=&#34;神经网络揭秘gpcr-g蛋白偶联选择性&#34;&gt;神经网络揭秘GPCR-G蛋白偶联选择性&lt;/h2&gt;&#xA;&lt;p&gt;看到头图的研究还是非常震惊的，二元分类神经网络用来预测范围广泛的GPCR家族的G蛋白选择性了，并找到了一些相关的pattern。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Nature|计算设计可溶有功能膜蛋白类似物</title>
       <link>https://uioqps.github.io/posts/nature%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1%E5%8F%AF%E6%BA%B6%E6%9C%89%E5%8A%9F%E8%83%BD%E8%86%9C%E8%9B%8B%E7%99%BD%E7%B1%BB%E4%BC%BC%E7%89%A9/</link>

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-Hans"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI4S大模型一则范例 | Pepper的博客</title>
+
+    
+<link href="/ico.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="Pepper" />
+<meta name="description" content="神经网络揭秘GPCR-G蛋白偶联选择性 看到头图的研究还是非常震惊的，二元分类神经网络用来预测范围广泛的GPCR家族的G蛋白选择性了，并找到了一些相关的pattern。
+" />
+
+
+<link rel="canonical" href="https://uioqps.github.io/posts/ai4s%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" />
+
+
+<meta property="og:url" content="https://uioqps.github.io/posts/ai4s%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+  <meta property="og:site_name" content="Pepper的博客">
+  <meta property="og:title" content="AI4S大模型一则范例">
+  <meta property="og:description" content="神经网络揭秘GPCR-G蛋白偶联选择性 看到头图的研究还是非常震惊的，二元分类神经网络用来预测范围广泛的GPCR家族的G蛋白选择性了，并找到了一些相关的pattern。">
+  <meta property="og:locale" content="zh_Hans">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-08T23:43:55+08:00">
+    <meta property="article:modified_time" content="2024-10-08T23:43:55+08:00">
+    <meta property="article:tag" content="AI4S">
+    <meta property="og:image" content="https://uioqps.github.io/posts/ai4s%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/cover.jpg">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://uioqps.github.io/posts/ai4s%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/cover.jpg">
+  <meta name="twitter:title" content="AI4S大模型一则范例">
+  <meta name="twitter:description" content="神经网络揭秘GPCR-G蛋白偶联选择性 看到头图的研究还是非常震惊的，二元分类神经网络用来预测范围广泛的GPCR家族的G蛋白选择性了，并找到了一些相关的pattern。">
+
+
+
+<meta name="generator" content="Hugo 0.131.0">
+
+<link rel="stylesheet" href="/css/output.css" />
+
+<style>
+
+
+
+</style>
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+<link rel="stylesheet" href="https://uioqps.github.io/css/custom.min.34652102f539e3c96b43b56230791645cd61e905bd91d2aa835c1a736a2c674e.css" integrity="sha256-NGUhAvU548lrQ7ViMHkWRc1h6QW9kdKqg1wac2osZ04=">
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  <div class="container flex justify-between px-4">
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="翻转！">
+        <div class="h-10 rounded-full">
+          <img src="/me.jpg" alt="Pepper的博客" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="https://uioqps.github.io/" class="text-lg font-semibold cursor-pointer">
+          Pepper的博客
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">生命留给有价值的事物才能创造价值</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="关于">
+    <ion-icon name="information-circle"></ion-icon>关于</div>
+</li>
+
+
+
+
+<li>
+  <a class="group inline-flex items-center p-2 cursor-pointer" href="/search" title="搜索">
+    <ion-icon name="search"></ion-icon>
+    搜索
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="归档">
+    <ion-icon name="archive"></ion-icon>
+    归档
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="所有分类">
+    <ion-icon name="grid"></ion-icon>
+    所有分类
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="所有标签">
+    <ion-icon name="pricetags"></ion-icon>
+    所有标签
+  </a>
+</li>
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline" @click="flip = !flip" title="关于">关于</div>
+      
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/search" title="搜索">
+        <ion-icon class="group-hover:text-primary-content" name="search"></ion-icon>
+      </a>
+      
+
+      
+
+      
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="归档">
+        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="所有分类">
+        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="所有标签">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
+      
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="mt-4 px-4">
+  
+  <div class="relative" x-data="{ height: '' }" x-init="height = $el.scrollHeight + 'px'">
+  
+    
+    <div class="absolute right-0 lg:w-36 xl:w-48 hidden lg:block" :style="{ height }">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#神经网络揭秘gpcr-g蛋白偶联选择性">神经网络揭秘GPCR-G蛋白偶联选择性</a></li>
+    <li><a href="#ai4s药物研发新范式">AI4S药物研发新范式</a></li>
+    <li><a href="#ai-for-science方向的大模型">AI for Science方向的大模型</a></li>
+    <li><a href="#大模型语言的学习">大模型语言的学习</a>
+      <ul>
+        <li><a href="#1-xgboostxgb">1. XGBoost（XGB）</a></li>
+        <li><a href="#2-图神经网络gnn">2. 图神经网络（GNN）</a></li>
+        <li><a href="#3-transformer">3. Transformer</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+    <article class="mx-auto prose dark:prose-invert" id="dream-single-post-main">
+      <header>
+        <h1>AI4S大模型一则范例</h1>
+        <p class="text-sm">
+          
+            <span data-format="luxon">2024-10-08T23:43:55&#43;08:00</span>
+          
+
+          | <span>5 分钟阅读</span>
+
+          
+          | <span>更新于
+            
+              <span data-format="luxon">2024-10-08T23:43:55&#43;08:00</span>
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          <div class="flex items-center">
+  
+  <div class="avatar mr-1">
+    <div class="w-8 rounded-full">
+      <img class="my-0" src="/me.jpg" alt="Pepper" />
+    </div>
+  </div>
+  
+
+  <span>
+  
+    
+      Pepper
+    
+  
+  </span>
+</div>
+
+
+          <span class="flex items-center gap-2">
+  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=AI4S%e5%a4%a7%e6%a8%a1%e5%9e%8b%e4%b8%80%e5%88%99%e8%8c%83%e4%be%8b&url=https%3a%2f%2fuioqps.github.io%2fposts%2fai4s%25E5%25A4%259A%25E6%25A8%25A1%25E6%2580%2581%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%2f" title="Share on X">
+    <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+  </a>
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fuioqps.github.io%2fposts%2fai4s%25E5%25A4%259A%25E6%25A8%25A1%25E6%2580%2581%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%2f" title="Share on Facebook">
+    <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+  </a>
+</span>
+
+        </div>
+      </header>
+
+      
+      <img src="AI.jpg" alt="AI4S大模型一则范例" />
+      
+
+      <h2 id="神经网络揭秘gpcr-g蛋白偶联选择性">神经网络揭秘GPCR-G蛋白偶联选择性</h2>
+<p>看到头图的研究还是非常震惊的，二元分类神经网络用来预测范围广泛的GPCR家族的G蛋白选择性了，并找到了一些相关的pattern。</p>
+<p>以往需要大量电镜、晶体结构解析才能得到的推论现在看似乎也是有理可依。要知道GPCR靶点的药物效果或side effect最重要的就是看下游偶联的G蛋白，如果某一天对应关系的密码被揭开，那么设计特异性激活某条通路的药物不说一马平川，也算是成功了大半。</p>
+<p>对于分类问题，最常用的算法是传统机器学习领域的常用算法，如scikit-learn库中的算法，包括支持向量机(SVM) 、决策树、梯度提升和k-近邻算法等，这些之前在kaggle竞赛中都有使用过，但感觉大部分效果都没有卷积神经网络好，特别对于图像这种高维数据的处理，CNN往往可以自动提取特征进行泛化。但传统的机器学习方法似乎也很好用，比如这篇文章使用的多层感知机（MLP）⬇️</p>
+<pre><code>10 个神经网络分类器处理这些任务。神经网络由两个全连接层（分别为 128 个和 16 个神经元）、一个压平层 (Flattening Layer) 、三个全连接层（分别为 128 个、 32 个和 4 个神经元）以及一个输出层（1 个神经元）组成，内层由校正线性单元 (ReLU) 激活，最后进行批量归一化。输出层通过 sigmoid 函数激活。
+</code></pre>
+<p><code>算法任务</code></p>
+<p>1 、针对 GPCRs 的偶联性，判断某种 GPCR 能否与 G 蛋白偶联，即振幅 &gt;0%；</p>
+<p>2、针对 GPCRs 的选择性，判断某个 GPCR-G 蛋白偶联体能够迅速激活，即激活率 &gt;30% 。</p>
+<p>本文发现，普遍的GPCRs-Gα偶联中，GPCRs使用ICL2、H8和大部分TM残基与Gα蛋白相连。绝大多数结构主要与H5相连，而ICL2的连接更为广泛。</p>
+<p>GPCRs与Gαi/o和Gαq家族的蛋白偶联模式类似，唯一的区别在于GPCRs与前者的连接严重依赖TM6，而与后者的连接则不需要。</p>
+<p>进一步结合GPCRs-G蛋白的选择性顺序，调查特定结构对不同家族Gα蛋白的影响。首先，判断与Gαi/o结合的GPCRs能否与Gα15结合，并对比二者残基网络的差异。与前者相比，GPCRs与后者的连接切断了ICL3和H4的联系，弱化了ICL2-H5的交互，强化了TM4-HN和ICL2-s2s3的连接。这说明ICL2与其他残基的联系可能是GPCRs与Gαi/o或Gα15相连的主要区别。</p>
+<p><code>结论</code></p>
+<p>GPCRs与Gαs的连接中，ICL2和ICL3的份额大幅减少，而更依赖TM3和TM5。上述结果表明，不同家族的Gα蛋白与GPCRs的连接依赖于不同的结构。</p>
+<p><code>研究方法</code></p>
+<p>对于数值结果，如蛋白-配体结合的亲和力等，常用回归算法求解，如多元线性回归、支持向量机和深度学习网络等。</p>
+<p align="left">
+  <img src="gpcr.jpg" alt="GPCR和AI" style="width:50%; float:left; margin-right:10px;">
+  <p style="font-size: 0.8em; color: gray;width:50%; float:left; margin-right:10px; text-align: center;">AI在GPCR药物研发各阶段的作用</p>
+</p>
+<p style="align-items: center; font-size: 0.9em; height: 380px;display: flex; justify-content: center; align-items: center;">最近的成果多使用多层感知器、卷积神经网络 (CNN) 等深度学习算法进行预测。随着深度学习生成算法的发展，蛋白质配体和结构设计愈发高效和准确。生成对抗性网络 (Generative Adversarial Network) 、循环神经网络 (Recurrent Neural Network) 、强化学习等算法可以利用向量空间的自动构造和自适应度量来探索更大的生成空间。</p>
+<div style="clear:both;"></div>
+<p><em>论文链接</em>：
+<a href="https://doi.org/10.1016/j.celrep.2023.113173" style="text-decoration: underline;"><a href="https://doi.org/10.1016/j.celrep.2023.113173">https://doi.org/10.1016/j.celrep.2023.113173</a></a></p>
+<h2 id="ai4s药物研发新范式">AI4S药物研发新范式</h2>
+<img src='cover.jpg'  width="100%">
+<p>资料分享：
+<a href="https://github.com/hyperai/awesome-ai4s"><strong>AI for Science 论文解读合集（持续更新ing)</strong></a></p>
+<h2 id="ai-for-science方向的大模型">AI for Science方向的大模型</h2>
+<table>
+<thead>
+<tr>
+<th><strong>模型名称</strong></th>
+<th><strong>开发者</strong></th>
+<th><strong>主要应用</strong></th>
+<th><strong>特点</strong></th>
+<th><strong>应用场景</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlphaFold</td>
+<td>DeepMind</td>
+<td>蛋白质三维结构预测</td>
+<td>重大突破，基于深度学习和进化信息</td>
+<td>药物设计、蛋白质功能预测、疾病研究</td>
+</tr>
+<tr>
+<td>RoseTTAFold</td>
+<td>华盛顿大学 David Baker 实验室</td>
+<td>蛋白质结构预测</td>
+<td>简洁，硬件需求低</td>
+<td>蛋白质结构预测、蛋白质相互作用预测</td>
+</tr>
+<tr>
+<td>ProtGPT2</td>
+<td>科学家社区</td>
+<td>蛋白质序列生成</td>
+<td>生成符合生物学规则的蛋白质序列</td>
+<td>新蛋白质设计、合成生物学</td>
+</tr>
+<tr>
+<td>BioBERT</td>
+<td>韩国AIRS和首尔大学</td>
+<td>生物医学文本处理</td>
+<td>基于BERT，专注于生物医学领域的NLP任务</td>
+<td>生物医学文献分析、药物发现、医疗诊断</td>
+</tr>
+<tr>
+<td>EvoFold</td>
+<td>科学家团队</td>
+<td>RNA二级结构预测</td>
+<td>基于进化信息和深度学习</td>
+<td>基因调控、RNA治疗药物开发</td>
+</tr>
+<tr>
+<td>DNABERT</td>
+<td>NIH（美国国立卫生研究院）</td>
+<td>DNA序列分析</td>
+<td>基于BERT，专注DNA序列识别</td>
+<td>基因组功能注释、遗传变异分析</td>
+</tr>
+<tr>
+<td>OmegaFold</td>
+<td>Helix研究团队</td>
+<td>蛋白质结构预测</td>
+<td>优化处理长距离相互作用，适用于新颖序列预测</td>
+<td>蛋白质工程、新药研发</td>
+</tr>
+<tr>
+<td>OpenFold</td>
+<td>开源社区</td>
+<td>蛋白质结构预测</td>
+<td>开源、可定制，增强了可解释性</td>
+<td>蛋白质结构研究、模型优化</td>
+</tr>
+<tr>
+<td>MegaMolBART</td>
+<td>NVIDIA 和 AstraZeneca</td>
+<td>化学分子生成与预测</td>
+<td>基于BART架构，专为化学分子数据训练</td>
+<td>药物化学、新分子发现、化学反应预测</td>
+</tr>
+</tbody>
+</table>
+<h2 id="大模型语言的学习">大模型语言的学习</h2>
+<h3 id="1-xgboostxgb">1. XGBoost（XGB）</h3>
+<h4 id="应用场景">应用场景：</h4>
+<ul>
+<li><strong>金融行业</strong>：用于信用评分、欺诈检测、贷款违约风险预测等问题。</li>
+<li><strong>推荐系统</strong>：帮助构建商品推荐系统，提升用户转化率。</li>
+<li><strong>医学领域</strong>：用于基因表达数据分析、疾病预测等。</li>
+</ul>
+<h4 id="学习路线">学习路线：</h4>
+<ol>
+<li><strong>基础机器学习概念</strong>：了解决策树、梯度提升树等算法。</li>
+<li><strong>XGBoost原理</strong>：学习XGBoost的优化技术，如损失函数与正则化。</li>
+<li><strong>实践应用</strong>：使用Python库实现XGBoost模型。</li>
+</ol>
+<h4 id="推荐书籍">推荐书籍：</h4>
+<ul>
+<li><strong>《Python Machine Learning》</strong> by Sebastian Raschka and Vahid Mirjalili</li>
+<li><strong>《Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow》</strong> by Aurélien Géron</li>
+</ul>
+<h4 id="推荐资源">推荐资源：</h4>
+<ul>
+<li><a href="https://xgboost.readthedocs.io/">XGBoost 官方文档</a></li>
+</ul>
+<h3 id="2-图神经网络gnn">2. 图神经网络（GNN）</h3>
+<h4 id="应用场景-1">应用场景：</h4>
+<ul>
+<li><strong>社交网络分析</strong>：用于预测用户关系和社区检测。</li>
+<li><strong>化学分子分析</strong>：用于分子结构预测、药物发现。</li>
+<li><strong>推荐系统</strong>：基于用户-物品的交互图进行个性化推荐。</li>
+</ul>
+<h4 id="学习路线-1">学习路线：</h4>
+<ol>
+<li><strong>图论基础</strong>：学习图的基本概念如节点、边、邻接矩阵。</li>
+<li><strong>神经网络基础</strong>：掌握深度学习和神经网络的相关知识。</li>
+<li><strong>图神经网络原理</strong>：学习GCN、GraphSAGE、GAT等图神经网络模型。</li>
+<li><strong>应用实践</strong>：使用GNN处理社交网络或分子图数据。</li>
+</ol>
+<h4 id="推荐书籍-1">推荐书籍：</h4>
+<ul>
+<li><strong>《Deep Learning on Graphs》</strong> by Yao Ma and Jiliang Tang</li>
+<li><strong>《Graph Representation Learning》</strong> by William L. Hamilton</li>
+</ul>
+<h4 id="推荐资源-1">推荐资源：</h4>
+<ul>
+<li><a href="https://pytorch-geometric.readthedocs.io/">PyTorch Geometric 官方教程</a></li>
+<li><a href="http://web.stanford.edu/class/cs224w/">Stanford CS224W: Graph Neural Networks</a></li>
+</ul>
+<h3 id="3-transformer">3. Transformer</h3>
+<h4 id="应用场景-2">应用场景：</h4>
+<ul>
+<li><strong>自然语言处理（NLP）</strong>：用于机器翻译、文本生成、问答系统等。</li>
+<li><strong>计算机视觉</strong>：应用于图像分类、目标检测等任务。</li>
+<li><strong>时间序列预测</strong>：用于股票预测、天气预报等。</li>
+</ul>
+<h4 id="学习路线-2">学习路线：</h4>
+<ol>
+<li><strong>自然语言处理基础</strong>：学习RNN、LSTM等NLP基础知识。</li>
+<li><strong>Attention机制</strong>：理解Transformer中的自注意力机制。</li>
+<li><strong>Transformer结构</strong>：掌握编码器、解码器及多头注意力等原理。</li>
+<li><strong>应用Transformer</strong>：实践使用BERT、GPT等模型进行文本处理。</li>
+</ol>
+<h4 id="推荐书籍-2">推荐书籍：</h4>
+<ul>
+<li><strong>《The Illustrated Transformer》</strong> by Jay Alammar</li>
+<li><strong>《Natural Language Processing with Transformers》</strong> by Lewis Tunstall, Leandro von Werra, and Thomas Wolf</li>
+</ul>
+<h4 id="推荐资源-2">推荐资源：</h4>
+<ul>
+<li><a href="https://huggingface.co/docs/transformers">Hugging Face 官方文档</a></li>
+<li><a href="http://jalammar.github.io/illustrated-transformer/">Jay Alammar&rsquo;s Transformer 可视化教程</a></li>
+</ul>
+
+      
+      <div class="divider"></div>
+      <div class="flex flex-col md:flex-row justify-between gap-4 py-4">
+        
+        <div></div>
+        
+
+        
+        <a class="group btn btn-outline" href="/posts/nature%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1%E5%8F%AF%E6%BA%B6%E6%9C%89%E5%8A%9F%E8%83%BD%E8%86%9C%E8%9B%8B%E7%99%BD%E7%B1%BB%E4%BC%BC%E7%89%A9/" title="Nature|计算设计可溶有功能膜蛋白类似物">
+          <div class="inline-flex flex-col items-end">
+            <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">下一页</span>
+            <span class="max-w-48 truncate">Nature|计算设计可溶有功能膜蛋白类似物</span>
+          </div>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </a>
+        
+      </div>
+      
+    </article>
+  </div>
+
+  
+
+  
+
+  <section class="max-w-[65ch] mx-auto space-y-4">
+    
+
+    
+
+    
+  </section>
+</div>
+
+
+            <footer class="flex justify-between items-center gap-2 px-4 py-12">
+              <div>
+  
+  <p>
+    © 2024 Pepper的博客
+  </p>
+  
+
+  
+  <p class="text-sm">
+    🌱
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with theme
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+              <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center h-[32px] px-2 gap-2 border border-base-300 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+            </footer>
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            <div class="dream-grid">
+  
+  
+  
+    
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title"></div>
+
+        <div class="prose dark:prose-invert">
+          <div style="display:table; width:100%;">
+    <div style="display:table-row">
+        <div style="display:table-cell" class="author__avatar">
+        <img src="/picme.jpg" class="author__avatar" /></div></div></div>
+<p><strong>Zheng Shuang</strong><br>
+Tsinghua University</p>
+<p>Incoming PhD student at School of Pharamaceutical Sciences</p>
+<ul class="social-icons">    
+<li><i class="fa fa-fw fa-map-marker"></i>  Haidian, Beijing </li>
+<li><i class="fa fa-fw fa-envelope" aria-hidden="true"></i><a href="mailto:zhengs4ent@gamil.com">  Email</a></li>   
+<li><i class="fa fa-fw fa-github" aria-hidden="true"></i><a href="https://github.com/uioQPS">  Github</a></li> 
+<li><i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i><a href="https://orcid.org/0009-0008-0660-4864">  Orcid</a></li>   
+</ul>
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+    
+  
+      <div class="w-full md:w-1/2 lg:w-1/3 p-4 dream-column">
+        <article class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30">
+          <div class="card-body">
+            <div class="card-title">📖 Educations</div>
+            <div class="prose dark:prose-invert">
+              <div class="paper-box-text">
+<p>2019.09 - now, PhD of Science in Structural Biology, School of Pharmacy of Tsinghua University, Beijing, China </p>    
+<p>Supervised by <a href="https://www.sps.tsinghua.edu.cn/info/1018/1638.htm">Dr. Xiangyu Liu</a></p>          
+<p>2015.09 - 2019.07, Bachelor of Biology, Wuhan University, Wuhan, China</p>
+</div>
+
+            </div>
+          </div>
+        </article>
+      </div>
+  
+  
+    
+  
+      <div class="w-full md:w-1/2 lg:w-1/3 p-4 dream-column">
+        <article class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30">
+          <div class="card-body">
+            <div class="card-title">📝 Publications</div>
+            <div class="prose dark:prose-invert">
+              <div class="paper-box">
+<div class="paper-box-image">
+<div>
+<div class="badge">2024</div>
+<img src="/TOC.jpg" width="100%">
+</img>
+</div>
+</div>
+<div class="paper-box-text">
+<p>
+<a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cplu.202400288" previewlistener="true">Molecular Mechanism of the β3AR Agonist Activity of a β-Blocker</a></p>
+<p><strong>Shuang Zheng</strong>, Shuhao Zhang  </p>
+<p><a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cplu.202400288"><strong>Project</strong></a> | <strong>SCI Journal Paper</strong></p>
+<li>   Chempluschem 2024 Pages e202400288 Accession Number: 39046191 DOI: 10.1002/cplu.202400288</li>
+</div>
+</div>
+
+            </div>
+          </div>
+        </article>
+      </div>
+  
+  
+    
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">关于博客</div>
+
+        <div class="prose dark:prose-invert">
+          <p>The content covered includes but is not limited to:</p>
+<p>
+🧬Structure Biology(GPCR) 
+<p>🧪Protein generation design(AF3)</p>
+<p>💻AI4S(Biological information Data)</p>
+<p>🔬Deep Learning(Drug Screening)</p>
+</p>
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+    
+  
+      <div class="w-full md:w-1/2 lg:w-1/3 p-4 dream-column">
+        <article class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30">
+          <div class="card-body">
+            <div class="card-title">💻 Internships</div>
+            <div class="prose dark:prose-invert">
+              <div class="paper-box">
+<div class="paper-box-image">
+<div>
+<div class="badge">Securities</div>
+<img src="/images/debang.jpg" width="100%">
+</img>
+</div>
+</div>
+<div class="paper-box-text">
+<p>
+<a href="https://www.tebon.com.cn/main/businessGuide/investBank/index.html" previewlistener="true">德邦证券医药组</a></p>
+<p><strong>Department · Biopharmaceuticals · Intern Analyst | Industry Research Report · Securities Daily</strong></p>
+<li>   Advised by Mrs. Yan Wang</li>
+<li>   Mar. 2023 - July. 2023</li>
+</div>
+</div>
+<div class="paper-box">
+<div class="paper-box-image">
+<div>
+<div class="badge">Health CRO</div>
+<img src="/images/IQVIA.jpg" width="100%">
+</img>
+</div>
+</div>
+<div class="paper-box-text">
+<p>
+<a href="https://www.iqvia.com/solutions/commercialization/pricing-and-market-access" previewlistener="true">IQVIA Consumer Health</a></p>
+<p><strong>Department · Drug Access · Management Consulting Online Intern| Write Meeting Minutes · private reserch</strong></p>
+<li>   Advised by Mrs. Zhe Yang</li>
+<li>   July. 2023 - Dec. 2023</li>
+</div>
+</div>
+            </div>
+          </div>
+        </article>
+      </div>
+  
+  
+  
+
+  
+
+  
+  
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+
+  window.hasTwitterEmbed =  null 
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/main.js"></script>
+
+    
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
+  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
+  crossorigin="anonymous"
+></script>
+<script>
+  format()
+
+  function format() {
+    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
+      const date = el.textContent
+
+      el.textContent = luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日")
+    })
+  }
+</script>
+
+
+
+
+
+
+
+    
+    <script src="/js/custom.js"></script>
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
