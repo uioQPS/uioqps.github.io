@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI4S大模型一则范例 | Pepper的博客</title>
+    <title>被AI包揽的2024年Nobel Prize | Pepper的博客</title>
 
     
 <link href="/ico.ico" rel="shortcut icon" type="image/x-icon" />
@@ -15,32 +15,33 @@
 
 
 <meta name="author" content="Pepper" />
-<meta name="description" content="神经网络揭秘GPCR-G蛋白偶联选择性 看到头图的研究还是非常震惊的，二元分类神经网络用来预测范围广泛的GPCR家族的G蛋白选择性了，并找到了一些相关的pattern。
+<meta name="description" content="到目前为止，诺贝尔基础科学的两大奖项都颁给了AI创新者：
+生理学或医学奖：维克多·安布罗斯（Victor Ambros）和加里·鲁夫昆（Gary Ruvkun）发现微小RNA（microRNA），揭示了基因调控的新机制，对疾病治疗具有潜在重要意义。
 " />
 
 
-<link rel="canonical" href="https://uioqps.github.io/posts/ai4s%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" />
+<link rel="canonical" href="https://uioqps.github.io/posts/%E8%A2%ABai%E5%8C%85%E6%8F%BD%E7%9A%842024%E5%B9%B4nobel-prize/" />
 
 
-<meta property="og:url" content="https://uioqps.github.io/posts/ai4s%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+<meta property="og:url" content="https://uioqps.github.io/posts/%E8%A2%ABai%E5%8C%85%E6%8F%BD%E7%9A%842024%E5%B9%B4nobel-prize/">
   <meta property="og:site_name" content="Pepper的博客">
-  <meta property="og:title" content="AI4S大模型一则范例">
-  <meta property="og:description" content="神经网络揭秘GPCR-G蛋白偶联选择性 看到头图的研究还是非常震惊的，二元分类神经网络用来预测范围广泛的GPCR家族的G蛋白选择性了，并找到了一些相关的pattern。">
+  <meta property="og:title" content="被AI包揽的2024年Nobel Prize">
+  <meta property="og:description" content="到目前为止，诺贝尔基础科学的两大奖项都颁给了AI创新者：
+生理学或医学奖：维克多·安布罗斯（Victor Ambros）和加里·鲁夫昆（Gary Ruvkun）发现微小RNA（microRNA），揭示了基因调控的新机制，对疾病治疗具有潜在重要意义。">
   <meta property="og:locale" content="zh_Hans">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-10-08T23:43:55+08:00">
-    <meta property="article:modified_time" content="2024-10-08T23:43:55+08:00">
+    <meta property="article:published_time" content="2024-10-10T13:39:01+08:00">
+    <meta property="article:modified_time" content="2024-10-10T13:39:01+08:00">
     <meta property="article:tag" content="AI4S">
-    <meta property="og:image" content="https://uioqps.github.io/posts/ai4s%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/cover.jpg">
 
 
 
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://uioqps.github.io/posts/ai4s%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/cover.jpg">
-  <meta name="twitter:title" content="AI4S大模型一则范例">
-  <meta name="twitter:description" content="神经网络揭秘GPCR-G蛋白偶联选择性 看到头图的研究还是非常震惊的，二元分类神经网络用来预测范围广泛的GPCR家族的G蛋白选择性了，并找到了一些相关的pattern。">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="被AI包揽的2024年Nobel Prize">
+  <meta name="twitter:description" content="到目前为止，诺贝尔基础科学的两大奖项都颁给了AI创新者：
+生理学或医学奖：维克多·安布罗斯（Victor Ambros）和加里·鲁夫昆（Gary Ruvkun）发现微小RNA（microRNA），揭示了基因调控的新机制，对疾病治疗具有潜在重要意义。">
 
 
 
@@ -224,34 +225,32 @@
     <div class="absolute right-0 lg:w-36 xl:w-48 hidden lg:block" :style="{ height }">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#神经网络揭秘gpcr-g蛋白偶联选择性">神经网络揭秘GPCR-G蛋白偶联选择性</a></li>
-    <li><a href="#ai4s药物研发新范式">AI4S药物研发新范式</a></li>
-    <li><a href="#ai-for-science方向的大模型">AI for Science方向的大模型</a></li>
-    <li><a href="#大模型语言的学习">大模型语言的学习</a>
+    <li><a href="#有趣的诺奖传承性">有趣的诺奖传承性</a>
       <ul>
-        <li><a href="#1-xgboostxgb">1. XGBoost（XGB）</a></li>
-        <li><a href="#2-图神经网络gnn">2. 图神经网络（GNN）</a></li>
-        <li><a href="#3-transformer">3. Transformer</a></li>
+        <li><a href="#a-蛋白质一级序列决定三维结构">a. 蛋白质一级序列决定三维结构</a></li>
+        <li><a href="#b-物理学诺奖转码">b. &ldquo;物理学诺奖转码&rdquo;</a></li>
+        <li><a href="#c-rna家族商业价值">c. RNA家族商业价值</a></li>
       </ul>
     </li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
     </div>
     
     <article class="mx-auto prose dark:prose-invert" id="dream-single-post-main">
       <header>
-        <h1>AI4S大模型一则范例</h1>
+        <h1>被AI包揽的2024年Nobel Prize</h1>
         <p class="text-sm">
           
-            <span data-format="luxon">2024-10-08T23:43:55&#43;08:00</span>
+            <span data-format="luxon">2024-10-10T13:39:01&#43;08:00</span>
           
 
-          | <span>5 分钟阅读</span>
+          | <span>8 分钟阅读</span>
 
           
           | <span>更新于
             
-              <span data-format="luxon">2024-10-08T23:43:55&#43;08:00</span>
+              <span data-format="luxon">2024-10-10T13:39:01&#43;08:00</span>
             </span>
           
         </p>
@@ -276,10 +275,10 @@
 
 
           <span class="flex items-center gap-2">
-  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=AI4S%e5%a4%a7%e6%a8%a1%e5%9e%8b%e4%b8%80%e5%88%99%e8%8c%83%e4%be%8b&url=https%3a%2f%2fuioqps.github.io%2fposts%2fai4s%25E5%25A4%259A%25E6%25A8%25A1%25E6%2580%2581%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%2f" title="Share on X">
+  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=%e8%a2%abAI%e5%8c%85%e6%8f%bd%e7%9a%842024%e5%b9%b4Nobel%20Prize&url=https%3a%2f%2fuioqps.github.io%2fposts%2f%25E8%25A2%25ABai%25E5%258C%2585%25E6%258F%25BD%25E7%259A%25842024%25E5%25B9%25B4nobel-prize%2f" title="Share on X">
     <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
   </a>
-  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fuioqps.github.io%2fposts%2fai4s%25E5%25A4%259A%25E6%25A8%25A1%25E6%2580%2581%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%2f" title="Share on Facebook">
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fuioqps.github.io%2fposts%2f%25E8%25A2%25ABai%25E5%258C%2585%25E6%258F%25BD%25E7%259A%25842024%25E5%25B9%25B4nobel-prize%2f" title="Share on Facebook">
     <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
   </a>
 </span>
@@ -288,204 +287,73 @@
       </header>
 
       
-      <img src="AI.jpg" alt="AI4S大模型一则范例" />
+      <img src="nobel.jpg" alt="被AI包揽的2024年Nobel Prize" />
       
 
-      <h2 id="神经网络揭秘gpcr-g蛋白偶联选择性">神经网络揭秘GPCR-G蛋白偶联选择性</h2>
-<p>看到头图的研究还是非常震惊的，二元分类神经网络用来预测范围广泛的GPCR家族的G蛋白选择性了，并找到了一些相关的pattern。</p>
-<p>以往需要大量电镜、晶体结构解析才能得到的推论现在看似乎也是有理可依。要知道GPCR靶点的药物效果或side effect最重要的就是看下游偶联的G蛋白，如果某一天对应关系的密码被揭开，那么设计特异性激活某条通路的药物不说一马平川，也算是成功了大半。</p>
-<p>对于分类问题，最常用的算法是传统机器学习领域的常用算法，如scikit-learn库中的算法，包括支持向量机(SVM) 、决策树、梯度提升和k-近邻算法等，这些之前在kaggle竞赛中都有使用过，但感觉大部分效果都没有卷积神经网络好，特别对于图像这种高维数据的处理，CNN往往可以自动提取特征进行泛化。但传统的机器学习方法似乎也很好用，比如这篇文章使用的多层感知机（MLP）⬇️</p>
-<pre><code>10 个神经网络分类器处理这些任务。神经网络由两个全连接层（分别为 128 个和 16 个神经元）、一个压平层 (Flattening Layer) 、三个全连接层（分别为 128 个、 32 个和 4 个神经元）以及一个输出层（1 个神经元）组成，内层由校正线性单元 (ReLU) 激活，最后进行批量归一化。输出层通过 sigmoid 函数激活。
-</code></pre>
-<p><code>算法任务</code></p>
-<p>1 、针对 GPCRs 的偶联性，判断某种 GPCR 能否与 G 蛋白偶联，即振幅 &gt;0%；</p>
-<p>2、针对 GPCRs 的选择性，判断某个 GPCR-G 蛋白偶联体能够迅速激活，即激活率 &gt;30% 。</p>
-<p>本文发现，普遍的GPCRs-Gα偶联中，GPCRs使用ICL2、H8和大部分TM残基与Gα蛋白相连。绝大多数结构主要与H5相连，而ICL2的连接更为广泛。</p>
-<p>GPCRs与Gαi/o和Gαq家族的蛋白偶联模式类似，唯一的区别在于GPCRs与前者的连接严重依赖TM6，而与后者的连接则不需要。</p>
-<p>进一步结合GPCRs-G蛋白的选择性顺序，调查特定结构对不同家族Gα蛋白的影响。首先，判断与Gαi/o结合的GPCRs能否与Gα15结合，并对比二者残基网络的差异。与前者相比，GPCRs与后者的连接切断了ICL3和H4的联系，弱化了ICL2-H5的交互，强化了TM4-HN和ICL2-s2s3的连接。这说明ICL2与其他残基的联系可能是GPCRs与Gαi/o或Gα15相连的主要区别。</p>
-<p><code>结论</code></p>
-<p>GPCRs与Gαs的连接中，ICL2和ICL3的份额大幅减少，而更依赖TM3和TM5。上述结果表明，不同家族的Gα蛋白与GPCRs的连接依赖于不同的结构。</p>
-<p><code>研究方法</code></p>
-<p>对于数值结果，如蛋白-配体结合的亲和力等，常用回归算法求解，如多元线性回归、支持向量机和深度学习网络等。</p>
-<p align="left">
-  <img src="gpcr.jpg" alt="GPCR和AI" style="width:50%; float:left; margin-right:10px;">
-  <p style="font-size: 0.8em; color: gray;width:50%; float:left; margin-right:10px; text-align: center;">AI在GPCR药物研发各阶段的作用</p>
-</p>
-<p style="align-items: center; font-size: 0.9em; height: 380px;display: flex; justify-content: center; align-items: center;">最近的成果多使用多层感知器、卷积神经网络 (CNN) 等深度学习算法进行预测。随着深度学习生成算法的发展，蛋白质配体和结构设计愈发高效和准确。生成对抗性网络 (Generative Adversarial Network) 、循环神经网络 (Recurrent Neural Network) 、强化学习等算法可以利用向量空间的自动构造和自适应度量来探索更大的生成空间。</p>
-<div style="clear:both;"></div>
-<p><em>论文链接</em>：
-<a href="https://doi.org/10.1016/j.celrep.2023.113173" style="text-decoration: underline;"><a href="https://doi.org/10.1016/j.celrep.2023.113173">https://doi.org/10.1016/j.celrep.2023.113173</a></a></p>
-<h2 id="ai4s药物研发新范式">AI4S药物研发新范式</h2>
-<img src='cover.jpg'  width="100%">
-<p>资料分享：
-<a href="https://github.com/hyperai/awesome-ai4s"><strong>AI for Science 论文解读合集（持续更新ing)</strong></a></p>
-<h2 id="ai-for-science方向的大模型">AI for Science方向的大模型</h2>
-<table>
-<thead>
-<tr>
-<th><strong>模型名称</strong></th>
-<th><strong>开发者</strong></th>
-<th><strong>主要应用</strong></th>
-<th><strong>特点</strong></th>
-<th><strong>应用场景</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AlphaFold</td>
-<td>DeepMind</td>
-<td>蛋白质三维结构预测</td>
-<td>重大突破，基于深度学习和进化信息</td>
-<td>药物设计、蛋白质功能预测、疾病研究</td>
-</tr>
-<tr>
-<td>RoseTTAFold</td>
-<td>华盛顿大学 David Baker 实验室</td>
-<td>蛋白质结构预测</td>
-<td>简洁，硬件需求低</td>
-<td>蛋白质结构预测、蛋白质相互作用预测</td>
-</tr>
-<tr>
-<td>ProtGPT2</td>
-<td>科学家社区</td>
-<td>蛋白质序列生成</td>
-<td>生成符合生物学规则的蛋白质序列</td>
-<td>新蛋白质设计、合成生物学</td>
-</tr>
-<tr>
-<td>BioBERT</td>
-<td>韩国AIRS和首尔大学</td>
-<td>生物医学文本处理</td>
-<td>基于BERT，专注于生物医学领域的NLP任务</td>
-<td>生物医学文献分析、药物发现、医疗诊断</td>
-</tr>
-<tr>
-<td>EvoFold</td>
-<td>科学家团队</td>
-<td>RNA二级结构预测</td>
-<td>基于进化信息和深度学习</td>
-<td>基因调控、RNA治疗药物开发</td>
-</tr>
-<tr>
-<td>DNABERT</td>
-<td>NIH（美国国立卫生研究院）</td>
-<td>DNA序列分析</td>
-<td>基于BERT，专注DNA序列识别</td>
-<td>基因组功能注释、遗传变异分析</td>
-</tr>
-<tr>
-<td>OmegaFold</td>
-<td>Helix研究团队</td>
-<td>蛋白质结构预测</td>
-<td>优化处理长距离相互作用，适用于新颖序列预测</td>
-<td>蛋白质工程、新药研发</td>
-</tr>
-<tr>
-<td>OpenFold</td>
-<td>开源社区</td>
-<td>蛋白质结构预测</td>
-<td>开源、可定制，增强了可解释性</td>
-<td>蛋白质结构研究、模型优化</td>
-</tr>
-<tr>
-<td>MegaMolBART</td>
-<td>NVIDIA 和 AstraZeneca</td>
-<td>化学分子生成与预测</td>
-<td>基于BART架构，专为化学分子数据训练</td>
-<td>药物化学、新分子发现、化学反应预测</td>
-</tr>
-</tbody>
-</table>
-<h2 id="大模型语言的学习">大模型语言的学习</h2>
-<h3 id="1-xgboostxgb">1. XGBoost（XGB）</h3>
-<h4 id="应用场景">应用场景：</h4>
+      <p>到目前为止，诺贝尔基础科学的两大奖项都颁给了AI创新者：</p>
+<p><code>生理学或医学奖</code>：维克多·安布罗斯（Victor Ambros）和加里·鲁夫昆（Gary Ruvkun）发现微小RNA（microRNA），揭示了基因调控的新机制，对疾病治疗具有潜在重要意义。</p>
+<p><code>物理学奖</code>：约翰·霍普菲尔德（John Hopfield）和杰弗里·辛顿（Geoffrey Hinton）因在人工智能和机器学习领域的开创性工作获奖。</p>
+<p><code>化学奖</code>：大卫·贝克（David Baker）、德米斯·哈萨比斯（Demis Hassabis）和约翰·朱默（John Jumper）因蛋白质结构预测和设计的进展而获奖。</p>
+<p>朋友圈里大家都在惊讶，怎么物理给了机器学习而非凝聚态这种基础物理理论，David Baker这样的生物学大牛怎么拿的是化学奖，他的受众明明在中国是生物和基础医学领域的学者，而生理学奖项怎么就颁给了久远的已经脱离学术热点的miRNA。</p>
+<p>其实我觉得也算是意料之中并没有很惊讶，因为往年的生理学Nobel也都是颁给疾病领域有突出贡献的生物学理论，David Baker大家都知道早晚夺冠，但AlphaFold也确实还没应用到疾病的层面，截至目前，还没有完全由AI设计的药物正式上市，只能说它是一个强大的化学结构预测的工具有潜力应用于医疗，而不是成熟的医学应用。这也是为什么诺奖平均要等上20年左右，这样工作的价值才能被证明，时间会告诉世人由它衍生了多少有价值的研究。</p>
+<p>而2020年底DeepMind公司才开源的alphaFold2才经过4年，就已经夺得化学诺奖桂冠，已属难得。可见结构生物学行业的地震早已发生，迭代的技术和应用已经在4年里说明了其价值。</p>
+<h2 id="有趣的诺奖传承性">有趣的诺奖传承性</h2>
+<h3 id="a-蛋白质一级序列决定三维结构">a. 蛋白质一级序列决定三维结构</h3>
+<p>20世纪50年代，生物化学家Christian Anfinsen提出安芬森法则（Anfinsen’s dogma），告诉我们氨基酸包含一个内部编码，告诉它如何折叠成蛋白质。他由此夺得了1972年的化学奖，距离Watson和Crick凭借DNA双螺旋结构的发现获得1962年生理学奖正好10年，Crick可是在得诺奖前4年提出了奠基后100年生物学研究的大名鼎鼎的中心法则。</p>
+<p>随着时间的推移，蛋白质折叠又衍生出新的问题。能否根据氨基酸序列预测蛋白质的结构？折叠的“密码”是什么？长达50年间，得益于计算机技术的迅猛发展，AI技术在10年内的突飞猛进，如今，2024年的化学奖隔空对话72年的化学奖，是的，蛋白质一级序列确实很大程度上决定三维结构，而且还可以实现预测，alphaFold3 PairFormer模型的增强算法甚至可以做到99%以上的准确率。</p>
+<p>即使这个命题可能不那么完美，临床已经发现病人体内的基因存在沉默突变，即使蛋白质的氨基酸序列是正确的，也会患上如囊性纤维变性的疾病。沉默突变有可能影响翻译速率导致蛋白质形成错误的空间形状，使其不能发挥正常的功能。有趣的是，如果沉默突变发生在mRNA的3&rsquo;UTR区域，可能会改变miRNA的结合效率，这就引发了miRNA治疗的话题，miRNA也许也是一种新的治疗靶点和治疗mimics，即今年生理学诺奖，这何不也是一种对72年诺奖&quot;缺陷&quot;的补充？但这些并不算最重要，重要的是对于计算生物学家来说相信一级序列确实决定三维结构，已经让他们走了很长一段路，并做出了99%可靠的突破，而这99%甚至足够指导临床药物发现了，核心问题已经解决，剩下的1%已然不需要再去纠结，不然还要临床实验干嘛？传统实验还要考虑实验误差呢。</p>
+<h3 id="b-物理学诺奖转码">b. &ldquo;物理学诺奖转码&rdquo;</h3>
+<p>今年物理学诺奖给出的解释</p>
+<pre tabindex="0"><code>利用统计物理学的基本概念设计出了人工神经网络，这种网络的功能类似于联想记忆，能在大型数据集中发现规律。
+</code></pre><p>可以简单理解为，物理学推动了机器学习技术的发展。似乎与传统转角石墨烯，量子计算相比，目前更为重要。</p>
 <ul>
-<li><strong>金融行业</strong>：用于信用评分、欺诈检测、贷款违约风险预测等问题。</li>
-<li><strong>推荐系统</strong>：帮助构建商品推荐系统，提升用户转化率。</li>
-<li><strong>医学领域</strong>：用于基因表达数据分析、疾病预测等。</li>
+<li><strong>关联记忆与能量最小化</strong>：Hopfield网络展示了如何使用物理学中的能量最小化方法来解决优化问题，这在机器学习中非常广泛，如反向传播算法的优化。物理学工具帮助提高了机器学习算法的性能，使模型能够更快收敛到最佳解。</li>
+<li><strong>神经网络与统计力学的结合</strong>：Hinton的Boltzmann机不仅基于物理学中的能量函数，还使用了热力学平衡的思想。这使得神经网络可以处理更复杂的学习任务，如无监督学习和生成模型，从而推动了深度学习技术的发展。</li>
 </ul>
-<h4 id="学习路线">学习路线：</h4>
-<ol>
-<li><strong>基础机器学习概念</strong>：了解决策树、梯度提升树等算法。</li>
-<li><strong>XGBoost原理</strong>：学习XGBoost的优化技术，如损失函数与正则化。</li>
-<li><strong>实践应用</strong>：使用Python库实现XGBoost模型。</li>
-</ol>
-<h4 id="推荐书籍">推荐书籍：</h4>
+<p>怎么看怎么觉得是对化学奖的补充，没有反向传播算法就没有Alphfold反向运算衍生的RFdiffusion。</p>
+<h3 id="c-rna家族商业价值">c. RNA家族商业价值</h3>
+<p>2006年诺贝尔生理学或医学奖颁给了安德鲁·法尔（Andrew Fire）和克雷格·梅洛（Craig Mello），他们发现了RNA干扰（RNA interference, RNAi）机制，这是由小干扰RNA（siRNA）引导的基因沉默过程。RNAi是一个自然的调控机制，通过特定的双链RNA分子降解靶mRNA，从而抑制特定基因的表达。距离1993年诺奖，RNA剪接（RNA splicing）的复杂过程及其调控方式过了13年，人们还在RNA的发现中。</p>
+<p>没想到过了30年，诺奖还能颁给ncRNA家族的miRNA，这距离第一个miRNA的发现也过了30年。不过这30年，随着研究的深入，更多科学家发现miRNA不仅限于调控发育，还在胚胎与个体发育、细胞命运及肿瘤发生发展过程中发挥重要的调控作用。比如肺癌中低表达的miR-34具有肿瘤抑制的特点，利用“miRNA替代治疗”方案（MicroRNA Replacement Therapy），即通过化学合成miR-34a mimics在脂质体转染试剂的作用下递送到小鼠体内，可以发挥抑制非小细胞肺癌的作用。</p>
+<p>相较于siRNA多用于基础研究，比如被广泛用于基因敲低（knockdown）实验，以研究特定基因的功能，甚至用于高通量筛选以鉴定潜在的药物靶点而言，miRNA的医学应用前景确实更大，按诺奖的逻辑是当之无愧的医学奖，所以这个诺奖更像是对06年的补充。</p>
+<h4 id="mirna诊断">miRNA诊断</h4>
+<p>已有研究揭示了miRNA在多种疾病中的潜在作用，包括癌症、心血管疾病和神经退行性疾病等。但此类基础研究成果距离商业化临床应用仍有一定距离，整体看来，miRNA诊断前景大于疾病治疗。包括血液、唾液和尿液在内的多种体液中均可发现miRNA，并且在体液中miRNA是可定量的且非常稳定。出于这些原因，miRNA作为非侵入性生物标志物正成为包括癌症在内几乎所有人类疾病的理想候选生物标志物。这个和cfDNA的甲基化、片段化末端特征诊断用于癌症早筛的研究相似，一搜果然有研究在结合做。
+<img src='miRNA.jpg' style="margin: 0 auto;" alt="sym" width="70%"></p>
+ <p style="font-size: 0.8em; color: gray;width:70%; margin-left:150px; text-align: center;">血液早筛 The Circulating Biomarkers League: Combining miRNAs with Cell-Free DNAs and Proteins, Int. J. Mol. Sci. 2024, 25(6), 3403</p>
 <ul>
-<li><strong>《Python Machine Learning》</strong> by Sebastian Raschka and Vahid Mirjalili</li>
-<li><strong>《Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow》</strong> by Aurélien Géron</li>
+<li>
+<p><strong>高稳定性</strong>：miRNA在生物体液中具有很高的稳定性，能够在极端条件下（如pH变化、温度变化以及反复冻融循环）保持其完整性，使得miRNA在诊断领域中更为可靠​。</p>
+</li>
+<li>
+<p><strong>非侵入性检测</strong>：与传统的组织活检相比，miRNA可以通过血液、尿液等体液中的检测实现，属于一种非侵入性或微创的检测方法，从而提高了患者的舒适度和依从性​。</p>
+</li>
+<li>
+<p><strong>早期检测</strong>：miRNA可以在疾病出现临床症状之前检测到，从而实现疾病的早期干预。例如，在癌症检测中，miRNA的表达水平变化能够提示肿瘤的早期形成。</p>
+</li>
 </ul>
-<h4 id="推荐资源">推荐资源：</h4>
-<ul>
-<li><a href="https://xgboost.readthedocs.io/">XGBoost 官方文档</a></li>
-</ul>
-<h3 id="2-图神经网络gnn">2. 图神经网络（GNN）</h3>
-<h4 id="应用场景-1">应用场景：</h4>
-<ul>
-<li><strong>社交网络分析</strong>：用于预测用户关系和社区检测。</li>
-<li><strong>化学分子分析</strong>：用于分子结构预测、药物发现。</li>
-<li><strong>推荐系统</strong>：基于用户-物品的交互图进行个性化推荐。</li>
-</ul>
-<h4 id="学习路线-1">学习路线：</h4>
-<ol>
-<li><strong>图论基础</strong>：学习图的基本概念如节点、边、邻接矩阵。</li>
-<li><strong>神经网络基础</strong>：掌握深度学习和神经网络的相关知识。</li>
-<li><strong>图神经网络原理</strong>：学习GCN、GraphSAGE、GAT等图神经网络模型。</li>
-<li><strong>应用实践</strong>：使用GNN处理社交网络或分子图数据。</li>
-</ol>
-<h4 id="推荐书籍-1">推荐书籍：</h4>
-<ul>
-<li><strong>《Deep Learning on Graphs》</strong> by Yao Ma and Jiliang Tang</li>
-<li><strong>《Graph Representation Learning》</strong> by William L. Hamilton</li>
-</ul>
-<h4 id="推荐资源-1">推荐资源：</h4>
-<ul>
-<li><a href="https://pytorch-geometric.readthedocs.io/">PyTorch Geometric 官方教程</a></li>
-<li><a href="http://web.stanford.edu/class/cs224w/">Stanford CS224W: Graph Neural Networks</a></li>
-</ul>
-<h3 id="3-transformer">3. Transformer</h3>
-<h4 id="应用场景-2">应用场景：</h4>
-<ul>
-<li><strong>自然语言处理（NLP）</strong>：用于机器翻译、文本生成、问答系统等。</li>
-<li><strong>计算机视觉</strong>：应用于图像分类、目标检测等任务。</li>
-<li><strong>时间序列预测</strong>：用于股票预测、天气预报等。</li>
-</ul>
-<h4 id="学习路线-2">学习路线：</h4>
-<ol>
-<li><strong>自然语言处理基础</strong>：学习RNN、LSTM等NLP基础知识。</li>
-<li><strong>Attention机制</strong>：理解Transformer中的自注意力机制。</li>
-<li><strong>Transformer结构</strong>：掌握编码器、解码器及多头注意力等原理。</li>
-<li><strong>应用Transformer</strong>：实践使用BERT、GPT等模型进行文本处理。</li>
-</ol>
-<h4 id="推荐书籍-2">推荐书籍：</h4>
-<ul>
-<li><strong>《The Illustrated Transformer》</strong> by Jay Alammar</li>
-<li><strong>《Natural Language Processing with Transformers》</strong> by Lewis Tunstall, Leandro von Werra, and Thomas Wolf</li>
-</ul>
-<h4 id="推荐资源-2">推荐资源：</h4>
-<ul>
-<li><a href="https://huggingface.co/docs/transformers">Hugging Face 官方文档</a></li>
-<li><a href="http://jalammar.github.io/illustrated-transformer/">Jay Alammar&rsquo;s Transformer 可视化教程</a></li>
-</ul>
+<p>基于miRNA的癌症筛查正成为一个不断发展的市场：</p>
+<p>1、胃癌诊断领域，专注于miRNA技术的觅瑞集团在2024年5月递交港股IPO申请，其全球首款且唯一获批的血液胃癌分子诊断试剂产品已在新加坡、欧盟、美国等地获相关认证。   <br>
+2、骏实生物已有获批产品，7种微小核糖核酸（microRNA）检测试剂盒（PCR荧光探针法），主要用于对肝细胞肝癌患者进行动态监测以辅助判断疾病进程或治疗效果。    <br>
+3、晋百慧生物与命码生物的获批的检测试剂盒产品则分别针对肠癌与胰腺癌检测。</p>
+<h4 id="核酸药物治疗">核酸药物治疗</h4>
+<p>目前，mRNA、siRNA、反义寡核苷酸（ASO）等已成药，再聚焦至小核酸药物领域，从原理上看，小核酸药物在理论层面具备调节任意基因表达的能力，预示着其可直接作用于上游，精准调控致病蛋白质的表达水平。它规避了因蛋白质复杂结构而引发的一系列挑战，同时也突破了蛋白质成药性方面的固有局限。</p>
+<p>随着新型的化学修饰、递送系统的推出，核酸药物的开发成功率有望提升。核酸药物不再仅局限于罕见病领域，已成功进军慢病市场，肿瘤市场亦有突破可能。</p>
+<p>1、诺华研发的靶向PCSK9 siRNA降胆固醇疗法于2023年中国上市。  <br>
+2、阿斯利康和Ionis Pharmaceuticals联合开发的ASO疗法Eplontersen获FDA批准上市。</p>
+<h2 id="总结">总结</h2>
+<p>诺贝尔奖的评选标准之一是“对人类有重大影响的发现”，上述分析也已经说明，诺奖有种传承性，基于之前的结果做出重大进展的（alphafold2），能补充一个大版图且比之前结果更有应用前景（miRNA），是其他奖项的奠基石发现且属于基础理论迁移的（机器学习），这么看也理解了诺奖的逻辑。期待有一天诺奖能准确地把自然科学的发展史摘录下来，到时候估计长生不老也是有希望的。</p>
 
       
       <div class="divider"></div>
       <div class="flex flex-col md:flex-row justify-between gap-4 py-4">
         
-        <a class="group btn btn-outline" href="/posts/%E8%A2%ABai%E5%8C%85%E6%8F%BD%E7%9A%842024%E5%B9%B4nobel-prize/" title="被AI包揽的2024年Nobel Prize">
-          <ion-icon name="chevron-back"></ion-icon>
-          <div class="inline-flex flex-col items-start">
-            <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">上一页</span>
-            <span class="max-w-48 truncate">被AI包揽的2024年Nobel Prize</span>
-          </div>
-        </a>
+        <div></div>
         
 
         
-        <a class="group btn btn-outline" href="/posts/nature%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1%E5%8F%AF%E6%BA%B6%E6%9C%89%E5%8A%9F%E8%83%BD%E8%86%9C%E8%9B%8B%E7%99%BD%E7%B1%BB%E4%BC%BC%E7%89%A9/" title="Nature|计算设计可溶有功能膜蛋白类似物">
+        <a class="group btn btn-outline" href="/posts/ai4s%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="AI4S大模型一则范例">
           <div class="inline-flex flex-col items-end">
             <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">下一页</span>
-            <span class="max-w-48 truncate">Nature|计算设计可溶有功能膜蛋白类似物</span>
+            <span class="max-w-48 truncate">AI4S大模型一则范例</span>
           </div>
           <ion-icon name="chevron-forward"></ion-icon>
         </a>
