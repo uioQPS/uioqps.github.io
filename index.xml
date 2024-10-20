@@ -6,8 +6,15 @@
     <description>Recent content on Pepper的博客</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Thu, 10 Oct 2024 13:39:01 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Oct 2024 17:35:16 +0800</lastBuildDate>
     <atom:link href="https://uioqps.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>抗体亲和力成熟的设计</title>
+      <link>https://uioqps.github.io/posts/%E6%8A%97%E4%BD%93%E4%BA%B2%E5%92%8C%E5%8A%9B%E6%88%90%E7%86%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Sun, 20 Oct 2024 17:35:16 +0800</pubDate>
+      <guid>https://uioqps.github.io/posts/%E6%8A%97%E4%BD%93%E4%BA%B2%E5%92%8C%E5%8A%9B%E6%88%90%E7%86%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/</guid>
+      <description>&lt;p&gt;本文提出一个可预训练的深度神经网络，利用多层次几何信息传递来模拟复杂的蛋白质-蛋白质相互作用。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>被AI包揽的2024年Nobel Prize</title>
       <link>https://uioqps.github.io/posts/%E8%A2%ABai%E5%8C%85%E6%8F%BD%E7%9A%842024%E5%B9%B4nobel-prize/</link>
